@@ -84,7 +84,13 @@ at the top-level directory.
 #endif
 
 /* Define my integer type int_t */
+#ifdef _LONGINT
+typedef long long int int_t;
+#define IFMT "%lld"
+#else
 typedef int int_t; /* default */
+#define IFMT "%8d"
+#endif
 
 #include <math.h>
 #include <limits.h>
