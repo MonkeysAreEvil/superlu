@@ -412,8 +412,8 @@ dgsrfs(trans_t trans, SuperMatrix *A, SuperMatrix *L, SuperMatrix *U,
 	kase = 0;
 
 	do {
-	    dlacon2_(&A->nrow, &work[A->nrow], work,
-		    &iwork[A->nrow], &ferr[j], &kase, isave);
+	    dlacon2_((int*)&A->nrow, &work[A->nrow], work,
+		    (int*)&iwork[A->nrow], &ferr[j], (int*)&kase, (int*)isave);
 	    if (kase == 0) break;
 
 	    if (kase == 1) {
