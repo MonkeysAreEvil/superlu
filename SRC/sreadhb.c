@@ -282,14 +282,14 @@ FormFullA(int n, int *nonz, float **nzval, int **rowind, int **colptr)
 }
 
 void
-sreadhb(FILE *fp, int *nrow, int *ncol, int *nonz,
-	float **nzval, int **rowind, int **colptr)
+sreadhb(FILE *fp, int_t *nrow, int_t *ncol, int_t *nonz,
+	float **nzval, int_t **rowind, int_t **colptr)
 {
 
-    register int i, numer_lines = 0, rhscrd = 0;
-    int tmp, colnum, colsize, rownum, rowsize, valnum, valsize;
+    register int_t i, numer_lines = 0, rhscrd = 0;
+    int_t tmp, colnum, colsize, rownum, rowsize, valnum, valsize;
     char buf[100], type[4], key[10];
-    int sym;
+    int_t sym;
 
     /* Line 1 */
     fgets(buf, 100, fp);

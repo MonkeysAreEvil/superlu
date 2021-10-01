@@ -250,7 +250,7 @@ extern int_t     sQuerySpace (SuperMatrix *, SuperMatrix *, mem_usage_t *);
 extern int_t     ilu_sQuerySpace (SuperMatrix *, SuperMatrix *, mem_usage_t *);
 
 /*! \brief Auxiliary routines */
-extern void    sreadhb(FILE *, int *, int *, int *, float **, int **, int **);
+extern void    sreadhb(FILE *, int_t *, int_t *, int_t *, float **, int_t **, int_t **);
 extern void    sreadrb(int *, int *, int *, float **, int **, int **);
 extern void    sreadtriple(int *, int *, int *, float **, int **, int **);
 extern void    sreadMM(FILE *, int *, int *, int *, float **, int **, int **);
