@@ -82,9 +82,9 @@ at the top-level directory.
  *             If *info = -i, the i-th argument had an illegal value.
  * </pre>
  */
-int
+int_t
 sp_strsv(char *uplo, char *trans, char *diag, SuperMatrix *L, 
-         SuperMatrix *U, float *x, SuperLUStat_t *stat, int *info)
+         SuperMatrix *U, float *x, SuperLUStat_t *stat, int_t *info)
 {
 #ifdef _CRAY
     _fcd ftcs1 = _cptofcd("L", strlen("L")),
@@ -94,11 +94,11 @@ sp_strsv(char *uplo, char *trans, char *diag, SuperMatrix *L,
     SCformat *Lstore;
     NCformat *Ustore;
     float   *Lval, *Uval;
-    int incx = 1, incy = 1;
+    int_t incx = 1, incy = 1;
     float alpha = 1.0, beta = 1.0;
-    int nrow;
-    int fsupc, nsupr, nsupc, luptr, istart, irow;
-    int i, k, iptr, jcol;
+    int_t nrow;
+    int_t fsupc, nsupr, nsupc, luptr, istart, irow;
+    int_t i, k, iptr, jcol;
     float *work;
     flops_t solve_ops;
 
