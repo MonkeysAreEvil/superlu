@@ -169,10 +169,10 @@ extern void    zpanel_dfs (const int_t, const int_t, const int_t, SuperMatrix *,
 extern void    zpanel_bmod (const int_t, const int_t, const int_t, const int_t,
                            doublecomplex *, doublecomplex *, int_t *, int_t *,
 			   GlobalLU_t *, SuperLUStat_t*);
-extern int     zcolumn_dfs (const int, const int, int *, int *, int *, int *,
-			   int *, int *, int *, int *, int *, GlobalLU_t *);
-extern int     zcolumn_bmod (const int, const int, doublecomplex *,
-			   doublecomplex *, int *, int *, int,
+extern int_t     zcolumn_dfs (const int_t, const int_t, int_t *, int_t *, int_t *, int_t *,
+			   int_t *, int_t *, int_t *, int_t *, int_t *, GlobalLU_t *);
+extern int_t     zcolumn_bmod (const int_t, const int_t, doublecomplex *,
+			   doublecomplex *, int_t *, int_t *, int_t,
                            GlobalLU_t *, SuperLUStat_t*);
 extern int     zcopy_to_ucol (int, int, int *, int *, int *,
                               doublecomplex *, GlobalLU_t *);         
