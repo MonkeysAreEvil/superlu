@@ -175,8 +175,8 @@ extern int     scolumn_bmod (const int, const int, float *,
                            GlobalLU_t *, SuperLUStat_t*);
 extern int     scopy_to_ucol (int, int, int *, int *, int *,
                               float *, GlobalLU_t *);         
-extern int     spivotL (const int, const double, int *, int *, 
-                         int *, int *, int *, GlobalLU_t *, SuperLUStat_t*);
+extern int_t     spivotL (const int_t, const double, int_t *, int_t *, 
+                         int_t *, int_t *, int_t *, GlobalLU_t *, SuperLUStat_t*);
 extern void    spruneL (const int, const int *, const int, const int,
 			  const int *, const int *, int *, GlobalLU_t *);
 extern void    sreadmt (int *, int *, int *, float **, int **, int **);
