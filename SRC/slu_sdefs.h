@@ -252,7 +252,7 @@ extern int_t     ilu_sQuerySpace (SuperMatrix *, SuperMatrix *, mem_usage_t *);
 /*! \brief Auxiliary routines */
 extern void    sreadhb(FILE *, int_t *, int_t *, int_t *, float **, int_t **, int_t **);
 extern void    sreadrb(int_t *, int_t *, int_t *, float **, int_t **, int_t **);
-extern void    sreadtriple(int *, int *, int *, float **, int **, int **);
+extern void    sreadtriple(int_t *, int_t *, int_t *, float **, int_t **, int_t **);
 extern void    sreadMM(FILE *, int *, int *, int *, float **, int **, int **);
 extern void    sCompRow_to_CompCol(int_t, int_t, int_t, float*, int_t*, int_t*,
 		                   float **, int_t **, int_t **);
