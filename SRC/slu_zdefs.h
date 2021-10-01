@@ -112,23 +112,23 @@ extern "C" {
 
 /*! \brief Driver routines */
 extern void
-zgssv(superlu_options_t *, SuperMatrix *, int *, int *, SuperMatrix *,
-      SuperMatrix *, SuperMatrix *, SuperLUStat_t *, int *);
+zgssv(superlu_options_t *, SuperMatrix *, int_t *, int_t *, SuperMatrix *,
+      SuperMatrix *, SuperMatrix *, SuperLUStat_t *, int_t *);
 extern void
-zgssvx(superlu_options_t *, SuperMatrix *, int *, int *, int *,
+zgssvx(superlu_options_t *, SuperMatrix *, int_t *, int_t *, int_t *,
        char *, double *, double *, SuperMatrix *, SuperMatrix *,
-       void *, int, SuperMatrix *, SuperMatrix *,
+       void *, int_t, SuperMatrix *, SuperMatrix *,
        double *, double *, double *, double *,
-       GlobalLU_t *, mem_usage_t *, SuperLUStat_t *, int *);
+       GlobalLU_t *, mem_usage_t *, SuperLUStat_t *, int_t *);
     /* ILU */
 extern void
 zgsisv(superlu_options_t *, SuperMatrix *, int *, int *, SuperMatrix *,
       SuperMatrix *, SuperMatrix *, SuperLUStat_t *, int *);
 extern void
-zgsisx(superlu_options_t *, SuperMatrix *, int *, int *, int *,
+zgsisx(superlu_options_t *, SuperMatrix *, int_t *, int_t *, int_t *,
        char *, double *, double *, SuperMatrix *, SuperMatrix *,
-       void *, int, SuperMatrix *, SuperMatrix *, double *, double *,
-       GlobalLU_t *, mem_usage_t *, SuperLUStat_t *, int *);
+       void *, int_t, SuperMatrix *, SuperMatrix *, double *, double *,
+       GlobalLU_t *, mem_usage_t *, SuperLUStat_t *, int_t *);
 
 
 /*! \brief Supernodal LU factor related */
@@ -156,9 +156,9 @@ extern void    fixupL (const int_t, const int_t *, GlobalLU_t *);
 
 extern void    zallocateA (int_t, int_t, doublecomplex **, int_t **, int_t **);
 extern void    zgstrf (superlu_options_t*, SuperMatrix*,
-                       int, int, int*, void *, int, int *, int *, 
+                       int_t, int_t, int_t*, void *, int_t, int_t *, int_t *, 
                        SuperMatrix *, SuperMatrix *, GlobalLU_t *,
-		       SuperLUStat_t*, int *);
+		       SuperLUStat_t*, int_t *);
 extern int_t     zsnode_dfs (const int_t, const int_t, const int_t *, const int_t *,
 			     const int_t *, int_t *, int_t *, GlobalLU_t *);
 extern int_t     zsnode_bmod (const int_t, const int_t, const int_t, doublecomplex *,
@@ -184,12 +184,12 @@ extern void    zreadmt (int *, int *, int *, doublecomplex **, int **, int **);
 extern void    zGenXtrue (int, int, doublecomplex *, int);
 extern void    zFillRHS (trans_t, int, doublecomplex *, int, SuperMatrix *,
 			  SuperMatrix *);
-extern void    zgstrs (trans_t, SuperMatrix *, SuperMatrix *, int *, int *,
-                        SuperMatrix *, SuperLUStat_t*, int *);
+extern void    zgstrs (trans_t, SuperMatrix *, SuperMatrix *, int_t *, int_t *,
+                        SuperMatrix *, SuperLUStat_t*, int_t *);
 /* ILU */
-extern void    zgsitrf (superlu_options_t*, SuperMatrix*, int, int, int*,
-		        void *, int, int *, int *, SuperMatrix *, SuperMatrix *,
-                        GlobalLU_t *, SuperLUStat_t*, int *);
+extern void    zgsitrf (superlu_options_t*, SuperMatrix*, int_t, int_t, int_t*,
+		        void *, int_t, int_t *, int_t *, SuperMatrix *, SuperMatrix *,
+                        GlobalLU_t *, SuperLUStat_t*, int_t *);
 extern int     zldperm(int_t, int_t, int_t, int_t [], int_t [], doublecomplex [],
                         int_t [],	double [], double []);
 extern int_t     ilu_zsnode_dfs (const int_t, const int_t, const int_t *, const int_t *,
@@ -214,17 +214,17 @@ extern int_t     ilu_zdrop_row (superlu_options_t *, int_t, int_t, double,
 /*! \brief Driver related */
 
 extern void    zgsequ (SuperMatrix *, double *, double *, double *,
-			double *, double *, int *);
+			double *, double *, int_t *);
 extern void    zlaqgs (SuperMatrix *, double *, double *, double,
                         double, double, char *);
 extern void    zgscon (char *, SuperMatrix *, SuperMatrix *, 
-		         double, double *, SuperLUStat_t*, int *);
+		         double, double *, SuperLUStat_t*, int_t *);
 extern double   zPivotGrowth(int_t, SuperMatrix *, int_t *, 
                             SuperMatrix *, SuperMatrix *);
 extern void    zgsrfs (trans_t, SuperMatrix *, SuperMatrix *,
-                       SuperMatrix *, int *, int *, char *, double *, 
+                       SuperMatrix *, int_t *, int_t *, char *, double *, 
                        double *, SuperMatrix *, SuperMatrix *,
-                       double *, double *, SuperLUStat_t*, int *);
+                       double *, double *, SuperLUStat_t*, int_t *);
 
 extern int     sp_ztrsv (char *, char *, char *, SuperMatrix *,
 			SuperMatrix *, doublecomplex *, SuperLUStat_t*, int *);

@@ -91,8 +91,8 @@ at the top-level directory.
 
 void
 zgstrs (trans_t trans, SuperMatrix *L, SuperMatrix *U,
-        int *perm_c, int *perm_r, SuperMatrix *B,
-        SuperLUStat_t *stat, int *info)
+        int_t *perm_c, int_t *perm_r, SuperMatrix *B,
+        SuperLUStat_t *stat, int_t *info)
 {
 
 #ifdef _CRAY
@@ -109,8 +109,8 @@ zgstrs (trans_t trans, SuperMatrix *L, SuperMatrix *U,
     SCformat *Lstore;
     NCformat *Ustore;
     doublecomplex   *Lval, *Uval;
-    int      fsupc, nrow, nsupr, nsupc, luptr, istart, irow;
-    int      i, j, k, iptr, jcol, n, ldb, nrhs;
+    int_t      fsupc, nrow, nsupr, nsupc, luptr, istart, irow;
+    int_t      i, j, k, iptr, jcol, n, ldb, nrhs;
     doublecomplex   *work, *rhs_work, *soln;
     flops_t  solve_ops;
     void zprint_soln();
@@ -193,12 +193,12 @@ zgstrs (trans_t trans, SuperMatrix *L, SuperMatrix *U,
 			&Lval[luptr+nsupc], &nsupr, &Bmat[fsupc], &ldb, 
 			&beta, &work[0], &n );
 #else
-		ztrsm_("L", "L", "N", "U", (int*)&nsupc, (int*)&nrhs, &alpha,
-		       &Lval[luptr], (int*)&nsupr, &Bmat[fsupc], (int*)&ldb);
+		ztrsm_("L", "L", "N", "U", (int_t*)&nsupc, (int_t*)&nrhs, &alpha,
+		       &Lval[luptr], (int_t*)&nsupr, &Bmat[fsupc], (int_t*)&ldb);
 		
-		zgemm_( "N", "N", (int*)&nrow, (int*)&nrhs, (int*)&nsupc, &alpha, 
-			&Lval[luptr+nsupc], (int*)&nsupr, &Bmat[fsupc], (int*)&ldb, 
-			&beta, &work[0], (int*)&n );
+		zgemm_( "N", "N", (int_t*)&nrow, (int_t*)&nrhs, (int_t*)&nsupc, &alpha, 
+			&Lval[luptr+nsupc], (int_t*)&nsupr, &Bmat[fsupc], (int_t*)&ldb, 
+			&beta, &work[0], (int_t*)&n );
 #endif
 		for (j = 0; j < nrhs; j++) {
 		    rhs_work = &Bmat[j*ldb];
@@ -344,10 +344,10 @@ zgstrs (trans_t trans, SuperMatrix *L, SuperMatrix *U,
  * Diagnostic print of the solution vector 
  */
 void
-zprint_soln(int n, int nrhs, doublecomplex *soln)
+zprint_soln(int_t n, int_t nrhs, doublecomplex *soln)
 {
-    int i;
+    int_t i;
 
     for (i = 0; i < n; i++)
-  	printf("\t%d: %.4f\t%.4f\n", i, soln[i].r, soln[i].i);
+  	printf("\t%lld: %.4f\t%.4f\n", i, soln[i].r, soln[i].i);
 }
