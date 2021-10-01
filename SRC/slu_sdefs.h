@@ -205,9 +205,9 @@ extern int     ilu_scopy_to_ucol (int, int, int *, int *, int *,
 extern int     ilu_spivotL (const int, const double, int *, int *, int, int *,
 			    int *, int *, int *, double, milu_t,
                             float, GlobalLU_t *, SuperLUStat_t*);
-extern int     ilu_sdrop_row (superlu_options_t *, int, int, double,
-                              int, int *, double *, GlobalLU_t *, 
-                              float *, float *, int);
+extern int_t     ilu_sdrop_row (superlu_options_t *, int_t, int_t, double,
+                              int_t, int_t *, double *, GlobalLU_t *, 
+                              float *, float *, int_t);
 
 
 /*! \brief Driver related */
