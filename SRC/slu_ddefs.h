@@ -165,8 +165,8 @@ extern int_t     dsnode_bmod (const int_t, const int_t, const int_t, double *,
 extern void    dpanel_dfs (const int, const int, const int, SuperMatrix *,
 			   int *, int *, double *, int *, int *, int *,
 			   int *, int *, int *, int *, GlobalLU_t *);
-extern void    dpanel_bmod (const int, const int, const int, const int,
-                           double *, double *, int *, int *,
+extern void    dpanel_bmod (const int_t, const int_t, const int_t, const int_t,
+                           double *, double *, int_t *, int_t *,
 			   GlobalLU_t *, SuperLUStat_t*);
 extern int_t     dcolumn_dfs (const int_t, const int_t, int_t *, int_t *, int_t *, int_t *,
 			   int_t *, int_t *, int_t *, int_t *, int_t *, GlobalLU_t *);
