@@ -387,10 +387,10 @@ extern int_t     sp_coletree (int_t *, int_t *, int_t *, int_t, int_t, int_t *);
 extern void    relax_snode (const int_t, int_t *, const int_t, int_t *, int_t *);
 extern void    heap_relax_snode (const int_t, int_t *, const int_t, int_t *, int_t *);
 extern int     mark_relax(int, int *, int *, int *, int *, int *, int *);
-extern void    ilu_relax_snode (const int, int *, const int, int *,
-				int *, int *);
-extern void    ilu_heap_relax_snode (const int, int *, const int, int *,
-				     int *, int*);
+extern void    ilu_relax_snode (const int_t, int_t *, const int_t, int_t *,
+				int_t *, int_t *);
+extern void    ilu_heap_relax_snode (const int_t, int_t *, const int_t, int_t *,
+				     int_t *, int_t*);
 extern void    resetrep_col (const int, const int *, int *);
 extern int     spcoletree (int *, int *, int *, int, int, int *);
 extern int_t     *TreePostorder (int_t, int_t *);
