@@ -218,7 +218,7 @@ extern void    dlaqgs (SuperMatrix *, double *, double *, double,
                         double, double, char *);
 extern void    dgscon (char *, SuperMatrix *, SuperMatrix *, 
 		         double, double *, SuperLUStat_t*, int_t *);
-extern double   dPivotGrowth(int, SuperMatrix *, int *, 
+extern double   dPivotGrowth(int_t, SuperMatrix *, int_t *, 
                             SuperMatrix *, SuperMatrix *);
 extern void    dgsrfs (trans_t, SuperMatrix *, SuperMatrix *,
                        SuperMatrix *, int_t *, int_t *, char *, double *, 
