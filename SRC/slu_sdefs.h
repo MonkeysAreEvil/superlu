@@ -173,7 +173,7 @@ extern int_t     scolumn_dfs (const int_t, const int_t, int_t *, int_t *, int_t 
 extern int     scolumn_bmod (const int, const int, float *,
 			   float *, int *, int *, int,
                            GlobalLU_t *, SuperLUStat_t*);
-extern int     scopy_to_ucol (int, int, int *, int *, int *,
+extern int_t     scopy_to_ucol (int_t, int_t, int_t *, int_t *, int_t *,
                               float *, GlobalLU_t *);         
 extern int_t     spivotL (const int_t, const double, int_t *, int_t *, 
                          int_t *, int_t *, int_t *, GlobalLU_t *, SuperLUStat_t*);
