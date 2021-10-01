@@ -177,8 +177,8 @@ extern int_t     scopy_to_ucol (int_t, int_t, int_t *, int_t *, int_t *,
                               float *, GlobalLU_t *);         
 extern int_t     spivotL (const int_t, const double, int_t *, int_t *, 
                          int_t *, int_t *, int_t *, GlobalLU_t *, SuperLUStat_t*);
-extern void    spruneL (const int, const int *, const int, const int,
-			  const int *, const int *, int *, GlobalLU_t *);
+extern void    spruneL (const int_t, const int_t *, const int_t, const int_t,
+			  const int_t *, const int_t *, int_t *, GlobalLU_t *);
 extern void    sreadmt (int *, int *, int *, float **, int **, int **);
 extern void    sGenXtrue (int_t, int_t, float *, int_t);
 extern void    sFillRHS (trans_t, int_t, float *, int_t, SuperMatrix *,
