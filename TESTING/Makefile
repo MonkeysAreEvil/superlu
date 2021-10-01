@@ -79,6 +79,7 @@ complex: ./ctest ctest.out
 ctest.out: ctest ctest.csh
 	@echo Testing SINGLE COMPLEX linear equation routines 
 	csh ctest.csh
+	@echo !!!!!
 
 complex16: ./ztest ztest.out
 
