@@ -111,8 +111,8 @@ extern "C" {
 
 /*! \brief Driver routines */
 extern void
-sgssv(superlu_options_t *, SuperMatrix *, int *, int *, SuperMatrix *,
-      SuperMatrix *, SuperMatrix *, SuperLUStat_t *, int *);
+sgssv(superlu_options_t *, SuperMatrix *, int_t *, int_t *, SuperMatrix *,
+      SuperMatrix *, SuperMatrix *, SuperLUStat_t *, int_t *);
 extern void
 sgssvx(superlu_options_t *, SuperMatrix *, int *, int *, int *,
        char *, float *, float *, SuperMatrix *, SuperMatrix *,
