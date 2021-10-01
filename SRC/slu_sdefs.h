@@ -218,7 +218,7 @@ extern void    slaqgs (SuperMatrix *, float *, float *, float,
                         float, float, char *);
 extern void    sgscon (char *, SuperMatrix *, SuperMatrix *, 
 		         float, float *, SuperLUStat_t*, int *);
-extern float   sPivotGrowth(int, SuperMatrix *, int *, 
+extern float   sPivotGrowth(int_t, SuperMatrix *, int_t *, 
                             SuperMatrix *, SuperMatrix *);
 extern void    sgsrfs (trans_t, SuperMatrix *, SuperMatrix *,
                        SuperMatrix *, int *, int *, char *, float *, 
