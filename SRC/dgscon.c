@@ -140,18 +140,18 @@ dgscon(char *norm, SuperMatrix *L, SuperMatrix *U,
 
 	if (kase == kase1) {
 	    /* Multiply by inv(L). */
-	    sp_dtrsv("L", "No trans", "Unit", L, U, &work[0], stat, info);
+	    sp_dtrsv("L", "No trans", "Unit", L, U, &work[0], stat, (int*)info);
 
 	    /* Multiply by inv(U). */
-	    sp_dtrsv("U", "No trans", "Non-unit", L, U, &work[0], stat, info);
+	    sp_dtrsv("U", "No trans", "Non-unit", L, U, &work[0], stat, (int*)info);
 	    
 	} else {
 
 	    /* Multiply by inv(U'). */
-	    sp_dtrsv("U", "Transpose", "Non-unit", L, U, &work[0], stat, info);
+	    sp_dtrsv("U", "Transpose", "Non-unit", L, U, &work[0], stat, (int*)info);
 
 	    /* Multiply by inv(L'). */
-	    sp_dtrsv("L", "Transpose", "Unit", L, U, &work[0], stat, info);
+	    sp_dtrsv("L", "Transpose", "Unit", L, U, &work[0], stat, (int*)info);
 	    
 	}
 

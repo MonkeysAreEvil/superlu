@@ -308,10 +308,10 @@ dgstrs (trans_t trans, SuperMatrix *L, SuperMatrix *U,
 	for (k = 0; k < nrhs; ++k) {
 	    
 	    /* Multiply by inv(U'). */
-	    sp_dtrsv("U", "T", "N", L, U, &Bmat[k*ldb], stat, info);
+	    sp_dtrsv("U", "T", "N", L, U, &Bmat[k*ldb], stat, (int*)info);
 	    
 	    /* Multiply by inv(L'). */
-	    sp_dtrsv("L", "T", "U", L, U, &Bmat[k*ldb], stat, info);
+	    sp_dtrsv("L", "T", "U", L, U, &Bmat[k*ldb], stat, (int*)info);
 	    
 	}
 	/* Compute the final solution X := Pr'*X (=inv(Pr)*X) */
