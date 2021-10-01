@@ -196,8 +196,8 @@ extern int_t     ilu_ssnode_dfs (const int_t, const int_t, const int_t *, const 
 extern void    ilu_spanel_dfs (const int_t, const int_t, const int_t, SuperMatrix *,
 			       int_t *, int_t *, float *, float *, int_t *, int_t *,
 			       int_t *, int_t *, int_t *, int_t *, GlobalLU_t *);
-extern int     ilu_scolumn_dfs (const int, const int, int *, int *, int *,
-				int *, int *, int *, int *, int *,
+extern int_t     ilu_scolumn_dfs (const int_t, const int_t, int_t *, int_t *, int_t *,
+				int_t *, int_t *, int_t *, int_t *, int_t *,
 				GlobalLU_t *);
 extern int     ilu_scopy_to_ucol (int, int, int *, int *, int *,
                                   float *, int, milu_t, double, int,
