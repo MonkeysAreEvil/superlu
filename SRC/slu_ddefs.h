@@ -175,8 +175,8 @@ extern int     dcolumn_bmod (const int, const int, double *,
                            GlobalLU_t *, SuperLUStat_t*);
 extern int     dcopy_to_ucol (int, int, int *, int *, int *,
                               double *, GlobalLU_t *);         
-extern int     dpivotL (const int, const double, int *, int *, 
-                         int *, int *, int *, GlobalLU_t *, SuperLUStat_t*);
+extern int_t     dpivotL (const int_t, const double, int_t *, int_t *, 
+                         int_t *, int_t *, int_t *, GlobalLU_t *, SuperLUStat_t*);
 extern void    dpruneL (const int, const int *, const int, const int,
 			  const int *, const int *, int *, GlobalLU_t *);
 extern void    dreadmt (int *, int *, int *, double **, int **, int **);
