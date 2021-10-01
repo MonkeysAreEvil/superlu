@@ -124,10 +124,10 @@ extern void
 dgsisv(superlu_options_t *, SuperMatrix *, int *, int *, SuperMatrix *,
       SuperMatrix *, SuperMatrix *, SuperLUStat_t *, int *);
 extern void
-dgsisx(superlu_options_t *, SuperMatrix *, int *, int *, int *,
+dgsisx(superlu_options_t *, SuperMatrix *, int_t *, int_t *, int_t *,
        char *, double *, double *, SuperMatrix *, SuperMatrix *,
-       void *, int, SuperMatrix *, SuperMatrix *, double *, double *,
-       GlobalLU_t *, mem_usage_t *, SuperLUStat_t *, int *);
+       void *, int_t, SuperMatrix *, SuperMatrix *, double *, double *,
+       GlobalLU_t *, mem_usage_t *, SuperLUStat_t *, int_t *);
 
 
 /*! \brief Supernodal LU factor related */
