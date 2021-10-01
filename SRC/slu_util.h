@@ -386,7 +386,7 @@ extern void    SetIWork (int_t, int_t, int_t, int_t *, int_t **, int_t **, int_t
 extern int_t     sp_coletree (int_t *, int_t *, int_t *, int_t, int_t, int_t *);
 extern void    relax_snode (const int_t, int_t *, const int_t, int_t *, int_t *);
 extern void    heap_relax_snode (const int_t, int_t *, const int_t, int_t *, int_t *);
-extern int     mark_relax(int, int *, int *, int *, int *, int *, int *);
+extern int_t     mark_relax(int_t, int_t *, int_t *, int_t *, int_t *, int_t *, int_t *);
 extern void    ilu_relax_snode (const int_t, int_t *, const int_t, int_t *,
 				int_t *, int_t *);
 extern void    ilu_heap_relax_snode (const int_t, int_t *, const int_t, int_t *,
