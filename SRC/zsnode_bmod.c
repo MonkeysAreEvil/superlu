@@ -105,10 +105,10 @@ zsnode_bmod (
 	CGEMV( ftcs2, &nrow, &nsupc, &alpha, &lusup[luptr+nsupc], &nsupr, 
 		&lusup[ufirst], &incx, &beta, &lusup[ufirst+nsupc], &incy );
 #else
-	ztrsv_( "L", "N", "U", &nsupc, &lusup[luptr], &nsupr, 
-	      &lusup[ufirst], &incx );
-	zgemv_( "N", &nrow, &nsupc, &alpha, &lusup[luptr+nsupc], &nsupr, 
-		&lusup[ufirst], &incx, &beta, &lusup[ufirst+nsupc], &incy );
+	ztrsv_( "L", "N", "U", (int*)&nsupc, &lusup[luptr], (int*)&nsupr, 
+	      &lusup[ufirst], (int*)&incx );
+	zgemv_( "N", (int*)&nrow, (int*)&nsupc, &alpha, &lusup[luptr+nsupc], (int*)&nsupr, 
+		&lusup[ufirst], (int*)&incx, &beta, &lusup[ufirst+nsupc], (int*)&incy );
 #endif
 #else
 	zlsolve ( nsupr, nsupc, &lusup[luptr], &lusup[ufirst] );

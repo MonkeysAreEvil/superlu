@@ -233,8 +233,8 @@ zcolumn_bmod (
 		CTRSV( ftcs1, ftcs2, ftcs3, &segsze, &lusup[luptr], 
 		       &nsupr, tempv, &incx );
 #else		
-		ztrsv_( "L", "N", "U", &segsze, &lusup[luptr], 
-		       &nsupr, tempv, &incx );
+		ztrsv_( "L", "N", "U", (int*)&segsze, &lusup[luptr], 
+		       (int*)&nsupr, tempv, (int*)&incx );
 #endif		
  		luptr += segsze;  /* Dense matrix-vector */
 		tempv1 = &tempv[segsze];
@@ -244,8 +244,8 @@ zcolumn_bmod (
 		CGEMV( ftcs2, &nrow, &segsze, &alpha, &lusup[luptr], 
 		       &nsupr, tempv, &incx, &beta, tempv1, &incy );
 #else
-		zgemv_( "N", &nrow, &segsze, &alpha, &lusup[luptr], 
-		       &nsupr, tempv, &incx, &beta, tempv1, &incy );
+		zgemv_( "N", (int*)&nrow, (int*)&segsze, &alpha, &lusup[luptr], 
+		       (int*)&nsupr, tempv, (int*)&incx, &beta, tempv1, (int*)&incy );
 #endif
 #else
 		zlsolve ( nsupr, segsze, &lusup[luptr], tempv );
@@ -333,8 +333,8 @@ zcolumn_bmod (
 	CTRSV( ftcs1, ftcs2, ftcs3, &nsupc, &lusup[luptr], 
 	       &nsupr, &lusup[ufirst], &incx );
 #else
-	ztrsv_( "L", "N", "U", &nsupc, &lusup[luptr], 
-	       &nsupr, &lusup[ufirst], &incx );
+	ztrsv_( "L", "N", "U", (int*)&nsupc, &lusup[luptr], 
+	       (int*)&nsupr, &lusup[ufirst], (int*)&incx );
 #endif
 	
 	alpha = none; beta = one; /* y := beta*y + alpha*A*x */
@@ -343,8 +343,8 @@ zcolumn_bmod (
 	CGEMV( ftcs2, &nrow, &nsupc, &alpha, &lusup[luptr+nsupc], &nsupr,
 	       &lusup[ufirst], &incx, &beta, &lusup[ufirst+nsupc], &incy );
 #else
-	zgemv_( "N", &nrow, &nsupc, &alpha, &lusup[luptr+nsupc], &nsupr,
-	       &lusup[ufirst], &incx, &beta, &lusup[ufirst+nsupc], &incy );
+	zgemv_( "N", (int*)&nrow, (int*)&nsupc, &alpha, &lusup[luptr+nsupc], (int*)&nsupr,
+	       &lusup[ufirst], (int*)&incx, &beta, &lusup[ufirst+nsupc], (int*)&incy );
 #endif
 #else
 	zlsolve ( nsupr, nsupc, &lusup[luptr], &lusup[ufirst] );

@@ -165,8 +165,8 @@ sp_ctrsv(char *uplo, char *trans, char *diag, SuperMatrix *L,
 		    ctrsv_("L", "N", "U", &nsupc, &Lval[luptr], &nsupr,
 		       	&x[fsupc], &incx);
 		
-		    cgemv_("N", &nrow, &nsupc, &alpha, &Lval[luptr+nsupc], 
-		       	&nsupr, &x[fsupc], &incx, &beta, &work[0], &incy);
+		    cgemv_("N", (int*)&nrow, (int*)&nsupc, &alpha, &Lval[luptr+nsupc], 
+		       	(int*)&nsupr, &x[fsupc], (int*)&incx, &beta, &work[0], (int*)&incy);
 #endif
 #else
 		    clsolve ( nsupr, nsupc, &Lval[luptr], &x[fsupc]);
@@ -212,8 +212,8 @@ sp_ctrsv(char *uplo, char *trans, char *diag, SuperMatrix *L,
 		    CTRSV(ftcs3, ftcs2, ftcs2, &nsupc, &Lval[luptr], &nsupr,
 		       &x[fsupc], &incx);
 #else
-		    ctrsv_("U", "N", "N", &nsupc, &Lval[luptr], &nsupr,
-                           &x[fsupc], &incx);
+		    ctrsv_("U", "N", "N", (int*)&nsupc, &Lval[luptr], (int*)&nsupr,
+                           &x[fsupc], (int*)&incx);
 #endif
 #else		
 		    cusolve ( nsupr, nsupc, &Lval[luptr], &x[fsupc] );
@@ -267,8 +267,8 @@ sp_ctrsv(char *uplo, char *trans, char *diag, SuperMatrix *L,
 		    CTRSV(ftcs1, ftcs2, ftcs3, &nsupc, &Lval[luptr], &nsupr,
 			&x[fsupc], &incx);
 #else
-		    ctrsv_("L", "T", "U", &nsupc, &Lval[luptr], &nsupr,
-			&x[fsupc], &incx);
+		    ctrsv_("L", "T", "U", (int*)&nsupc, &Lval[luptr], (int*)&nsupr,
+			&x[fsupc], (int*)&incx);
 #endif
 		}
 	    }
@@ -304,8 +304,8 @@ sp_ctrsv(char *uplo, char *trans, char *diag, SuperMatrix *L,
 		    CTRSV( ftcs1, ftcs2, ftcs3, &nsupc, &Lval[luptr], &nsupr,
 			    &x[fsupc], &incx);
 #else
-		    ctrsv_("U", "T", "N", &nsupc, &Lval[luptr], &nsupr,
-			    &x[fsupc], &incx);
+		    ctrsv_("U", "T", "N", (int*)&nsupc, &Lval[luptr], (int*)&nsupr,
+			    &x[fsupc], (int*)&incx);
 #endif
 		}
 	    } /* for k ... */
@@ -346,8 +346,8 @@ sp_ctrsv(char *uplo, char *trans, char *diag, SuperMatrix *L,
 		    CTRSV(ftcs1, ftcs2, ftcs3, &nsupc, &Lval[luptr], &nsupr,
 			&x[fsupc], &incx);
 #else
-                    ctrsv_("L", trans, "U", &nsupc, &Lval[luptr], &nsupr,
-                           &x[fsupc], &incx);
+                    ctrsv_("L", trans, "U", (int*)&nsupc, &Lval[luptr], (int*)&nsupr,
+                           &x[fsupc], (int*)&incx);
 #endif
 		}
 	    }
@@ -385,8 +385,8 @@ sp_ctrsv(char *uplo, char *trans, char *diag, SuperMatrix *L,
 		    CTRSV( ftcs1, ftcs2, ftcs3, &nsupc, &Lval[luptr], &nsupr,
 			    &x[fsupc], &incx);
 #else
-                    ctrsv_("U", trans, "N", &nsupc, &Lval[luptr], &nsupr,
-                               &x[fsupc], &incx);
+                    ctrsv_("U", trans, "N", (int*)&nsupc, &Lval[luptr], (int*)&nsupr,
+                               &x[fsupc], (int*)&incx);
 #endif
   		}
   	    } /* for k ... */

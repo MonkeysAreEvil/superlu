@@ -105,10 +105,10 @@ csnode_bmod (
 	CGEMV( ftcs2, &nrow, &nsupc, &alpha, &lusup[luptr+nsupc], &nsupr, 
 		&lusup[ufirst], &incx, &beta, &lusup[ufirst+nsupc], &incy );
 #else
-	ctrsv_( "L", "N", "U", &nsupc, &lusup[luptr], &nsupr, 
-	      &lusup[ufirst], &incx );
-	cgemv_( "N", &nrow, &nsupc, &alpha, &lusup[luptr+nsupc], &nsupr, 
-		&lusup[ufirst], &incx, &beta, &lusup[ufirst+nsupc], &incy );
+	ctrsv_( "L", "N", "U", (int*)&nsupc, &lusup[luptr], (int*)&nsupr, 
+	      &lusup[ufirst], (int*)&incx );
+	cgemv_( "N", (int*)&nrow, (int*)&nsupc, &alpha, &lusup[luptr+nsupc], (int*)&nsupr, 
+		&lusup[ufirst], (int*)&incx, &beta, &lusup[ufirst+nsupc], (int*)&incy );
 #endif
 #else
 	clsolve ( nsupr, nsupc, &lusup[luptr], &lusup[ufirst] );
