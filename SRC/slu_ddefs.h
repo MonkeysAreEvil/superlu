@@ -177,8 +177,8 @@ extern int_t     dcopy_to_ucol (int_t, int_t, int_t *, int_t *, int_t *,
                               double *, GlobalLU_t *);         
 extern int_t     dpivotL (const int_t, const double, int_t *, int_t *, 
                          int_t *, int_t *, int_t *, GlobalLU_t *, SuperLUStat_t*);
-extern void    dpruneL (const int, const int *, const int, const int,
-			  const int *, const int *, int *, GlobalLU_t *);
+extern void    dpruneL (const int_t, const int_t *, const int_t, const int_t,
+			  const int_t *, const int_t *, int_t *, GlobalLU_t *);
 extern void    dreadmt (int *, int *, int *, double **, int **, int **);
 extern void    dGenXtrue (int, int, double *, int);
 extern void    dFillRHS (trans_t, int, double *, int, SuperMatrix *,
