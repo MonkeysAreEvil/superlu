@@ -292,7 +292,7 @@ dgsrfs(trans_t trans, SuperMatrix *A, SuperMatrix *L, SuperMatrix *U,
 #ifdef _CRAY
 	    SCOPY(&A->nrow, Bptr, &ione, work, &ione);
 #else
-	    dcopy_(&A->nrow, Bptr, &ione, work, &ione);
+	    dcopy_((int*)&A->nrow, Bptr, (int*)&ione, work, (int*)&ione);
 #endif
 	    sp_dgemv(transc, ndone, A, Xptr, ione, done, work, ione);
 
@@ -350,8 +350,8 @@ dgsrfs(trans_t trans, SuperMatrix *A, SuperMatrix *L, SuperMatrix *U,
 		SAXPY(&A->nrow, &done, work, &ione,
 		       &Xmat[j*ldx], &ione);
 #else
-		daxpy_(&A->nrow, &done, work, &ione,
-		       &Xmat[j*ldx], &ione);
+		daxpy_((int*)&A->nrow, &done, work, (int*)&ione,
+		       &Xmat[j*ldx], (int*)&ione);
 #endif
 		lstres = berr[j];
 		++count;
