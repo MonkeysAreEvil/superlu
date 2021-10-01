@@ -181,11 +181,11 @@ resetrep_col (const int nseg, const int *segrep, int *repfnz)
 /*! \brief Count the total number of nonzeros in factors L and U,  and in the symmetrically reduced L. 
  */
 void
-countnz(const int n, int *xprune, int *nnzL, int *nnzU, GlobalLU_t *Glu)
+countnz(const int_t n, int_t *xprune, int_t *nnzL, int_t *nnzU, GlobalLU_t *Glu)
 {
-    int          nsuper, fsupc, i, j;
-    int          nnzL0, jlen, irep;
-    int          *xsup, *xlsub;
+    int_t          nsuper, fsupc, i, j;
+    int_t          nnzL0, jlen, irep;
+    int_t          *xsup, *xlsub;
 
     xsup   = Glu->xsup;
     xlsub  = Glu->xlsub;
@@ -218,11 +218,11 @@ countnz(const int n, int *xprune, int *nnzL, int *nnzU, GlobalLU_t *Glu)
 /*! \brief Count the total number of nonzeros in factors L and U.
  */
 void
-ilu_countnz(const int n, int *nnzL, int *nnzU, GlobalLU_t *Glu)
+ilu_countnz(const int_t n, int_t *nnzL, int_t *nnzU, GlobalLU_t *Glu)
 {
-    int          nsuper, fsupc, i, j;
-    int          jlen, irep;
-    int          *xsup, *xlsub;
+    int_t          nsuper, fsupc, i, j;
+    int_t          jlen, irep;
+    int_t          *xsup, *xlsub;
 
     xsup   = Glu->xsup;
     xlsub  = Glu->xlsub;

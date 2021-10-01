@@ -149,8 +149,8 @@ sCreate_SuperNode_Matrix(SuperMatrix *, int_t, int_t, int_t, float *,
 extern void
 sCopy_Dense_Matrix(int_t, int_t, float *, int_t, float *, int_t);
 
-extern void    countnz (const int, int *, int *, int *, GlobalLU_t *);
-extern void    ilu_countnz (const int, int *, int *, GlobalLU_t *);
+extern void    countnz (const int_t, int_t *, int_t *, int_t *, GlobalLU_t *);
+extern void    ilu_countnz (const int_t, int_t *, int_t *, GlobalLU_t *);
 extern void    fixupL (const int, const int *, GlobalLU_t *);
 
 extern void    sallocateA (int_t, int_t, float **, int_t **, int_t **);
