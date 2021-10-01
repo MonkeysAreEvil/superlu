@@ -158,9 +158,9 @@ extern void    dgstrf (superlu_options_t*, SuperMatrix*,
                        int_t, int_t, int_t*, void *, int_t, int_t *, int_t *, 
                        SuperMatrix *, SuperMatrix *, GlobalLU_t *,
 		       SuperLUStat_t*, int_t *);
-extern int     dsnode_dfs (const int, const int, const int *, const int *,
-			     const int *, int *, int *, GlobalLU_t *);
-extern int     dsnode_bmod (const int, const int, const int, double *,
+extern int_t     dsnode_dfs (const int_t, const int_t, const int_t *, const int_t *,
+			     const int_t *, int_t *, int_t *, GlobalLU_t *);
+extern int_t     dsnode_bmod (const int_t, const int_t, const int_t, double *,
                               double *, GlobalLU_t *, SuperLUStat_t*);
 extern void    dpanel_dfs (const int, const int, const int, SuperMatrix *,
 			   int *, int *, double *, int *, int *, int *,
