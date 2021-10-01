@@ -283,7 +283,7 @@ zpanel_bmod (
 			   &nsupr, TriTmp, &incx, &beta, MatvecTmp, &incy);
 #else
 		    zgemv_("N", (int*)&block_nrow, (int*)&segsze, &alpha, &lusup[luptr1], 
-			   &nsupr, TriTmp, (int*)&incx, &beta, MatvecTmp, (int*)&incy);
+			   (int*)&nsupr, TriTmp, (int*)&incx, &beta, MatvecTmp, (int*)&incy);
 #endif
 #else
 		    zmatvec(nsupr, block_nrow, segsze, &lusup[luptr1],

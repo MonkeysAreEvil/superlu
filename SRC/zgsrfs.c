@@ -292,7 +292,7 @@ zgsrfs(trans_t trans, SuperMatrix *A, SuperMatrix *L, SuperMatrix *U,
 #ifdef _CRAY
 	    CCOPY(&A->nrow, Bptr, &ione, work, &ione);
 #else
-	    zcopy_(&A->nrow, Bptr, &ione, work, &ione);
+	    zcopy_((int*)&A->nrow, Bptr, (int*)&ione, work, (int*)&ione);
 #endif
 	    sp_zgemv(transc, ndone, A, Xptr, ione, done, work, ione);
 
@@ -348,8 +348,8 @@ zgsrfs(trans_t trans, SuperMatrix *A, SuperMatrix *L, SuperMatrix *U,
 		CAXPY(&A->nrow, &done, work, &ione,
 		       &Xmat[j*ldx], &ione);
 #else
-		zaxpy_(&A->nrow, &done, work, &ione,
-		       &Xmat[j*ldx], &ione);
+		zaxpy_((int*)&A->nrow, &done, work, (int*)&ione,
+		       &Xmat[j*ldx], (int*)&ione);
 #endif
 		lstres = berr[j];
 		++count;
@@ -409,7 +409,7 @@ zgsrfs(trans_t trans, SuperMatrix *A, SuperMatrix *L, SuperMatrix *U,
 	kase = 0;
 
 	do {
-	    zlacon2_(&A->nrow, &work[A->nrow], work, &ferr[j], &kase, isave);
+	    zlacon2_((int*)&A->nrow, &work[A->nrow], work, &ferr[j], (int*)&kase, (int*)isave);
 	    if (kase == 0) break;
 
 	    if (kase == 1) {

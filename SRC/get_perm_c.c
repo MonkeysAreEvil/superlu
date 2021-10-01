@@ -21,8 +21,8 @@ at the top-level directory.
 #include "slu_ddefs.h"
 #include "colamd.h"
 
-extern int_t  genmmd_(int_t *, int_t *, int_t *, int_t *, int_t *, int_t *, int_t *, 
-		    int_t *, int_t *, int_t *, int_t *, int_t *);
+extern int  genmmd_(int *, int *, int *, int *, int *, int *, int *, 
+		    int *, int *, int *, int *, int *);
 
 void
 get_colamd(
@@ -34,21 +34,21 @@ get_colamd(
 	   int_t *perm_c   /* out - the column permutation vector. */
 	   )
 {
-    int_t Alen, *A, i, info, *p;
+    int Alen, *A, i, info, *p;
     double knobs[COLAMD_KNOBS];
-    int_t stats[COLAMD_STATS];
+    int stats[COLAMD_STATS];
 
-    Alen = colamd_recommended(nnz, m, n);
+    Alen = colamd_recommended((int)nnz, (int)m, (int)n);
 
     colamd_set_defaults(knobs);
 
-    if (!(A = (int_t *) SUPERLU_MALLOC(Alen * sizeof(int_t))) )
+    if (!(A = (int *) SUPERLU_MALLOC(Alen * sizeof(int))) )
         ABORT("Malloc fails for A[]");
-    if (!(p = (int_t *) SUPERLU_MALLOC((n+1) * sizeof(int_t))) )
+    if (!(p = (int *) SUPERLU_MALLOC((n+1) * sizeof(int))) )
         ABORT("Malloc fails for p[]");
     for (i = 0; i <= n; ++i) p[i] = colptr[i];
     for (i = 0; i < nnz; ++i) A[i] = rowind[i];
-    info = colamd(m, n, Alen, (int*)A, (int*)p, knobs, (int*)stats);
+    info = colamd((int)m, (int)n, Alen, A, p, knobs, stats);
     if ( info == FALSE ) ABORT("COLAMD failed");
 
     for (i = 0; i < n; ++i) perm_c[p[i]] = i;
@@ -443,8 +443,8 @@ get_perm_c(int_t ispec, SuperMatrix *A, int_t *perm_c)
 	for (i = 0; i <= n; ++i) ++b_colptr[i];
 	for (i = 0; i < bnz; ++i) ++b_rowind[i];
 	
-	genmmd_(&n, b_colptr, b_rowind, perm_c, invp, &delta, dhead, 
-		qsize, llist, marker, &maxint, &nofsub);
+	genmmd_((int*)&n, (int*)b_colptr, (int*)b_rowind, (int*)perm_c, (int*)invp, (int*)&delta, (int*)dhead, 
+		(int*)qsize, (int*)llist, (int*)marker, (int*)&maxint, (int*)&nofsub);
 
 	/* Transform perm_c into 0-based indexing. */
 	for (i = 0; i < n; ++i) --perm_c[i];
