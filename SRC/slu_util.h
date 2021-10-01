@@ -374,7 +374,7 @@ extern void    Destroy_Dense_Matrix(SuperMatrix *);
 extern void    get_perm_c(int_t, SuperMatrix *, int_t *);
 extern void    set_default_options(superlu_options_t *options);
 extern void    ilu_set_default_options(superlu_options_t *options);
-extern void    sp_preorder (superlu_options_t *, SuperMatrix*, int*, int*,
+extern void    sp_preorder (superlu_options_t *, SuperMatrix*, int_t*, int_t*,
 			    SuperMatrix*);
 extern void    superlu_abort_and_exit(char*);
 extern void    *superlu_malloc (size_t);
@@ -383,7 +383,7 @@ extern int_t     *intCalloc (int_t);
 extern void    superlu_free (void*);
 extern void    SetIWork (int_t, int_t, int_t, int_t *, int_t **, int_t **, int_t **,
                          int_t **, int_t **, int_t **, int_t **);
-extern int     sp_coletree (int *, int *, int *, int, int, int *);
+extern int_t     sp_coletree (int_t *, int_t *, int_t *, int_t, int_t, int_t *);
 extern void    relax_snode (const int, int *, const int, int *, int *);
 extern void    heap_relax_snode (const int, int *, const int, int *, int *);
 extern int     mark_relax(int, int *, int *, int *, int *, int *, int *);
@@ -393,7 +393,7 @@ extern void    ilu_heap_relax_snode (const int, int *, const int, int *,
 				     int *, int*);
 extern void    resetrep_col (const int, const int *, int *);
 extern int     spcoletree (int *, int *, int *, int, int, int *);
-extern int     *TreePostorder (int, int *);
+extern int_t     *TreePostorder (int_t, int_t *);
 extern double  SuperLU_timer_ ();
 extern int     sp_ienv (int);
 extern int     xerbla_ (char *, int *);
