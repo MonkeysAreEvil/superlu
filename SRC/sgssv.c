@@ -172,7 +172,7 @@ sgssv(superlu_options_t *options, SuperMatrix *A, int_t *perm_c, int_t *perm_r,
 	*info = -7;
     if ( *info != 0 ) {
 	i = -(*info);
-	input_error("sgssv", &i);
+	input_error("sgssv", (int *)&i);
 	return;
     }
 

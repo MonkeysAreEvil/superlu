@@ -113,7 +113,7 @@ sp_strsv(char *uplo, char *trans, char *diag, SuperMatrix *L,
     else if ( U->nrow != U->ncol || U->nrow < 0 ) *info = -5;
     if ( *info ) {
 	i = -(*info);
-	input_error("sp_strsv", &i);
+	input_error("sp_strsv", (int*)&i);
 	return 0;
     }
 
