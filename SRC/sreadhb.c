@@ -97,16 +97,16 @@ int sDumpLine(FILE *fp)
     return 0;
 }
 
-int sParseIntFormat(char *buf, int *num, int *size)
+int_t sParseIntFormat(char *buf, int_t *num, int_t *size)
 {
     char *tmp;
 
     tmp = buf;
     while (*tmp++ != '(') ;
-    sscanf(tmp, "%d", num);
+    sscanf(tmp, "%lld", num);
     while (*tmp != 'I' && *tmp != 'i') ++tmp;
     ++tmp;
-    sscanf(tmp, "%d", size);
+    sscanf(tmp, "%lld", size);
     return 0;
 }
 
