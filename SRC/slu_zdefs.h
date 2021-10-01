@@ -192,23 +192,23 @@ extern void    zgsitrf (superlu_options_t*, SuperMatrix*, int, int, int*,
                         GlobalLU_t *, SuperLUStat_t*, int *);
 extern int     zldperm(int_t, int_t, int_t, int_t [], int_t [], doublecomplex [],
                         int_t [],	double [], double []);
-extern int     ilu_zsnode_dfs (const int, const int, const int *, const int *,
-			       const int *, int *, GlobalLU_t *);
-extern void    ilu_zpanel_dfs (const int, const int, const int, SuperMatrix *,
-			       int *, int *, doublecomplex *, double *, int *, int *,
-			       int *, int *, int *, int *, GlobalLU_t *);
-extern int     ilu_zcolumn_dfs (const int, const int, int *, int *, int *,
-				int *, int *, int *, int *, int *,
+extern int_t     ilu_zsnode_dfs (const int_t, const int_t, const int_t *, const int_t *,
+			       const int_t *, int_t *, GlobalLU_t *);
+extern void    ilu_zpanel_dfs (const int_t, const int_t, const int_t, SuperMatrix *,
+			       int_t *, int_t *, doublecomplex *, double *, int_t *, int_t *,
+			       int_t *, int_t *, int_t *, int_t *, GlobalLU_t *);
+extern int_t     ilu_zcolumn_dfs (const int_t, const int_t, int_t *, int_t *, int_t *,
+				int_t *, int_t *, int_t *, int_t *, int_t *,
 				GlobalLU_t *);
-extern int     ilu_zcopy_to_ucol (int, int, int *, int *, int *,
-                                  doublecomplex *, int, milu_t, double, int,
-                                  doublecomplex *, int *, GlobalLU_t *, double *);
-extern int     ilu_zpivotL (const int, const double, int *, int *, int, int *,
-			    int *, int *, int *, double, milu_t,
+extern int_t     ilu_zcopy_to_ucol (int_t, int_t, int_t *, int_t *, int_t *,
+                                  doublecomplex *, int_t, milu_t, double, int_t,
+                                  doublecomplex *, int_t *, GlobalLU_t *, double *);
+extern int_t     ilu_zpivotL (const int_t, const double, int_t *, int_t *, int_t, int_t *,
+			    int_t *, int_t *, int_t *, double, milu_t,
                             doublecomplex, GlobalLU_t *, SuperLUStat_t*);
-extern int     ilu_zdrop_row (superlu_options_t *, int, int, double,
-                              int, int *, double *, GlobalLU_t *, 
-                              double *, double *, int);
+extern int_t     ilu_zdrop_row (superlu_options_t *, int_t, int_t, double,
+                              int_t, int_t *, double *, GlobalLU_t *, 
+                              double *, double *, int_t);
 
 
 /*! \brief Driver related */

@@ -192,21 +192,21 @@ extern void    cgsitrf (superlu_options_t*, SuperMatrix*, int, int, int*,
                         GlobalLU_t *, SuperLUStat_t*, int *);
 extern int     cldperm(int_t, int_t, int_t, int_t [], int_t [], complex [],
                         int_t [],	float [], float []);
-extern int     ilu_csnode_dfs (const int, const int, const int *, const int *,
-			       const int *, int *, GlobalLU_t *);
-extern void    ilu_cpanel_dfs (const int, const int, const int, SuperMatrix *,
-			       int *, int *, complex *, float *, int *, int *,
-			       int *, int *, int *, int *, GlobalLU_t *);
-extern int     ilu_ccolumn_dfs (const int, const int, int *, int *, int *,
-				int *, int *, int *, int *, int *,
+extern int_t     ilu_csnode_dfs (const int_t, const int_t, const int_t *, const int_t *,
+			       const int_t *, int_t *, GlobalLU_t *);
+extern void    ilu_cpanel_dfs (const int_t, const int_t, const int_t, SuperMatrix *,
+			       int_t *, int_t *, complex *, float *, int_t *, int_t *,
+			       int_t *, int_t *, int_t *, int_t *, GlobalLU_t *);
+extern int_t     ilu_ccolumn_dfs (const int_t, const int_t, int_t *, int_t *, int_t *,
+				int_t *, int_t *, int_t *, int_t *, int_t *,
 				GlobalLU_t *);
-extern int     ilu_ccopy_to_ucol (int, int, int *, int *, int *,
-                                  complex *, int, milu_t, double, int,
-                                  complex *, int *, GlobalLU_t *, float *);
-extern int     ilu_cpivotL (const int, const double, int *, int *, int, int *,
-			    int *, int *, int *, double, milu_t,
+extern int_t     ilu_ccopy_to_ucol (int_t, int_t, int_t *, int_t *, int_t *,
+                                  complex *, int_t, milu_t, double, int_t,
+                                  complex *, int_t *, GlobalLU_t *, float *);
+extern int_t     ilu_cpivotL (const int_t, const double, int_t *, int_t *, int_t, int_t *,
+			    int_t *, int_t *, int_t *, double, milu_t,
                             complex, GlobalLU_t *, SuperLUStat_t*);
-extern int     ilu_cdrop_row (superlu_options_t *, int, int, double,
+extern int_t     ilu_cdrop_row (superlu_options_t *, int_t, int_t, double,
                               int, int *, double *, GlobalLU_t *, 
                               float *, float *, int);
 
