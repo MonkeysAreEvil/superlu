@@ -139,16 +139,16 @@ at the top-level directory.
  */
 void
 dgsrfs(trans_t trans, SuperMatrix *A, SuperMatrix *L, SuperMatrix *U,
-       int *perm_c, int *perm_r, char *equed, double *R, double *C,
+       int_t *perm_c, int_t *perm_r, char *equed, double *R, double *C,
        SuperMatrix *B, SuperMatrix *X, double *ferr, double *berr,
-       SuperLUStat_t *stat, int *info)
+       SuperLUStat_t *stat, int_t *info)
 {
 
 
 #define ITMAX 5
     
     /* Table of constant values */
-    int    ione = 1;
+    int_t    ione = 1;
     double ndone = -1.;
     double done = 1.;
     
@@ -158,17 +158,17 @@ dgsrfs(trans_t trans, SuperMatrix *A, SuperMatrix *L, SuperMatrix *U,
     SuperMatrix Bjcol;
     DNformat *Bstore, *Xstore, *Bjcol_store;
     double   *Bmat, *Xmat, *Bptr, *Xptr;
-    int      kase;
+    int_t      kase;
     double   safe1, safe2;
-    int      i, j, k, irow, nz, count, notran, rowequ, colequ;
-    int      ldb, ldx, nrhs;
+    int_t      i, j, k, irow, nz, count, notran, rowequ, colequ;
+    int_t      ldb, ldx, nrhs;
     double   s, xk, lstres, eps, safmin;
     char     transc[1];
     trans_t  transt;
     double   *work;
     double   *rwork;
-    int      *iwork;
-    int      isave[3];
+    int_t      *iwork;
+    int_t      isave[3];
 
     extern int dlacon2_(int *, double *, double *, int *, double *, int *, int []);
 #ifdef _CRAY

@@ -82,16 +82,16 @@ at the top-level directory.
 
 void
 dgscon(char *norm, SuperMatrix *L, SuperMatrix *U,
-       double anorm, double *rcond, SuperLUStat_t *stat, int *info)
+       double anorm, double *rcond, SuperLUStat_t *stat, int_t *info)
 {
 
 
     /* Local variables */
-    int    kase, kase1, onenrm, i;
+    int_t    kase, kase1, onenrm, i;
     double ainvnm;
     double *work;
-    int    *iwork;
-    int    isave[3];
+    int_t    *iwork;
+    int_t    isave[3];
     extern int drscl_(int *, double *, double *, int *);
 
     extern int dlacon2_(int *, double *, double *, int *, double *, int *, int []);

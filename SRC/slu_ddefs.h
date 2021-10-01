@@ -186,9 +186,9 @@ extern void    dFillRHS (trans_t, int, double *, int, SuperMatrix *,
 extern void    dgstrs (trans_t, SuperMatrix *, SuperMatrix *, int_t *, int_t *,
                         SuperMatrix *, SuperLUStat_t*, int_t *);
 /* ILU */
-extern void    dgsitrf (superlu_options_t*, SuperMatrix*, int, int, int*,
-		        void *, int, int *, int *, SuperMatrix *, SuperMatrix *,
-                        GlobalLU_t *, SuperLUStat_t*, int *);
+extern void    dgsitrf (superlu_options_t*, SuperMatrix*, int_t, int_t, int_t*,
+		        void *, int_t, int_t *, int_t *, SuperMatrix *, SuperMatrix *,
+                        GlobalLU_t *, SuperLUStat_t*, int_t *);
 extern int     dldperm(int_t, int_t, int_t, int_t [], int_t [], double [],
                         int_t [],	double [], double []);
 extern int     ilu_dsnode_dfs (const int, const int, const int *, const int *,
@@ -213,17 +213,17 @@ extern int     ilu_ddrop_row (superlu_options_t *, int, int, double,
 /*! \brief Driver related */
 
 extern void    dgsequ (SuperMatrix *, double *, double *, double *,
-			double *, double *, int *);
+			double *, double *, int_t *);
 extern void    dlaqgs (SuperMatrix *, double *, double *, double,
                         double, double, char *);
 extern void    dgscon (char *, SuperMatrix *, SuperMatrix *, 
-		         double, double *, SuperLUStat_t*, int *);
+		         double, double *, SuperLUStat_t*, int_t *);
 extern double   dPivotGrowth(int, SuperMatrix *, int *, 
                             SuperMatrix *, SuperMatrix *);
 extern void    dgsrfs (trans_t, SuperMatrix *, SuperMatrix *,
-                       SuperMatrix *, int *, int *, char *, double *, 
+                       SuperMatrix *, int_t *, int_t *, char *, double *, 
                        double *, SuperMatrix *, SuperMatrix *,
-                       double *, double *, SuperLUStat_t*, int *);
+                       double *, double *, SuperLUStat_t*, int_t *);
 
 extern int     sp_dtrsv (char *, char *, char *, SuperMatrix *,
 			SuperMatrix *, double *, SuperLUStat_t*, int *);
