@@ -167,9 +167,9 @@ Destroy_Dense_Matrix(SuperMatrix *A)
 /*! \brief Reset repfnz[] for the current column 
  */
 void
-resetrep_col (const int nseg, const int *segrep, int *repfnz)
+resetrep_col (const int_t nseg, const int_t *segrep, int_t *repfnz)
 {
-    int i, irep;
+    int_t i, irep;
     
     for (i = 0; i < nseg; i++) {
 	irep = segrep[i];

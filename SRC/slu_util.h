@@ -391,7 +391,7 @@ extern void    ilu_relax_snode (const int_t, int_t *, const int_t, int_t *,
 				int_t *, int_t *);
 extern void    ilu_heap_relax_snode (const int_t, int_t *, const int_t, int_t *,
 				     int_t *, int_t*);
-extern void    resetrep_col (const int, const int *, int *);
+extern void    resetrep_col (const int_t, const int_t *, int_t *);
 extern int     spcoletree (int *, int *, int *, int, int, int *);
 extern int_t     *TreePostorder (int_t, int_t *);
 extern double  SuperLU_timer_ ();
