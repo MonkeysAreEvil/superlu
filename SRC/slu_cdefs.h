@@ -133,22 +133,22 @@ cgsisx(superlu_options_t *, SuperMatrix *, int_t *, int_t *, int_t *,
 
 /*! \brief Supernodal LU factor related */
 extern void
-cCreate_CompCol_Matrix(SuperMatrix *, int, int, int, complex *,
-		       int *, int *, Stype_t, Dtype_t, Mtype_t);
+cCreate_CompCol_Matrix(SuperMatrix *, int_t, int_t, int_t, complex *,
+		       int_t *, int_t *, Stype_t, Dtype_t, Mtype_t);
 extern void
-cCreate_CompRow_Matrix(SuperMatrix *, int, int, int, complex *,
-		       int *, int *, Stype_t, Dtype_t, Mtype_t);
+cCreate_CompRow_Matrix(SuperMatrix *, int_t, int_t, int_t, complex *,
+		       int_t *, int_t *, Stype_t, Dtype_t, Mtype_t);
 extern void
 cCopy_CompCol_Matrix(SuperMatrix *, SuperMatrix *);
 extern void
-cCreate_Dense_Matrix(SuperMatrix *, int, int, complex *, int,
+cCreate_Dense_Matrix(SuperMatrix *, int_t, int_t, complex *, int_t,
 		     Stype_t, Dtype_t, Mtype_t);
 extern void
-cCreate_SuperNode_Matrix(SuperMatrix *, int, int, int, complex *, 
-		         int *, int *, int *, int *, int *,
+cCreate_SuperNode_Matrix(SuperMatrix *, int_t, int_t, int_t, complex *, 
+		         int_t *, int_t *, int_t *, int_t *, int_t *,
 			 Stype_t, Dtype_t, Mtype_t);
 extern void
-cCopy_Dense_Matrix(int, int, complex *, int, complex *, int);
+cCopy_Dense_Matrix(int_t, int_t, complex *, int_t, complex *, int_t);
 
 extern void    countnz (const int_t, int_t *, int_t *, int_t *, GlobalLU_t *);
 extern void    ilu_countnz (const int_t, int_t *, int_t *, GlobalLU_t *);
@@ -257,8 +257,8 @@ extern void    creadhb(FILE *, int *, int *, int *, complex **, int **, int **);
 extern void    creadrb(int *, int *, int *, complex **, int **, int **);
 extern void    creadtriple(int *, int *, int *, complex **, int **, int **);
 extern void    creadMM(FILE *, int *, int *, int *, complex **, int **, int **);
-extern void    cCompRow_to_CompCol(int, int, int, complex*, int*, int*,
-		                   complex **, int **, int **);
+extern void    cCompRow_to_CompCol(int_t, int_t, int_t, complex*, int_t*, int_t*,
+		                   complex **, int_t **, int_t **);
 extern void    cfill (complex *, int, complex);
 extern void    cinf_norm_error (int, SuperMatrix *, complex *);
 extern float  sqselect(int, float *, int);

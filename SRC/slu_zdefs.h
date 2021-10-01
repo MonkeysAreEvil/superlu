@@ -133,22 +133,22 @@ zgsisx(superlu_options_t *, SuperMatrix *, int *, int *, int *,
 
 /*! \brief Supernodal LU factor related */
 extern void
-zCreate_CompCol_Matrix(SuperMatrix *, int, int, int, doublecomplex *,
-		       int *, int *, Stype_t, Dtype_t, Mtype_t);
+zCreate_CompCol_Matrix(SuperMatrix *, int_t, int_t, int_t, doublecomplex *,
+		       int_t *, int_t *, Stype_t, Dtype_t, Mtype_t);
 extern void
-zCreate_CompRow_Matrix(SuperMatrix *, int, int, int, doublecomplex *,
-		       int *, int *, Stype_t, Dtype_t, Mtype_t);
+zCreate_CompRow_Matrix(SuperMatrix *, int_t, int_t, int_t, doublecomplex *,
+		       int_t *, int_t *, Stype_t, Dtype_t, Mtype_t);
 extern void
 zCopy_CompCol_Matrix(SuperMatrix *, SuperMatrix *);
 extern void
-zCreate_Dense_Matrix(SuperMatrix *, int, int, doublecomplex *, int,
+zCreate_Dense_Matrix(SuperMatrix *, int_t, int_t, doublecomplex *, int_t,
 		     Stype_t, Dtype_t, Mtype_t);
 extern void
-zCreate_SuperNode_Matrix(SuperMatrix *, int, int, int, doublecomplex *, 
-		         int *, int *, int *, int *, int *,
+zCreate_SuperNode_Matrix(SuperMatrix *, int_t, int_t, int_t, doublecomplex *, 
+		         int_t *, int_t *, int_t *, int_t *, int_t *,
 			 Stype_t, Dtype_t, Mtype_t);
 extern void
-zCopy_Dense_Matrix(int, int, doublecomplex *, int, doublecomplex *, int);
+zCopy_Dense_Matrix(int_t, int_t, doublecomplex *, int_t, doublecomplex *, int_t);
 
 extern void    countnz (const int_t, int_t *, int_t *, int_t *, GlobalLU_t *);
 extern void    ilu_countnz (const int_t, int_t *, int_t *, GlobalLU_t *);
@@ -257,8 +257,8 @@ extern void    zreadhb(FILE *, int *, int *, int *, doublecomplex **, int **, in
 extern void    zreadrb(int *, int *, int *, doublecomplex **, int **, int **);
 extern void    zreadtriple(int *, int *, int *, doublecomplex **, int **, int **);
 extern void    zreadMM(FILE *, int *, int *, int *, doublecomplex **, int **, int **);
-extern void    zCompRow_to_CompCol(int, int, int, doublecomplex*, int*, int*,
-		                   doublecomplex **, int **, int **);
+extern void    zCompRow_to_CompCol(int_t, int_t, int_t, doublecomplex*, int_t*, int_t*,
+		                   doublecomplex **, int_t **, int_t **);
 extern void    zfill (doublecomplex *, int, doublecomplex);
 extern void    zinf_norm_error (int, SuperMatrix *, doublecomplex *);
 extern double  dqselect(int, double *, int);

@@ -36,8 +36,8 @@ at the top-level directory.
 #include "slu_cdefs.h"
 
 void
-cCreate_CompCol_Matrix(SuperMatrix *A, int m, int n, int nnz, 
-		       complex *nzval, int *rowind, int *colptr,
+cCreate_CompCol_Matrix(SuperMatrix *A, int_t m, int_t n, int_t nnz, 
+		       complex *nzval, int_t *rowind, int_t *colptr,
 		       Stype_t stype, Dtype_t dtype, Mtype_t mtype)
 {
     NCformat *Astore;
@@ -57,8 +57,8 @@ cCreate_CompCol_Matrix(SuperMatrix *A, int m, int n, int nnz,
 }
 
 void
-cCreate_CompRow_Matrix(SuperMatrix *A, int m, int n, int nnz, 
-		       complex *nzval, int *colind, int *rowptr,
+cCreate_CompRow_Matrix(SuperMatrix *A, int_t m, int_t n, int_t nnz, 
+		       complex *nzval, int_t *colind, int_t *rowptr,
 		       Stype_t stype, Dtype_t dtype, Mtype_t mtype)
 {
     NRformat *Astore;
@@ -82,7 +82,7 @@ void
 cCopy_CompCol_Matrix(SuperMatrix *A, SuperMatrix *B)
 {
     NCformat *Astore, *Bstore;
-    int      ncol, nnz, i;
+    int_t      ncol, nnz, i;
 
     B->Stype = A->Stype;
     B->Dtype = A->Dtype;
@@ -100,7 +100,7 @@ cCopy_CompCol_Matrix(SuperMatrix *A, SuperMatrix *B)
 
 
 void
-cCreate_Dense_Matrix(SuperMatrix *X, int m, int n, complex *x, int ldx,
+cCreate_Dense_Matrix(SuperMatrix *X, int_t m, int_t n, complex *x, int_t ldx,
 		    Stype_t stype, Dtype_t dtype, Mtype_t mtype)
 {
     DNformat    *Xstore;
@@ -118,12 +118,12 @@ cCreate_Dense_Matrix(SuperMatrix *X, int m, int n, complex *x, int ldx,
 }
 
 void
-cCopy_Dense_Matrix(int M, int N, complex *X, int ldx,
-			complex *Y, int ldy)
+cCopy_Dense_Matrix(int_t M, int_t N, complex *X, int_t ldx,
+			complex *Y, int_t ldy)
 {
 /*! \brief Copies a two-dimensional matrix X to another matrix Y.
  */
-    int    i, j;
+    int_t    i, j;
     
     for (j = 0; j < N; ++j)
         for (i = 0; i < M; ++i)
@@ -131,9 +131,9 @@ cCopy_Dense_Matrix(int M, int N, complex *X, int ldx,
 }
 
 void
-cCreate_SuperNode_Matrix(SuperMatrix *L, int m, int n, int nnz, 
-			complex *nzval, int *nzval_colptr, int *rowind,
-			int *rowind_colptr, int *col_to_sup, int *sup_to_col,
+cCreate_SuperNode_Matrix(SuperMatrix *L, int_t m, int_t n, int_t nnz, 
+			complex *nzval, int_t *nzval_colptr, int_t *rowind,
+			int_t *rowind_colptr, int_t *col_to_sup, int_t *sup_to_col,
 			Stype_t stype, Dtype_t dtype, Mtype_t mtype)
 {
     SCformat *Lstore;
@@ -161,18 +161,18 @@ cCreate_SuperNode_Matrix(SuperMatrix *L, int m, int n, int nnz,
 /*! \brief Convert a row compressed storage into a column compressed storage.
  */
 void
-cCompRow_to_CompCol(int m, int n, int nnz, 
-		    complex *a, int *colind, int *rowptr,
-		    complex **at, int **rowind, int **colptr)
+cCompRow_to_CompCol(int_t m, int_t n, int_t nnz, 
+		    complex *a, int_t *colind, int_t *rowptr,
+		    complex **at, int_t **rowind, int_t **colptr)
 {
-    register int i, j, col, relpos;
-    int *marker;
+    register int_t i, j, col, relpos;
+    int_t *marker;
 
     /* Allocate storage for another copy of the matrix. */
     *at = (complex *) complexMalloc(nnz);
-    *rowind = (int *) intMalloc(nnz);
-    *colptr = (int *) intMalloc(n+1);
-    marker = (int *) intCalloc(n);
+    *rowind = (int_t *) intMalloc(nnz);
+    *colptr = (int_t *) intMalloc(n+1);
+    marker = (int_t *) intCalloc(n);
     
     /* Get counts of each column of A, and set up column pointers */
     for (i = 0; i < m; ++i)
