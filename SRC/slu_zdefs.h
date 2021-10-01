@@ -152,7 +152,7 @@ zCopy_Dense_Matrix(int, int, doublecomplex *, int, doublecomplex *, int);
 
 extern void    countnz (const int_t, int_t *, int_t *, int_t *, GlobalLU_t *);
 extern void    ilu_countnz (const int_t, int_t *, int_t *, GlobalLU_t *);
-extern void    fixupL (const int, const int *, GlobalLU_t *);
+extern void    fixupL (const int_t, const int_t *, GlobalLU_t *);
 
 extern void    zallocateA (int_t, int_t, doublecomplex **, int_t **, int_t **);
 extern void    zgstrf (superlu_options_t*, SuperMatrix*,

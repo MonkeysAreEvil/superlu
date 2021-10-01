@@ -252,10 +252,10 @@ ilu_countnz(const int_t n, int_t *nnzL, int_t *nnzU, GlobalLU_t *Glu)
 /*! \brief Fix up the data storage lsub for L-subscripts. It removes the subscript sets for structural pruning,	and applies permuation to the remaining subscripts.
  */
 void
-fixupL(const int n, const int *perm_r, GlobalLU_t *Glu)
+fixupL(const int_t n, const int_t *perm_r, GlobalLU_t *Glu)
 {
-    register int nsuper, fsupc, nextl, i, j, k, jstrt;
-    int          *xsup, *lsub, *xlsub;
+    register int_t nsuper, fsupc, nextl, i, j, k, jstrt;
+    int_t          *xsup, *lsub, *xlsub;
 
     if ( n <= 1 ) return;
 

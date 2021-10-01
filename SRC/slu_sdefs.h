@@ -151,7 +151,7 @@ sCopy_Dense_Matrix(int_t, int_t, float *, int_t, float *, int_t);
 
 extern void    countnz (const int_t, int_t *, int_t *, int_t *, GlobalLU_t *);
 extern void    ilu_countnz (const int_t, int_t *, int_t *, GlobalLU_t *);
-extern void    fixupL (const int, const int *, GlobalLU_t *);
+extern void    fixupL (const int_t, const int_t *, GlobalLU_t *);
 
 extern void    sallocateA (int_t, int_t, float **, int_t **, int_t **);
 extern void    sgstrf (superlu_options_t*, SuperMatrix*,
