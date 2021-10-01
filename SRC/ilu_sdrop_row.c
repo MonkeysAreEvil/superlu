@@ -113,15 +113,15 @@ int_t ilu_sdrop_row(
 	switch (nrm)
 	{
 	    case ONE_NORM:
-		temp[i] = sasum_(&n, &lusup[xlusup_first + i], &m) / (double)n;
+		temp[i] = sasum_((int(*))&n, &lusup[xlusup_first + i], (int*)&m) / (double)n;
 		break;
 	    case TWO_NORM:
-		temp[i] = snrm2_(&n, &lusup[xlusup_first + i], &m)
+		temp[i] = snrm2_((int*)&n, &lusup[xlusup_first + i], (int*)&m)
 		    / sqrt((double)n);
 		break;
 	    case INF_NORM:
 	    default:
-		k = isamax_(&n, &lusup[xlusup_first + i], &m) - 1;
+		k = isamax_((int*)&n, &lusup[xlusup_first + i], (int*)&m) - 1;
 		temp[i] = fabs(lusup[xlusup_first + i + m * k]);
 		break;
 	}
@@ -138,8 +138,8 @@ int_t ilu_sdrop_row(
 		{
 		    case SMILU_1:
 		    case SMILU_2:
-			saxpy_(&n, &one, &lusup[xlusup_first + i], &m,
-				&lusup[xlusup_first + m - 1], &m);
+			saxpy_((int*)&n, &one, &lusup[xlusup_first + i], (int*)&m,
+				&lusup[xlusup_first + m - 1], (int*)&m);
 			break;
 		    case SMILU_3:
 			for (j = 0; j < n; j++)
@@ -150,13 +150,13 @@ int_t ilu_sdrop_row(
 		    default:
 			break;
 		}
-		scopy_(&n, &lusup[xlusup_first + m1], &m,
-                       &lusup[xlusup_first + i], &m);
+		scopy_((int*)&n, &lusup[xlusup_first + m1], (int*)&m,
+                       &lusup[xlusup_first + i], (int*)&m);
 	    } /* if (r > 1) */
 	    else /* move to last row */
 	    {
-		sswap_(&n, &lusup[xlusup_first + m1], &m,
-			&lusup[xlusup_first + i], &m);
+		sswap_((int*)&n, &lusup[xlusup_first + m1], (int*)&m,
+			&lusup[xlusup_first + i], (int*)&m);
 		if (milu == SMILU_3)
 		    for (j = 0; j < n; j++) {
 			lusup[xlusup_first + m1 + j * m] =
@@ -192,7 +192,7 @@ int_t ilu_sdrop_row(
 	    else /* by quick select */
 	    {
 		int_t len = m1 - n + 1;
-		scopy_(&len, swork, &i_1, swork2, &i_1);
+		scopy_((int*)&len, swork, (int*)&i_1, swork2, (int*)&i_1);
 		tol = sqselect(len, swork2, quota - n);
 #if 0
 		register int *itemp = iwork - n;
@@ -218,8 +218,8 @@ int_t ilu_sdrop_row(
 		    {
 			case SMILU_1:
 			case SMILU_2:
-			    saxpy_(&n, &one, &lusup[xlusup_first + i], &m,
-				    &lusup[xlusup_first + m - 1], &m);
+			    saxpy_((int*)&n, &one, &lusup[xlusup_first + i], (int*)&m,
+				    &lusup[xlusup_first + m - 1], (int*)&m);
 			    break;
 			case SMILU_3:
 			    for (j = 0; j < n; j++)
@@ -230,13 +230,13 @@ int_t ilu_sdrop_row(
 			default:
 			    break;
 		    }
-		    scopy_(&n, &lusup[xlusup_first + m1], &m,
-			    &lusup[xlusup_first + i], &m);
+		    scopy_((int*)&n, &lusup[xlusup_first + m1], (int*)&m,
+			    &lusup[xlusup_first + i], (int*)&m);
 		} /* if (r > 1) */
 		else /* move to last row */
 		{
-		    sswap_(&n, &lusup[xlusup_first + m1], &m,
-			    &lusup[xlusup_first + i], &m);
+		    sswap_((int*)&n, &lusup[xlusup_first + m1], (int*)&m,
+			    &lusup[xlusup_first + i], (int*)&m);
 		    if (milu == SMILU_3)
 			for (j = 0; j < n; j++) {
 			    lusup[xlusup_first + m1 + j * m] =
