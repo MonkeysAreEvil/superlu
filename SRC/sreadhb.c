@@ -335,11 +335,11 @@ sreadhb(FILE *fp, int_t *nrow, int_t *ncol, int_t *nonz,
 
     /* Line 4: format statement */
     fscanf(fp, "%16c", buf);
-    sParseIntFormat(buf, (int*)&colnum, (int*)&colsize);
+    sParseIntFormat(buf, &colnum, &colsize);
     fscanf(fp, "%16c", buf);
-    sParseIntFormat(buf, (int*)&rownum, (int*)&rowsize);
+    sParseIntFormat(buf, &rownum, &rowsize);
     fscanf(fp, "%20c", buf);
-    sParseFloatFormat(buf, (int*)&valnum, (int*)&valsize);
+    sParseFloatFormat(buf, &valnum, &valsize);
     fscanf(fp, "%20c", buf);
     sDumpLine(fp);
 
