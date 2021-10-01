@@ -189,8 +189,8 @@ extern void    sgstrs (trans_t, SuperMatrix *, SuperMatrix *, int *, int *,
 extern void    sgsitrf (superlu_options_t*, SuperMatrix*, int, int, int*,
 		        void *, int, int *, int *, SuperMatrix *, SuperMatrix *,
                         GlobalLU_t *, SuperLUStat_t*, int *);
-extern int     sldperm(int, int, int, int [], int [], float [],
-                        int [],	float [], float []);
+extern int     sldperm(int_t, int_t, int_t, int_t [], int_t [], float [],
+                        int_t [],	float [], float []);
 extern int     ilu_ssnode_dfs (const int, const int, const int *, const int *,
 			       const int *, int *, GlobalLU_t *);
 extern void    ilu_spanel_dfs (const int, const int, const int, SuperMatrix *,

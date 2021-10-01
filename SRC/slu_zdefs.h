@@ -190,8 +190,8 @@ extern void    zgstrs (trans_t, SuperMatrix *, SuperMatrix *, int *, int *,
 extern void    zgsitrf (superlu_options_t*, SuperMatrix*, int, int, int*,
 		        void *, int, int *, int *, SuperMatrix *, SuperMatrix *,
                         GlobalLU_t *, SuperLUStat_t*, int *);
-extern int     zldperm(int, int, int, int [], int [], doublecomplex [],
-                        int [],	double [], double []);
+extern int     zldperm(int_t, int_t, int_t, int_t [], int_t [], doublecomplex [],
+                        int_t [],	double [], double []);
 extern int     ilu_zsnode_dfs (const int, const int, const int *, const int *,
 			       const int *, int *, GlobalLU_t *);
 extern void    ilu_zpanel_dfs (const int, const int, const int, SuperMatrix *,

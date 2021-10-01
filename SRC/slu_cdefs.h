@@ -190,8 +190,8 @@ extern void    cgstrs (trans_t, SuperMatrix *, SuperMatrix *, int *, int *,
 extern void    cgsitrf (superlu_options_t*, SuperMatrix*, int, int, int*,
 		        void *, int, int *, int *, SuperMatrix *, SuperMatrix *,
                         GlobalLU_t *, SuperLUStat_t*, int *);
-extern int     cldperm(int, int, int, int [], int [], complex [],
-                        int [],	float [], float []);
+extern int     cldperm(int_t, int_t, int_t, int_t [], int_t [], complex [],
+                        int_t [],	float [], float []);
 extern int     ilu_csnode_dfs (const int, const int, const int *, const int *,
 			       const int *, int *, GlobalLU_t *);
 extern void    ilu_cpanel_dfs (const int, const int, const int, SuperMatrix *,
