@@ -165,8 +165,8 @@ extern int     ssnode_bmod (const int, const int, const int, float *,
 extern void    spanel_dfs (const int_t, const int_t, const int_t, SuperMatrix *,
 			   int_t *, int_t *, float *, int_t *, int_t *, int_t *,
 			   int_t *, int_t *, int_t *, int_t *, GlobalLU_t *);
-extern void    spanel_bmod (const int, const int, const int, const int,
-                           float *, float *, int *, int *,
+extern void    spanel_bmod (const int_t, const int_t, const int_t, const int_t,
+                           float *, float *, int_t *, int_t *,
 			   GlobalLU_t *, SuperLUStat_t*);
 extern int_t     scolumn_dfs (const int_t, const int_t, int_t *, int_t *, int_t *, int_t *,
 			   int_t *, int_t *, int_t *, int_t *, int_t *, GlobalLU_t *);
