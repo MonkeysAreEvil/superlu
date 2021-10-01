@@ -191,11 +191,11 @@ dgstrs (trans_t trans, SuperMatrix *L, SuperMatrix *U,
 			&Lval[luptr+nsupc], &nsupr, &Bmat[fsupc], &ldb, 
 			&beta, &work[0], &n );
 #else
-		dtrsm_("L", "L", "N", "U", &nsupc, &nrhs, &alpha,
-		       &Lval[luptr], &nsupr, &Bmat[fsupc], &ldb);
+		dtrsm_("L", "L", "N", "U", (int*)&nsupc, (int*)&nrhs, &alpha,
+		       &Lval[luptr], (int*)&nsupr, &Bmat[fsupc], (int*)&ldb);
 		
-		dgemm_( "N", "N", &nrow, &nrhs, &nsupc, &alpha, 
-			&Lval[luptr+nsupc], &nsupr, &Bmat[fsupc], &ldb, 
+		dgemm_( "N", "N", (int*)&nrow, (int*)&nrhs, (int*)&nsupc, &alpha, 
+			&Lval[luptr+nsupc], (int*)&nsupr, &Bmat[fsupc], (int*)&ldb, 
 			&beta, &work[0], &n );
 #endif
 		for (j = 0; j < nrhs; j++) {
@@ -260,8 +260,8 @@ dgstrs (trans_t trans, SuperMatrix *L, SuperMatrix *U,
 		STRSM( ftcs1, ftcs2, ftcs3, ftcs3, &nsupc, &nrhs, &alpha,
 		       &Lval[luptr], &nsupr, &Bmat[fsupc], &ldb);
 #else
-		dtrsm_("L", "U", "N", "N", &nsupc, &nrhs, &alpha,
-		       &Lval[luptr], &nsupr, &Bmat[fsupc], &ldb);
+		dtrsm_("L", "U", "N", "N", (int*)&nsupc, (int*)&nrhs, &alpha,
+		       &Lval[luptr], (int*)&nsupr, &Bmat[fsupc], (int*)&ldb);
 #endif
 #else		
 		for (j = 0; j < nrhs; j++)
