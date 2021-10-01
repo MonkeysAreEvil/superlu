@@ -199,9 +199,9 @@ extern void    ilu_spanel_dfs (const int_t, const int_t, const int_t, SuperMatri
 extern int_t     ilu_scolumn_dfs (const int_t, const int_t, int_t *, int_t *, int_t *,
 				int_t *, int_t *, int_t *, int_t *, int_t *,
 				GlobalLU_t *);
-extern int     ilu_scopy_to_ucol (int, int, int *, int *, int *,
-                                  float *, int, milu_t, double, int,
-                                  float *, int *, GlobalLU_t *, float *);
+extern int_t     ilu_scopy_to_ucol (int_t, int_t, int_t *, int_t *, int_t *,
+                                  float *, int_t, milu_t, double, int_t,
+                                  float *, int_t *, GlobalLU_t *, float *);
 extern int_t     ilu_spivotL (const int_t, const double, int_t *, int_t *, int_t, int_t *,
 			    int_t *, int_t *, int_t *, double, milu_t,
                             float, GlobalLU_t *, SuperLUStat_t*);
