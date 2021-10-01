@@ -132,22 +132,22 @@ dgsisx(superlu_options_t *, SuperMatrix *, int_t *, int_t *, int_t *,
 
 /*! \brief Supernodal LU factor related */
 extern void
-dCreate_CompCol_Matrix(SuperMatrix *, int, int, int, double *,
-		       int *, int *, Stype_t, Dtype_t, Mtype_t);
+dCreate_CompCol_Matrix(SuperMatrix *, int_t, int_t, int_t, double *,
+		       int_t *, int_t *, Stype_t, Dtype_t, Mtype_t);
 extern void
-dCreate_CompRow_Matrix(SuperMatrix *, int, int, int, double *,
-		       int *, int *, Stype_t, Dtype_t, Mtype_t);
+dCreate_CompRow_Matrix(SuperMatrix *, int_t, int_t, int_t, double *,
+		       int_t *, int_t *, Stype_t, Dtype_t, Mtype_t);
 extern void
 dCopy_CompCol_Matrix(SuperMatrix *, SuperMatrix *);
 extern void
-dCreate_Dense_Matrix(SuperMatrix *, int, int, double *, int,
+dCreate_Dense_Matrix(SuperMatrix *, int_t, int_t, double *, int_t,
 		     Stype_t, Dtype_t, Mtype_t);
 extern void
-dCreate_SuperNode_Matrix(SuperMatrix *, int, int, int, double *, 
-		         int *, int *, int *, int *, int *,
+dCreate_SuperNode_Matrix(SuperMatrix *, int_t, int_t, int_t, double *, 
+		         int_t *, int_t *, int_t *, int_t *, int_t *,
 			 Stype_t, Dtype_t, Mtype_t);
 extern void
-dCopy_Dense_Matrix(int, int, double *, int, double *, int);
+dCopy_Dense_Matrix(int_t, int_t, double *, int_t, double *, int_t);
 
 extern void    countnz (const int_t, int_t *, int_t *, int_t *, GlobalLU_t *);
 extern void    ilu_countnz (const int_t, int_t *, int_t *, GlobalLU_t *);
@@ -254,8 +254,8 @@ extern void    dreadhb(FILE *, int *, int *, int *, double **, int **, int **);
 extern void    dreadrb(int *, int *, int *, double **, int **, int **);
 extern void    dreadtriple(int *, int *, int *, double **, int **, int **);
 extern void    dreadMM(FILE *, int *, int *, int *, double **, int **, int **);
-extern void    dCompRow_to_CompCol(int, int, int, double*, int*, int*,
-		                   double **, int **, int **);
+extern void    dCompRow_to_CompCol(int_t, int_t, int_t, double*, int_t*, int_t*,
+		                   double **, int_t **, int_t **);
 extern void    dfill (double *, int, double);
 extern void    dinf_norm_error (int, SuperMatrix *, double *);
 extern double  dqselect(int, double *, int);
@@ -264,9 +264,9 @@ extern double  dqselect(int, double *, int);
 /*! \brief Routines for debugging */
 extern void    dPrint_CompCol_Matrix(char *, SuperMatrix *);
 extern void    dPrint_SuperNode_Matrix(char *, SuperMatrix *);
-extern void    dPrint_Dense_Matrix(char *, SuperMatrix *);
+extern void    dPrint_t_Dense_Matrix(char *, SuperMatrix *);
 extern void    dprint_lu_col(char *, int, int, int *, GlobalLU_t *);
-extern int     print_double_vec(char *, int, double *);
+extern int_t     print_t_double_vec(char *, int_t, double *);
 extern void    dcheck_tempv(int, double *);
 
 /*! \brief BLAS */
