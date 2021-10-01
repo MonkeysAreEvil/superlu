@@ -320,12 +320,12 @@ typedef struct {
 } LU_stack_t;
 
 typedef struct {
-    int     *panel_histo; /* histogram of panel size distribution */
+    int_t     *panel_histo; /* histogram of panel size distribution */
     double  *utime;       /* running time at various phases */
     flops_t *ops;         /* operation count at various phases */
-    int     TinyPivots;   /* number of tiny pivots */
-    int     RefineSteps;  /* number of iterative refinement steps */
-    int     expansions;   /* number of memory expansions */
+    int_t     TinyPivots;   /* number of tiny pivots */
+    int_t     RefineSteps;  /* number of iterative refinement steps */
+    int_t     expansions;   /* number of memory expansions */
 } SuperLUStat_t;
 
 typedef struct {

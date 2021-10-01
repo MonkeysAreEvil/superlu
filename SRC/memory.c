@@ -211,7 +211,7 @@ PrintStack(char *msg, GlobalLU_t *Glu)
     for (i = 0; i < xusub[ndim]; ++i)
 	printf("%d  ", usub[i]);
 
-    printf("\n");*/
+    nrintf("\n");*/
     return 0;
 }   
 #endif
