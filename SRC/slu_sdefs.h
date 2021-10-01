@@ -168,8 +168,8 @@ extern void    spanel_dfs (const int, const int, const int, SuperMatrix *,
 extern void    spanel_bmod (const int, const int, const int, const int,
                            float *, float *, int *, int *,
 			   GlobalLU_t *, SuperLUStat_t*);
-extern int     scolumn_dfs (const int, const int, int *, int *, int *, int *,
-			   int *, int *, int *, int *, int *, GlobalLU_t *);
+extern int_t     scolumn_dfs (const int_t, const int_t, int_t *, int_t *, int_t *, int_t *,
+			   int_t *, int_t *, int_t *, int_t *, int_t *, GlobalLU_t *);
 extern int     scolumn_bmod (const int, const int, float *,
 			   float *, int *, int *, int,
                            GlobalLU_t *, SuperLUStat_t*);
