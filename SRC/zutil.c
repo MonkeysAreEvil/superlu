@@ -225,9 +225,9 @@ void
 zPrint_SuperNode_Matrix(char *what, SuperMatrix *A)
 {
     SCformat     *Astore;
-    register int i, j, k, c, d, n, nsup;
+    register int_t i, j, k, c, d, n, nsup;
     double       *dp;
-    int *col_to_sup, *sup_to_col, *rowind, *rowind_colptr;
+    int_t *col_to_sup, *sup_to_col, *rowind, *rowind_colptr;
     
     printf("\nSuperNode matrix %s:\n", what);
     printf("Stype %d, Dtype %d, Mtype %d\n", A->Stype,A->Dtype,A->Mtype);
@@ -238,7 +238,7 @@ zPrint_SuperNode_Matrix(char *what, SuperMatrix *A)
     sup_to_col = Astore->sup_to_col;
     rowind_colptr = Astore->rowind_colptr;
     rowind = Astore->rowind;
-    printf("nrow %d, ncol %d, nnz %d, nsuper %d\n", 
+    printf("nrow %lld, ncol %lld, nnz %lld, nsuper %lld\n", 
 	   A->nrow,A->ncol,Astore->nnz,Astore->nsuper);
     printf("nzval:\n");
     for (k = 0; k <= Astore->nsuper; ++k) {
@@ -297,12 +297,12 @@ void
 zprint_lu_col(char *msg, int jcol, int pivrow, int *xprune, GlobalLU_t *Glu)
 {
     int     i, k, fsupc;
-    int     *xsup, *supno;
-    int     *xlsub, *lsub;
+    int_t     *xsup, *supno;
+    int_t     *xlsub, *lsub;
     doublecomplex  *lusup;
-    int     *xlusup;
+    int_t     *xlusup;
     doublecomplex  *ucol;
-    int     *usub, *xusub;
+    int_t     *usub, *xusub;
 
     xsup    = Glu->xsup;
     supno   = Glu->supno;
