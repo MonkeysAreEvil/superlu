@@ -335,21 +335,21 @@ typedef struct {
 
 
 typedef struct {
-    int     *xsup;    /* supernode and column mapping */
-    int     *supno;   
-    int     *lsub;    /* compressed L subscripts */
-    int	    *xlsub;
+    int_t     *xsup;    /* supernode and column mapping */
+    int_t     *supno;   
+    int_t     *lsub;    /* compressed L subscripts */
+    int_t	    *xlsub;
     void    *lusup;   /* L supernodes */
-    int     *xlusup;
+    int_t     *xlusup;
     void    *ucol;    /* U columns */
-    int     *usub;
-    int	    *xusub;
-    int     nzlmax;   /* current max size of lsub */
-    int     nzumax;   /*    "    "    "      ucol */
-    int     nzlumax;  /*    "    "    "     lusup */
-    int     n;        /* number of columns in the matrix */
+    int_t     *usub;
+    int_t	    *xusub;
+    int_t     nzlmax;   /* current max size of lsub */
+    int_t     nzumax;   /*    "    "    "      ucol */
+    int_t     nzlumax;  /*    "    "    "     lusup */
+    int_t     n;        /* number of columns in the matrix */
     LU_space_t MemModel; /* 0 - system malloc'd; 1 - user provided */
-    int     num_expansions;
+    int_t     num_expansions;
     ExpHeader *expanders; /* Array of pointers to 4 types of memory */
     LU_stack_t stack;     /* use user supplied memory */
 } GlobalLU_t;
