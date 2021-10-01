@@ -202,8 +202,8 @@ extern int     ilu_scolumn_dfs (const int, const int, int *, int *, int *,
 extern int     ilu_scopy_to_ucol (int, int, int *, int *, int *,
                                   float *, int, milu_t, double, int,
                                   float *, int *, GlobalLU_t *, float *);
-extern int     ilu_spivotL (const int, const double, int *, int *, int, int *,
-			    int *, int *, int *, double, milu_t,
+extern int_t     ilu_spivotL (const int_t, const double, int_t *, int_t *, int_t, int_t *,
+			    int_t *, int_t *, int_t *, double, milu_t,
                             float, GlobalLU_t *, SuperLUStat_t*);
 extern int_t     ilu_sdrop_row (superlu_options_t *, int_t, int_t, double,
                               int_t, int_t *, double *, GlobalLU_t *, 
