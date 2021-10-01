@@ -174,7 +174,7 @@ extern int_t     ccolumn_dfs (const int_t, const int_t, int_t *, int_t *, int_t 
 extern int_t     ccolumn_bmod (const int_t, const int_t, complex *,
 			   complex *, int_t *, int_t *, int_t,
                            GlobalLU_t *, SuperLUStat_t*);
-extern int     ccopy_to_ucol (int, int, int *, int *, int *,
+extern int_t     ccopy_to_ucol (int_t, int_t, int_t *, int_t *, int_t *,
                               complex *, GlobalLU_t *);         
 extern int_t     cpivotL (const int_t, const double, int_t *, int_t *, 
                          int_t *, int_t *, int_t *, GlobalLU_t *, SuperLUStat_t*);
