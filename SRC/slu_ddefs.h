@@ -180,8 +180,8 @@ extern int_t     dpivotL (const int_t, const double, int_t *, int_t *,
 extern void    dpruneL (const int_t, const int_t *, const int_t, const int_t,
 			  const int_t *, const int_t *, int_t *, GlobalLU_t *);
 extern void    dreadmt (int *, int *, int *, double **, int **, int **);
-extern void    dGenXtrue (int, int, double *, int);
-extern void    dFillRHS (trans_t, int, double *, int, SuperMatrix *,
+extern void    dGenXtrue (int_t, int_t, double *, int_t);
+extern void    dFillRHS (trans_t, int_t, double *, int_t, SuperMatrix *,
 			  SuperMatrix *);
 extern void    dgstrs (trans_t, SuperMatrix *, SuperMatrix *, int_t *, int_t *,
                         SuperMatrix *, SuperLUStat_t*, int_t *);
@@ -256,8 +256,8 @@ extern void    dreadtriple(int_t *, int_t *, int_t *, double **, int_t **, int_t
 extern void    dreadMM(FILE *, int_t *, int_t *, int_t *, double **, int_t **, int_t **);
 extern void    dCompRow_to_CompCol(int_t, int_t, int_t, double*, int_t*, int_t*,
 		                   double **, int_t **, int_t **);
-extern void    dfill (double *, int, double);
-extern void    dinf_norm_error (int, SuperMatrix *, double *);
+extern void    dfill (double *, int_t, double);
+extern void    dinf_norm_error (int_t, SuperMatrix *, double *);
 extern double  dqselect(int, double *, int);
 
 
