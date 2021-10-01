@@ -196,7 +196,7 @@ dgstrs (trans_t trans, SuperMatrix *L, SuperMatrix *U,
 		
 		dgemm_( "N", "N", (int*)&nrow, (int*)&nrhs, (int*)&nsupc, &alpha, 
 			&Lval[luptr+nsupc], (int*)&nsupr, &Bmat[fsupc], (int*)&ldb, 
-			&beta, &work[0], &n );
+			&beta, &work[0], (int*)&n );
 #endif
 		for (j = 0; j < nrhs; j++) {
 		    rhs_work = &Bmat[j*ldb];
