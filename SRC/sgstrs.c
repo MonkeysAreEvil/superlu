@@ -91,14 +91,14 @@ at the top-level directory.
 
 void
 sgstrs (trans_t trans, SuperMatrix *L, SuperMatrix *U,
-        int *perm_c, int *perm_r, SuperMatrix *B,
-        SuperLUStat_t *stat, int *info)
+        int_t *perm_c, int_t *perm_r, SuperMatrix *B,
+        SuperLUStat_t *stat, int_t *info)
 {
 
 #ifdef _CRAY
     _fcd ftcs1, ftcs2, ftcs3, ftcs4;
 #endif
-    int      incx = 1, incy = 1;
+    int_t      incx = 1, incy = 1;
 #ifdef USE_VENDOR_BLAS
     float   alpha = 1.0, beta = 1.0;
     float   *work_col;
@@ -108,8 +108,8 @@ sgstrs (trans_t trans, SuperMatrix *L, SuperMatrix *U,
     SCformat *Lstore;
     NCformat *Ustore;
     float   *Lval, *Uval;
-    int      fsupc, nrow, nsupr, nsupc, luptr, istart, irow;
-    int      i, j, k, iptr, jcol, n, ldb, nrhs;
+    int_t      fsupc, nrow, nsupr, nsupc, luptr, istart, irow;
+    int_t      i, j, k, iptr, jcol, n, ldb, nrhs;
     float   *work, *rhs_work, *soln;
     flops_t  solve_ops;
     void sprint_soln();
@@ -331,9 +331,9 @@ sgstrs (trans_t trans, SuperMatrix *L, SuperMatrix *U,
  * Diagnostic print of the solution vector 
  */
 void
-sprint_soln(int n, int nrhs, float *soln)
+sprint_soln(int_t n, int_t nrhs, float *soln)
 {
-    int i;
+    int_t i;
 
     for (i = 0; i < n; i++)
   	printf("\t%d: %.4f\n", i, soln[i]);
