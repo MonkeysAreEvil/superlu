@@ -48,15 +48,15 @@ at the top-level directory.
  *               > 0 - number of bytes allocated when run out of space
  * </pre>
  */
-int
+int_t
 dcolumn_bmod (
-	     const int  jcol,	  /* in */
-	     const int  nseg,	  /* in */
+	     const int_t  jcol,	  /* in */
+	     const int_t  nseg,	  /* in */
 	     double     *dense,	  /* in */
 	     double     *tempv,	  /* working array */
-	     int        *segrep,  /* in */
-	     int        *repfnz,  /* in */
-	     int        fpanelc,  /* in -- first column in the current panel */
+	     int_t        *segrep,  /* in */
+	     int_t        *repfnz,  /* in */
+	     int_t        fpanelc,  /* in -- first column in the current panel */
 	     GlobalLU_t *Glu,     /* modified */
 	     SuperLUStat_t *stat  /* output */
 	     )
@@ -67,7 +67,7 @@ dcolumn_bmod (
          ftcs2 = _cptofcd("N", strlen("N")),
          ftcs3 = _cptofcd("U", strlen("U"));
 #endif
-    int         incx = 1, incy = 1;
+    int_t         incx = 1, incy = 1;
     double      alpha, beta;
     
     /* krep = representative of current k-th supernode
@@ -79,26 +79,26 @@ dcolumn_bmod (
      * no_zeros = no of leading zeros in a supernodal U-segment
      */
     double       ukj, ukj1, ukj2;
-    int          luptr, luptr1, luptr2;
-    int          fsupc, nsupc, nsupr, segsze;
-    int          nrow;	  /* No of rows in the matrix of matrix-vector */
-    int          jcolp1, jsupno, k, ksub, krep, krep_ind, ksupno;
-    register int lptr, kfnz, isub, irow, i;
-    register int no_zeros, new_next; 
-    int          ufirst, nextlu;
-    int          fst_col; /* First column within small LU update */
-    int          d_fsupc; /* Distance between the first column of the current
+    int_t          luptr, luptr1, luptr2;
+    int_t          fsupc, nsupc, nsupr, segsze;
+    int_t          nrow;	  /* No of rows in the matrix of matrix-vector */
+    int_t          jcolp1, jsupno, k, ksub, krep, krep_ind, ksupno;
+    register int_t lptr, kfnz, isub, irow, i;
+    register int_t no_zeros, new_next; 
+    int_t          ufirst, nextlu;
+    int_t          fst_col; /* First column within small LU update */
+    int_t          d_fsupc; /* Distance between the first column of the current
 			     panel and the first column of the current snode. */
-    int          *xsup, *supno;
-    int          *lsub, *xlsub;
+    int_t          *xsup, *supno;
+    int_t          *lsub, *xlsub;
     double       *lusup;
-    int          *xlusup;
-    int          nzlumax;
+    int_t          *xlusup;
+    int_t          nzlumax;
     double       *tempv1;
     double      zero = 0.0;
     double      one = 1.0;
     double      none = -1.0;
-    int          mem_error;
+    int_t          mem_error;
     flops_t      *ops = stat->ops;
 
     xsup    = Glu->xsup;

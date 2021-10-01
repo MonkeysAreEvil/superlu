@@ -170,8 +170,8 @@ extern void    dpanel_bmod (const int_t, const int_t, const int_t, const int_t,
 			   GlobalLU_t *, SuperLUStat_t*);
 extern int_t     dcolumn_dfs (const int_t, const int_t, int_t *, int_t *, int_t *, int_t *,
 			   int_t *, int_t *, int_t *, int_t *, int_t *, GlobalLU_t *);
-extern int     dcolumn_bmod (const int, const int, double *,
-			   double *, int *, int *, int,
+extern int_t     dcolumn_bmod (const int_t, const int_t, double *,
+			   double *, int_t *, int_t *, int_t,
                            GlobalLU_t *, SuperLUStat_t*);
 extern int_t     dcopy_to_ucol (int_t, int_t, int_t *, int_t *, int_t *,
                               double *, GlobalLU_t *);         
