@@ -112,23 +112,23 @@ extern "C" {
 
 /*! \brief Driver routines */
 extern void
-cgssv(superlu_options_t *, SuperMatrix *, int *, int *, SuperMatrix *,
-      SuperMatrix *, SuperMatrix *, SuperLUStat_t *, int *);
+cgssv(superlu_options_t *, SuperMatrix *, int_t *, int_t *, SuperMatrix *,
+      SuperMatrix *, SuperMatrix *, SuperLUStat_t *, int_t *);
 extern void
-cgssvx(superlu_options_t *, SuperMatrix *, int *, int *, int *,
+cgssvx(superlu_options_t *, SuperMatrix *, int_t *, int_t *, int_t *,
        char *, float *, float *, SuperMatrix *, SuperMatrix *,
-       void *, int, SuperMatrix *, SuperMatrix *,
+       void *, int_t, SuperMatrix *, SuperMatrix *,
        float *, float *, float *, float *,
-       GlobalLU_t *, mem_usage_t *, SuperLUStat_t *, int *);
+       GlobalLU_t *, mem_usage_t *, SuperLUStat_t *, int_t *);
     /* ILU */
 extern void
 cgsisv(superlu_options_t *, SuperMatrix *, int *, int *, SuperMatrix *,
       SuperMatrix *, SuperMatrix *, SuperLUStat_t *, int *);
 extern void
-cgsisx(superlu_options_t *, SuperMatrix *, int *, int *, int *,
+cgsisx(superlu_options_t *, SuperMatrix *, int_t *, int_t *, int_t *,
        char *, float *, float *, SuperMatrix *, SuperMatrix *,
-       void *, int, SuperMatrix *, SuperMatrix *, float *, float *,
-       GlobalLU_t *, mem_usage_t *, SuperLUStat_t *, int *);
+       void *, int_t, SuperMatrix *, SuperMatrix *, float *, float *,
+       GlobalLU_t *, mem_usage_t *, SuperLUStat_t *, int_t *);
 
 
 /*! \brief Supernodal LU factor related */
@@ -156,9 +156,9 @@ extern void    fixupL (const int_t, const int_t *, GlobalLU_t *);
 
 extern void    callocateA (int_t, int_t, complex **, int_t **, int_t **);
 extern void    cgstrf (superlu_options_t*, SuperMatrix*,
-                       int, int, int*, void *, int, int *, int *, 
+                       int_t, int_t, int_t*, void *, int_t, int_t *, int_t *, 
                        SuperMatrix *, SuperMatrix *, GlobalLU_t *,
-		       SuperLUStat_t*, int *);
+		       SuperLUStat_t*, int_t *);
 extern int     csnode_dfs (const int, const int, const int *, const int *,
 			     const int *, int *, int *, GlobalLU_t *);
 extern int     csnode_bmod (const int, const int, const int, complex *,
@@ -184,12 +184,12 @@ extern void    creadmt (int *, int *, int *, complex **, int **, int **);
 extern void    cGenXtrue (int, int, complex *, int);
 extern void    cFillRHS (trans_t, int, complex *, int, SuperMatrix *,
 			  SuperMatrix *);
-extern void    cgstrs (trans_t, SuperMatrix *, SuperMatrix *, int *, int *,
-                        SuperMatrix *, SuperLUStat_t*, int *);
+extern void    cgstrs (trans_t, SuperMatrix *, SuperMatrix *, int_t *, int_t *,
+                        SuperMatrix *, SuperLUStat_t*, int_t *);
 /* ILU */
-extern void    cgsitrf (superlu_options_t*, SuperMatrix*, int, int, int*,
-		        void *, int, int *, int *, SuperMatrix *, SuperMatrix *,
-                        GlobalLU_t *, SuperLUStat_t*, int *);
+extern void    cgsitrf (superlu_options_t*, SuperMatrix*, int_t, int_t, int_t*,
+		        void *, int_t, int_t *, int_t *, SuperMatrix *, SuperMatrix *,
+                        GlobalLU_t *, SuperLUStat_t*, int_t *);
 extern int     cldperm(int_t, int_t, int_t, int_t [], int_t [], complex [],
                         int_t [],	float [], float []);
 extern int_t     ilu_csnode_dfs (const int_t, const int_t, const int_t *, const int_t *,
@@ -214,7 +214,7 @@ extern int_t     ilu_cdrop_row (superlu_options_t *, int_t, int_t, double,
 /*! \brief Driver related */
 
 extern void    cgsequ (SuperMatrix *, float *, float *, float *,
-			float *, float *, int *);
+			float *, float *, int_t *);
 extern void    claqgs (SuperMatrix *, float *, float *, float,
                         float, float, char *);
 extern void    cgscon (char *, SuperMatrix *, SuperMatrix *, 
@@ -222,9 +222,9 @@ extern void    cgscon (char *, SuperMatrix *, SuperMatrix *,
 extern float   cPivotGrowth(int, SuperMatrix *, int *, 
                             SuperMatrix *, SuperMatrix *);
 extern void    cgsrfs (trans_t, SuperMatrix *, SuperMatrix *,
-                       SuperMatrix *, int *, int *, char *, float *, 
+                       SuperMatrix *, int_t *, int_t *, char *, float *, 
                        float *, SuperMatrix *, SuperMatrix *,
-                       float *, float *, SuperLUStat_t*, int *);
+                       float *, float *, SuperLUStat_t*, int_t *);
 
 extern int     sp_ctrsv (char *, char *, char *, SuperMatrix *,
 			SuperMatrix *, complex *, SuperLUStat_t*, int *);

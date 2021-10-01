@@ -91,8 +91,8 @@ at the top-level directory.
 
 void
 cgstrs (trans_t trans, SuperMatrix *L, SuperMatrix *U,
-        int *perm_c, int *perm_r, SuperMatrix *B,
-        SuperLUStat_t *stat, int *info)
+        int_t *perm_c, int_t *perm_r, SuperMatrix *B,
+        SuperLUStat_t *stat, int_t *info)
 {
 
 #ifdef _CRAY
@@ -109,8 +109,8 @@ cgstrs (trans_t trans, SuperMatrix *L, SuperMatrix *U,
     SCformat *Lstore;
     NCformat *Ustore;
     complex   *Lval, *Uval;
-    int      fsupc, nrow, nsupr, nsupc, luptr, istart, irow;
-    int      i, j, k, iptr, jcol, n, ldb, nrhs;
+    int_t      fsupc, nrow, nsupr, nsupc, luptr, istart, irow;
+    int_t      i, j, k, iptr, jcol, n, ldb, nrhs;
     complex   *work, *rhs_work, *soln;
     flops_t  solve_ops;
     void cprint_soln();
@@ -344,10 +344,10 @@ cgstrs (trans_t trans, SuperMatrix *L, SuperMatrix *U,
  * Diagnostic print of the solution vector 
  */
 void
-cprint_soln(int n, int nrhs, complex *soln)
+cprint_soln(int_t n, int_t nrhs, complex *soln)
 {
-    int i;
+    int_t i;
 
     for (i = 0; i < n; i++)
-  	printf("\t%d: %.4f\t%.4f\n", i, soln[i].r, soln[i].i);
+  	printf("\t%lld: %.4f\t%.4f\n", i, soln[i].r, soln[i].i);
 }
