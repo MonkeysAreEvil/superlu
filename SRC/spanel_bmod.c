@@ -221,8 +221,8 @@ spanel_bmod (
 		    STRSV( ftcs1, ftcs2, ftcs3, &segsze, &lusup[luptr], 
 			   &nsupr, TriTmp, &incx );
 #else
-		    strsv_( "L", "N", "U", &segsze, &lusup[luptr], 
-			   &nsupr, TriTmp, &incx );
+		    strsv_( "L", "N", "U", (int*)&segsze, &lusup[luptr], 
+			   (int*)&nsupr, TriTmp, (int*)&incx );
 #endif
 #else		
 		    slsolve ( nsupr, segsze, &lusup[luptr], TriTmp );
@@ -400,8 +400,8 @@ spanel_bmod (
 		    STRSV( ftcs1, ftcs2, ftcs3, &segsze, &lusup[luptr], 
 			   &nsupr, tempv, &incx );
 #else
-		    strsv_( "L", "N", "U", &segsze, &lusup[luptr], 
-			   &nsupr, tempv, &incx );
+		    strsv_( "L", "N", "U", (int*)&segsze, &lusup[luptr], 
+			   (int*)&nsupr, tempv, (int*)&incx );
 #endif
 		    
 		    luptr += segsze;	/* Dense matrix-vector */
