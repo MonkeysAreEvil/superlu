@@ -186,9 +186,9 @@ extern void    sFillRHS (trans_t, int_t, float *, int_t, SuperMatrix *,
 extern void    sgstrs (trans_t, SuperMatrix *, SuperMatrix *, int_t *, int_t *,
                         SuperMatrix *, SuperLUStat_t*, int_t *);
 /* ILU */
-extern void    sgsitrf (superlu_options_t*, SuperMatrix*, int, int, int*,
-		        void *, int, int *, int *, SuperMatrix *, SuperMatrix *,
-                        GlobalLU_t *, SuperLUStat_t*, int *);
+extern void    sgsitrf (superlu_options_t*, SuperMatrix*, int_t, int_t, int_t*,
+		        void *, int_t, int_t *, int_t *, SuperMatrix *, SuperMatrix *,
+                        GlobalLU_t *, SuperLUStat_t*, int_t *);
 extern int     sldperm(int_t, int_t, int_t, int_t [], int_t [], float [],
                         int_t [],	float [], float []);
 extern int     ilu_ssnode_dfs (const int, const int, const int *, const int *,
