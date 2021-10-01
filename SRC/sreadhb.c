@@ -339,7 +339,7 @@ sreadhb(FILE *fp, int_t *nrow, int_t *ncol, int_t *nonz,
     fscanf(fp, "%16c", buf);
     sParseIntFormat(buf, &rownum, &rowsize);
     fscanf(fp, "%20c", buf);
-    sParseFloatFormat(buf, &valnum, &valsize);
+    sParseFloatFormat(buf, (int*)&valnum, (int*)&valsize);
     fscanf(fp, "%20c", buf);
     sDumpLine(fp);
 
