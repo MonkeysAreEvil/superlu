@@ -268,8 +268,8 @@ spanel_bmod (
 		    SGEMV(ftcs2, &block_nrow, &segsze, &alpha, &lusup[luptr1], 
 			   &nsupr, TriTmp, &incx, &beta, MatvecTmp, &incy);
 #else
-		    sgemv_("N", &block_nrow, &segsze, &alpha, &lusup[luptr1], 
-			   &nsupr, TriTmp, &incx, &beta, MatvecTmp, &incy);
+		    sgemv_("N", (int*)&block_nrow, (int*)&segsze, &alpha, &lusup[luptr1], 
+			   (int*)&nsupr, TriTmp, (int*)&incx, &beta, MatvecTmp, (int*)&incy);
 #endif
 #else
 		    smatvec(nsupr, block_nrow, segsze, &lusup[luptr1],
@@ -412,8 +412,8 @@ spanel_bmod (
 		    SGEMV( ftcs2, &nrow, &segsze, &alpha, &lusup[luptr], 
 			   &nsupr, tempv, &incx, &beta, tempv1, &incy );
 #else
-		    sgemv_( "N", &nrow, &segsze, &alpha, &lusup[luptr], 
-			   &nsupr, tempv, &incx, &beta, tempv1, &incy );
+		    sgemv_( "N", (int*)&nrow, (int*)&segsze, &alpha, &lusup[luptr], 
+			   (int*)&nsupr, tempv, (int*)&incx, &beta, tempv1, (int*)&incy );
 #endif
 #else
 		    slsolve ( nsupr, segsze, &lusup[luptr], tempv );
