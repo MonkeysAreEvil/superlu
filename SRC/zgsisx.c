@@ -669,7 +669,7 @@ zgsisx(superlu_options_t *options, SuperMatrix *A, int *perm_c, int *perm_r,
 	    *(unsigned char *)norm = 'I';
 	}
 	anorm = zlangs(norm, AA);
-	zgscon(norm, L, U, anorm, rcond, stat, &info1);
+	zgscon(norm, L, U, anorm, rcond, stat, (int*)&info1);
 	utime[RCOND] = SuperLU_timer_() - t0;
     }
 

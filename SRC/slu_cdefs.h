@@ -207,8 +207,8 @@ extern int_t     ilu_cpivotL (const int_t, const double, int_t *, int_t *, int_t
 			    int_t *, int_t *, int_t *, double, milu_t,
                             complex, GlobalLU_t *, SuperLUStat_t*);
 extern int_t     ilu_cdrop_row (superlu_options_t *, int_t, int_t, double,
-                              int, int *, double *, GlobalLU_t *, 
-                              float *, float *, int);
+                              int_t, int_t *, double *, GlobalLU_t *, 
+                              float *, float *, int_t);
 
 
 /*! \brief Driver related */
