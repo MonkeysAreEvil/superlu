@@ -114,10 +114,10 @@ int_t ilu_zdrop_row(
 	switch (nrm)
 	{
 	    case ONE_NORM:
-		temp[i] = dzasum_(&n, &lusup[xlusup_first + i], &m) / (double)n;
+		temp[i] = dzasum_((int*)&n, &lusup[xlusup_first + i], (int*)&m) / (double)n;
 		break;
 	    case TWO_NORM:
-		temp[i] = dznrm2_(&n, &lusup[xlusup_first + i], &m)
+		temp[i] = dznrm2_((int*)&n, &lusup[xlusup_first + i], (int*)&m)
 		    / sqrt((double)n);
 		break;
 	    case INF_NORM:

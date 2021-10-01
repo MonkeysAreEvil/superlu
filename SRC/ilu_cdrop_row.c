@@ -114,10 +114,10 @@ int_t ilu_cdrop_row(
 	switch (nrm)
 	{
 	    case ONE_NORM:
-		temp[i] = scasum_(&n, &lusup[xlusup_first + i], &m) / (double)n;
+		temp[i] = scasum_((int*)&n, &lusup[xlusup_first + i], (int*)&m) / (double)n;
 		break;
 	    case TWO_NORM:
-		temp[i] = scnrm2_(&n, &lusup[xlusup_first + i], &m)
+		temp[i] = scnrm2_((int*)&n, &lusup[xlusup_first + i], (int*)&m)
 		    / sqrt((double)n);
 		break;
 	    case INF_NORM:

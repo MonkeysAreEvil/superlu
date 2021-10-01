@@ -171,7 +171,7 @@ ilu_dcopy_to_ucol(
 		d_max = 1.0 / d_max; d_min = 1.0 / d_min;
 		tol = 1.0 / (d_max + (d_min - d_max) * quota / m);
 	    } else {
-		dcopy_(&m, &ucol[xusub[jcol]], &i_1, work, &i_1);
+		dcopy_((int*)&m, &ucol[xusub[jcol]], (int*)&i_1, work, (int*)&i_1);
 		tol = dqselect(m, work, quota);
 #if 0
 		A = &ucol[xusub[jcol]];
