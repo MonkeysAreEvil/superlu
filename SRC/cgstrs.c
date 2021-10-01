@@ -193,12 +193,12 @@ cgstrs (trans_t trans, SuperMatrix *L, SuperMatrix *U,
 			&Lval[luptr+nsupc], &nsupr, &Bmat[fsupc], &ldb, 
 			&beta, &work[0], &n );
 #else
-		ctrsm_("L", "L", "N", "U", &nsupc, &nrhs, &alpha,
-		       &Lval[luptr], &nsupr, &Bmat[fsupc], &ldb);
+		ctrsm_("L", "L", "N", "U", (int*)&nsupc, (int*)&nrhs, &alpha,
+		       &Lval[luptr], (int*)&nsupr, &Bmat[fsupc], (int*)&ldb);
 		
-		cgemm_( "N", "N", &nrow, &nrhs, &nsupc, &alpha, 
-			&Lval[luptr+nsupc], &nsupr, &Bmat[fsupc], &ldb, 
-			&beta, &work[0], &n );
+		cgemm_( "N", "N", (int*)&nrow, (int*)&nrhs, (int*)&nsupc, &alpha, 
+			&Lval[luptr+nsupc], (int*)&nsupr, &Bmat[fsupc], (int*)&ldb, 
+			&beta, &work[0], (int*)&n );
 #endif
 		for (j = 0; j < nrhs; j++) {
 		    rhs_work = &Bmat[j*ldb];
@@ -264,8 +264,8 @@ cgstrs (trans_t trans, SuperMatrix *L, SuperMatrix *U,
 		CTRSM( ftcs1, ftcs2, ftcs3, ftcs3, &nsupc, &nrhs, &alpha,
 		       &Lval[luptr], &nsupr, &Bmat[fsupc], &ldb);
 #else
-		ctrsm_("L", "U", "N", "N", &nsupc, &nrhs, &alpha,
-		       &Lval[luptr], &nsupr, &Bmat[fsupc], &ldb);
+		ctrsm_("L", "U", "N", "N", (int*)&nsupc, (int*)&nrhs, &alpha,
+		       &Lval[luptr], (int*)&nsupr, &Bmat[fsupc], (int*)&ldb);
 #endif
 #else		
 		for (j = 0; j < nrhs; j++)
@@ -313,18 +313,18 @@ cgstrs (trans_t trans, SuperMatrix *L, SuperMatrix *U,
         if (trans == TRANS) {
 	    for (k = 0; k < nrhs; ++k) {
 	        /* Multiply by inv(U'). */
-	        sp_ctrsv("U", "T", "N", L, U, &Bmat[k*ldb], stat, info);
+	        sp_ctrsv("U", "T", "N", L, U, &Bmat[k*ldb], stat, (int*)info);
 	    
 	        /* Multiply by inv(L'). */
-	        sp_ctrsv("L", "T", "U", L, U, &Bmat[k*ldb], stat, info);
+	        sp_ctrsv("L", "T", "U", L, U, &Bmat[k*ldb], stat, (int*)info);
 	    }
          } else { /* trans == CONJ */
             for (k = 0; k < nrhs; ++k) {                
                 /* Multiply by conj(inv(U')). */
-                sp_ctrsv("U", "C", "N", L, U, &Bmat[k*ldb], stat, info);
+                sp_ctrsv("U", "C", "N", L, U, &Bmat[k*ldb], stat, (int*)info);
                 
                 /* Multiply by conj(inv(L')). */
-                sp_ctrsv("L", "C", "U", L, U, &Bmat[k*ldb], stat, info);
+                sp_ctrsv("L", "C", "U", L, U, &Bmat[k*ldb], stat, (int*)info);
 	    }
          }
 	/* Compute the final solution X := Pr'*X (=inv(Pr)*X) */

@@ -384,7 +384,7 @@ cFillRHS(trans_t trans, int nrhs, complex *x, int ldx,
     if ( trans == NOTRANS ) *(unsigned char *)transc = 'N';
     else *(unsigned char *)transc = 'T';
 
-    sp_cgemm(transc, "N", A->nrow, nrhs, A->ncol, one, A,
+    sp_cgemm(transc, "N", (int*)A->nrow, nrhs, (int*)A->ncol, one, A,
 	     x, ldx, zero, rhs, ldc);
 
 }
