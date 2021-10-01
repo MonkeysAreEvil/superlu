@@ -384,7 +384,7 @@ extern void    superlu_free (void*);
 extern void    SetIWork (int_t, int_t, int_t, int_t *, int_t **, int_t **, int_t **,
                          int_t **, int_t **, int_t **, int_t **);
 extern int_t     sp_coletree (int_t *, int_t *, int_t *, int_t, int_t, int_t *);
-extern void    relax_snode (const int, int *, const int, int *, int *);
+extern void    relax_snode (const int_t, int_t *, const int_t, int_t *, int_t *);
 extern void    heap_relax_snode (const int, int *, const int, int *, int *);
 extern int     mark_relax(int, int *, int *, int *, int *, int *, int *);
 extern void    ilu_relax_snode (const int, int *, const int, int *,
