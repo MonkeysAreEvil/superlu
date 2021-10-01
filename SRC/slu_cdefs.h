@@ -171,8 +171,8 @@ extern void    cpanel_bmod (const int, const int, const int, const int,
 			   GlobalLU_t *, SuperLUStat_t*);
 extern int_t     ccolumn_dfs (const int_t, const int_t, int_t *, int_t *, int_t *, int_t *,
 			   int_t *, int_t *, int_t *, int_t *, int_t *, GlobalLU_t *);
-extern int_t_t     ccolumn_bmod (const int_t_t, const int_t_t, complex *,
-			   complex *, int_t_t *, int_t_t *, int_t_t,
+extern int_t     ccolumn_bmod (const int_t, const int_t, complex *,
+			   complex *, int_t *, int_t *, int_t,
                            GlobalLU_t *, SuperLUStat_t*);
 extern int     ccopy_to_ucol (int, int, int *, int *, int *,
                               complex *, GlobalLU_t *);         
