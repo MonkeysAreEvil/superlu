@@ -122,7 +122,7 @@ int_t ilu_zdrop_row(
 		break;
 	    case INF_NORM:
 	    default:
-		k = izamax_(&n, &lusup[xlusup_first + i], &m) - 1;
+		k = izamax_((int*)&n, &lusup[xlusup_first + i], (int*)&m) - 1;
 		temp[i] = z_abs1(&lusup[xlusup_first + i + m * k]);
 		break;
 	}
@@ -139,8 +139,8 @@ int_t ilu_zdrop_row(
 		{
 		    case SMILU_1:
 		    case SMILU_2:
-			zaxpy_(&n, &one, &lusup[xlusup_first + i], &m,
-				&lusup[xlusup_first + m - 1], &m);
+			zaxpy_((int*)&n, &one, &lusup[xlusup_first + i], (int*)&m,
+				&lusup[xlusup_first + m - 1], (int*)&m);
 			break;
 		    case SMILU_3:
 			for (j = 0; j < n; j++)
@@ -151,13 +151,13 @@ int_t ilu_zdrop_row(
 		    default:
 			break;
 		}
-		zcopy_(&n, &lusup[xlusup_first + m1], &m,
-                       &lusup[xlusup_first + i], &m);
+		zcopy_((int*)&n, &lusup[xlusup_first + m1], (int*)&m,
+                       &lusup[xlusup_first + i], (int*)&m);
 	    } /* if (r > 1) */
 	    else /* move to last row */
 	    {
-		zswap_(&n, &lusup[xlusup_first + m1], &m,
-			&lusup[xlusup_first + i], &m);
+		zswap_((int*)&n, &lusup[xlusup_first + m1], (int*)&m,
+			&lusup[xlusup_first + i], (int*)&m);
 		if (milu == SMILU_3)
 		    for (j = 0; j < n; j++) {
 			lusup[xlusup_first + m1 + j * m].r =
@@ -194,7 +194,7 @@ int_t ilu_zdrop_row(
 	    else /* by quick select */
 	    {
 		int_t len = m1 - n + 1;
-		dcopy_(&len, dwork, &i_1, dwork2, &i_1);
+		dcopy_((int*)&len, dwork, (int*)&i_1, dwork2, (int*)&i_1);
 		tol = dqselect(len, dwork2, quota - n);
 #if 0
 		register int *itemp = iwork - n;
@@ -220,8 +220,8 @@ int_t ilu_zdrop_row(
 		    {
 			case SMILU_1:
 			case SMILU_2:
-			    zaxpy_(&n, &one, &lusup[xlusup_first + i], &m,
-				    &lusup[xlusup_first + m - 1], &m);
+			    zaxpy_((int*)&n, &one, &lusup[xlusup_first + i], (int*)&m,
+				    &lusup[xlusup_first + m - 1], (int*)&m);
 			    break;
 			case SMILU_3:
 			    for (j = 0; j < n; j++)
@@ -232,13 +232,13 @@ int_t ilu_zdrop_row(
 			default:
 			    break;
 		    }
-		    zcopy_(&n, &lusup[xlusup_first + m1], &m,
-			    &lusup[xlusup_first + i], &m);
+		    zcopy_((int*)&n, &lusup[xlusup_first + m1], (int*)&m,
+			    &lusup[xlusup_first + i], (int*)&m);
 		} /* if (r > 1) */
 		else /* move to last row */
 		{
-		    zswap_(&n, &lusup[xlusup_first + m1], &m,
-			    &lusup[xlusup_first + i], &m);
+		    zswap_((int*)&n, &lusup[xlusup_first + m1], (int*)&m,
+			    &lusup[xlusup_first + i], (int*)&m);
 		    if (milu == SMILU_3)
 			for (j = 0; j < n; j++) {
 			    lusup[xlusup_first + m1 + j * m].r =
