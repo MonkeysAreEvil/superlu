@@ -159,9 +159,9 @@ extern void    cgstrf (superlu_options_t*, SuperMatrix*,
                        int_t, int_t, int_t*, void *, int_t, int_t *, int_t *, 
                        SuperMatrix *, SuperMatrix *, GlobalLU_t *,
 		       SuperLUStat_t*, int_t *);
-extern int     csnode_dfs (const int, const int, const int *, const int *,
-			     const int *, int *, int *, GlobalLU_t *);
-extern int     csnode_bmod (const int, const int, const int, complex *,
+extern int_t     csnode_dfs (const int_t, const int_t, const int_t *, const int_t *,
+			     const int_t *, int_t *, int_t *, GlobalLU_t *);
+extern int_t     csnode_bmod (const int_t, const int_t, const int_t, complex *,
                               complex *, GlobalLU_t *, SuperLUStat_t*);
 extern void    cpanel_dfs (const int, const int, const int, SuperMatrix *,
 			   int *, int *, complex *, int *, int *, int *,

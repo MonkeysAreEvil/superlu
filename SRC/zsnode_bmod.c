@@ -37,11 +37,11 @@ at the top-level directory.
 
 /*! \brief Performs numeric block updates within the relaxed snode. 
  */
-int
+int_t
 zsnode_bmod (
-	    const int  jcol,	  /* in */
-	    const int  jsupno,    /* in */
-	    const int  fsupc,     /* in */
+	    const int_t  jcol,	  /* in */
+	    const int_t  jsupno,    /* in */
+	    const int_t  fsupc,     /* in */
 	    doublecomplex     *dense,    /* in */
 	    doublecomplex     *tempv,    /* working array */
 	    GlobalLU_t *Glu,      /* modified */
@@ -59,12 +59,12 @@ zsnode_bmod (
 #endif
 
     doublecomplex   comp_zero = {0.0, 0.0};
-    int            luptr, nsupc, nsupr, nrow;
-    int            isub, irow, i, iptr; 
-    register int   ufirst, nextlu;
-    int            *lsub, *xlsub;
+    int_t            luptr, nsupc, nsupr, nrow;
+    int_t            isub, irow, i, iptr; 
+    register int_t   ufirst, nextlu;
+    int_t            *lsub, *xlsub;
     doublecomplex         *lusup;
-    int            *xlusup;
+    int_t            *xlusup;
     flops_t *ops = stat->ops;
 
     lsub    = Glu->lsub;

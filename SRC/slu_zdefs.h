@@ -159,15 +159,15 @@ extern void    zgstrf (superlu_options_t*, SuperMatrix*,
                        int, int, int*, void *, int, int *, int *, 
                        SuperMatrix *, SuperMatrix *, GlobalLU_t *,
 		       SuperLUStat_t*, int *);
-extern int     zsnode_dfs (const int, const int, const int *, const int *,
-			     const int *, int *, int *, GlobalLU_t *);
-extern int     zsnode_bmod (const int, const int, const int, doublecomplex *,
+extern int_t     zsnode_dfs (const int_t, const int_t, const int_t *, const int_t *,
+			     const int_t *, int_t *, int_t *, GlobalLU_t *);
+extern int_t     zsnode_bmod (const int_t, const int_t, const int_t, doublecomplex *,
                               doublecomplex *, GlobalLU_t *, SuperLUStat_t*);
-extern void    zpanel_dfs (const int, const int, const int, SuperMatrix *,
-			   int *, int *, doublecomplex *, int *, int *, int *,
-			   int *, int *, int *, int *, GlobalLU_t *);
-extern void    zpanel_bmod (const int, const int, const int, const int,
-                           doublecomplex *, doublecomplex *, int *, int *,
+extern void    zpanel_dfs (const int_t, const int_t, const int_t, SuperMatrix *,
+			   int_t *, int_t *, doublecomplex *, int_t *, int_t *, int_t *,
+			   int_t *, int_t *, int_t *, int_t *, GlobalLU_t *);
+extern void    zpanel_bmod (const int_t, const int_t, const int_t, const int_t,
+                           doublecomplex *, doublecomplex *, int_t *, int_t *,
 			   GlobalLU_t *, SuperLUStat_t*);
 extern int     zcolumn_dfs (const int, const int, int *, int *, int *, int *,
 			   int *, int *, int *, int *, int *, GlobalLU_t *);

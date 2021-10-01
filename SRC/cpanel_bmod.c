@@ -59,14 +59,14 @@ at the top-level directory.
 
 void
 cpanel_bmod (
-	    const int  m,          /* in - number of rows in the matrix */
-	    const int  w,          /* in */
-	    const int  jcol,       /* in */
-	    const int  nseg,       /* in */
+	    const int_t  m,          /* in - number of rows in the matrix */
+	    const int_t  w,          /* in */
+	    const int_t  jcol,       /* in */
+	    const int_t  nseg,       /* in */
 	    complex     *dense,     /* out, of size n by w */
 	    complex     *tempv,     /* working array */
-	    int        *segrep,    /* in */
-	    int        *repfnz,    /* in, of size n by w */
+	    int_t        *segrep,    /* in */
+	    int_t        *repfnz,    /* in, of size n by w */
 	    GlobalLU_t *Glu,       /* modified */
 	    SuperLUStat_t *stat    /* output */
 	    )
@@ -83,31 +83,31 @@ cpanel_bmod (
     complex       alpha, beta;
 #endif
 
-    register int k, ksub;
-    int          fsupc, nsupc, nsupr, nrow;
-    int          krep, krep_ind;
+    register int_t k, ksub;
+    int_t          fsupc, nsupc, nsupr, nrow;
+    int_t          krep, krep_ind;
     complex       ukj, ukj1, ukj2;
-    int          luptr, luptr1, luptr2;
-    int          segsze;
-    int          block_nrow;  /* no of rows in a block row */
-    register int lptr;	      /* Points to the row subscripts of a supernode */
-    int          kfnz, irow, no_zeros; 
-    register int isub, isub1, i;
-    register int jj;	      /* Index through each column in the panel */
-    int          *xsup, *supno;
-    int          *lsub, *xlsub;
+    int_t          luptr, luptr1, luptr2;
+    int_t          segsze;
+    int_t          block_nrow;  /* no of rows in a block row */
+    register int_t lptr;	      /* Points to the row subscripts of a supernode */
+    int_t          kfnz, irow, no_zeros; 
+    register int_t isub, isub1, i;
+    register int_t jj;	      /* Index through each column in the panel */
+    int_t          *xsup, *supno;
+    int_t          *lsub, *xlsub;
     complex       *lusup;
-    int          *xlusup;
-    int          *repfnz_col; /* repfnz[] for a column in the panel */
+    int_t          *xlusup;
+    int_t          *repfnz_col; /* repfnz[] for a column in the panel */
     complex       *dense_col;  /* dense[] for a column in the panel */
     complex       *tempv1;             /* Used in 1-D update */
     complex       *TriTmp, *MatvecTmp; /* used in 2-D update */
     complex      zero = {0.0, 0.0};
     complex      one = {1.0, 0.0};
     complex      comp_temp, comp_temp1;
-    register int ldaTmp;
-    register int r_ind, r_hi;
-    int  maxsuper, rowblk, colblk;
+    register int_t ldaTmp;
+    register int_t r_ind, r_hi;
+    int_t  maxsuper, rowblk, colblk;
     flops_t  *ops = stat->ops;
     
     xsup    = Glu->xsup;
