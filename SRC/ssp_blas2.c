@@ -161,8 +161,8 @@ sp_strsv(char *uplo, char *trans, char *diag, SuperMatrix *L,
 		    strsv_("L", "N", "U", (int*)&nsupc, &Lval[luptr], (int*)&nsupr,
 		       	&x[fsupc], (int*)&incx);
 		
-		    sgemv_("N", &nrow, &nsupc, &alpha, &Lval[luptr+nsupc], 
-		       	&nsupr, &x[fsupc], &incx, &beta, &work[0], &incy);
+		    sgemv_("N", (int*)&nrow, (int*)&nsupc, &alpha, &Lval[luptr+nsupc], 
+		       	(int*)&nsupr, &x[fsupc], (int*)&incx, &beta, &work[0], (int*)&incy);
 #endif
 #else
 		    slsolve ( nsupr, nsupc, &Lval[luptr], &x[fsupc]);
