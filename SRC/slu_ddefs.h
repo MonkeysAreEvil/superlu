@@ -173,7 +173,7 @@ extern int     dcolumn_dfs (const int, const int, int *, int *, int *, int *,
 extern int     dcolumn_bmod (const int, const int, double *,
 			   double *, int *, int *, int,
                            GlobalLU_t *, SuperLUStat_t*);
-extern int     dcopy_to_ucol (int, int, int *, int *, int *,
+extern int_t     dcopy_to_ucol (int_t, int_t, int_t *, int_t *, int_t *,
                               double *, GlobalLU_t *);         
 extern int_t     dpivotL (const int_t, const double, int_t *, int_t *, 
                          int_t *, int_t *, int_t *, GlobalLU_t *, SuperLUStat_t*);
