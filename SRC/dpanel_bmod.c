@@ -221,8 +221,8 @@ dpanel_bmod (
 		    STRSV( ftcs1, ftcs2, ftcs3, &segsze, &lusup[luptr], 
 			   &nsupr, TriTmp, &incx );
 #else
-		    dtrsv_( "L", "N", "U", &segsze, &lusup[luptr], 
-			   &nsupr, TriTmp, &incx );
+		    dtrsv_( "L", "N", "U", (int*)&segsze, &lusup[luptr], 
+			   (int*)&nsupr, TriTmp, (int*)&incx );
 #endif
 #else		
 		    dlsolve ( nsupr, segsze, &lusup[luptr], TriTmp );
@@ -268,8 +268,8 @@ dpanel_bmod (
 		    SGEMV(ftcs2, &block_nrow, &segsze, &alpha, &lusup[luptr1], 
 			   &nsupr, TriTmp, &incx, &beta, MatvecTmp, &incy);
 #else
-		    dgemv_("N", &block_nrow, &segsze, &alpha, &lusup[luptr1], 
-			   &nsupr, TriTmp, &incx, &beta, MatvecTmp, &incy);
+		    dgemv_("N", &block_nrow, (int*)&segsze, &alpha, &lusup[luptr1], 
+			   (int*)&nsupr, TriTmp, (int*)&incx, &beta, MatvecTmp, (int*)&incy);
 #endif
 #else
 		    dmatvec(nsupr, block_nrow, segsze, &lusup[luptr1],
@@ -400,8 +400,8 @@ dpanel_bmod (
 		    STRSV( ftcs1, ftcs2, ftcs3, &segsze, &lusup[luptr], 
 			   &nsupr, tempv, &incx );
 #else
-		    dtrsv_( "L", "N", "U", &segsze, &lusup[luptr], 
-			   &nsupr, tempv, &incx );
+		    dtrsv_( "L", "N", "U", (int*)&segsze, &lusup[luptr], 
+			   (int*)&nsupr, tempv, (int*)&incx );
 #endif
 		    
 		    luptr += segsze;	/* Dense matrix-vector */
@@ -412,8 +412,8 @@ dpanel_bmod (
 		    SGEMV( ftcs2, &nrow, &segsze, &alpha, &lusup[luptr], 
 			   &nsupr, tempv, &incx, &beta, tempv1, &incy );
 #else
-		    dgemv_( "N", &nrow, &segsze, &alpha, &lusup[luptr], 
-			   &nsupr, tempv, &incx, &beta, tempv1, &incy );
+		    dgemv_( "N", (int*)&nrow, (int*)&segsze, &alpha, &lusup[luptr], 
+			   (int*)&nsupr, tempv, (int*)&incx, &beta, tempv1, (int*)&incy );
 #endif
 #else
 		    dlsolve ( nsupr, segsze, &lusup[luptr], tempv );
