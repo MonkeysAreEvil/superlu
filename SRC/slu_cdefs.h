@@ -154,7 +154,7 @@ extern void    countnz (const int, int *, int *, int *, GlobalLU_t *);
 extern void    ilu_countnz (const int, int *, int *, GlobalLU_t *);
 extern void    fixupL (const int, const int *, GlobalLU_t *);
 
-extern void    callocateA (int, int, complex **, int **, int **);
+extern void    callocateA (int_t, int_t, complex **, int_t **, int_t **);
 extern void    cgstrf (superlu_options_t*, SuperMatrix*,
                        int, int, int*, void *, int, int *, int *, 
                        SuperMatrix *, SuperMatrix *, GlobalLU_t *,
@@ -237,20 +237,20 @@ extern int     sp_cgemm (char *, char *, int, int, int, complex,
 extern         float smach(char *);   /* from C99 standard, in float.h */
 
 /*! \brief Memory-related */
-extern int     cLUMemInit (fact_t, void *, int, int, int, int, int,
+extern int_t     cLUMemInit (fact_t, void *, int_t, int_t, int_t, int_t, int_t,
                             float, SuperMatrix *, SuperMatrix *,
-                            GlobalLU_t *, int **, complex **);
-extern void    cSetRWork (int, int, complex *, complex **, complex **);
-extern void    cLUWorkFree (int *, complex *, GlobalLU_t *);
-extern int     cLUMemXpand (int, int, MemType, int *, GlobalLU_t *);
+                            GlobalLU_t *, int_t **, complex **);
+extern void    cSetRWork (int_t, int_t, complex *, complex **, complex **);
+extern void    cLUWorkFree (int_t *, complex *, GlobalLU_t *);
+extern int_t     cLUMemXpand (int_t, int_t, MemType, int_t *, GlobalLU_t *);
 
-extern complex  *complexMalloc(int);
-extern complex  *complexCalloc(int);
-extern float  *floatMalloc(int);
-extern float  *floatCalloc(int);
-extern int     cmemory_usage(const int, const int, const int, const int);
-extern int     cQuerySpace (SuperMatrix *, SuperMatrix *, mem_usage_t *);
-extern int     ilu_cQuerySpace (SuperMatrix *, SuperMatrix *, mem_usage_t *);
+extern complex  *complexMalloc(int_t);
+extern complex  *complexCalloc(int_t);
+extern float  *floatMalloc(int_t);
+extern float  *floatCalloc(int_t);
+extern int_t     cmemory_usage(const int_t, const int_t, const int_t, const int_t);
+extern int_t     cQuerySpace (SuperMatrix *, SuperMatrix *, mem_usage_t *);
+extern int_t     ilu_cQuerySpace (SuperMatrix *, SuperMatrix *, mem_usage_t *);
 
 /*! \brief Auxiliary routines */
 extern void    creadhb(FILE *, int *, int *, int *, complex **, int **, int **);

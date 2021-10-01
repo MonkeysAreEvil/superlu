@@ -153,7 +153,7 @@ extern void    countnz (const int, int *, int *, int *, GlobalLU_t *);
 extern void    ilu_countnz (const int, int *, int *, GlobalLU_t *);
 extern void    fixupL (const int, const int *, GlobalLU_t *);
 
-extern void    sallocateA (int, int, float **, int **, int **);
+extern void    sallocateA (int_t, int_t, float **, int_t **, int_t **);
 extern void    sgstrf (superlu_options_t*, SuperMatrix*,
                        int, int, int*, void *, int, int *, int *, 
                        SuperMatrix *, SuperMatrix *, GlobalLU_t *,
@@ -236,18 +236,18 @@ extern int     sp_sgemm (char *, char *, int, int, int, float,
 extern         float smach(char *);   /* from C99 standard, in float.h */
 
 /*! \brief Memory-related */
-extern int     sLUMemInit (fact_t, void *, int, int, int, int, int,
+extern int_t     sLUMemInit (fact_t, void *, int_t, int_t, int_t, int_t, int_t,
                             float, SuperMatrix *, SuperMatrix *,
-                            GlobalLU_t *, int **, float **);
-extern void    sSetRWork (int, int, float *, float **, float **);
-extern void    sLUWorkFree (int *, float *, GlobalLU_t *);
-extern int     sLUMemXpand (int, int, MemType, int *, GlobalLU_t *);
+                            GlobalLU_t *, int_t **, float **);
+extern void    sSetRWork (int_t, int_t, float *, float **, float **);
+extern void    sLUWorkFree (int_t *, float *, GlobalLU_t *);
+extern int_t     sLUMemXpand (int_t, int_t, MemType, int_t *, GlobalLU_t *);
 
-extern float  *floatMalloc(int);
-extern float  *floatCalloc(int);
-extern int     smemory_usage(const int, const int, const int, const int);
-extern int     sQuerySpace (SuperMatrix *, SuperMatrix *, mem_usage_t *);
-extern int     ilu_sQuerySpace (SuperMatrix *, SuperMatrix *, mem_usage_t *);
+extern float  *floatMalloc(int_t);
+extern float  *floatCalloc(int_t);
+extern int_t     smemory_usage(const int_t, const int_t, const int_t, const int_t);
+extern int_t     sQuerySpace (SuperMatrix *, SuperMatrix *, mem_usage_t *);
+extern int_t     ilu_sQuerySpace (SuperMatrix *, SuperMatrix *, mem_usage_t *);
 
 /*! \brief Auxiliary routines */
 extern void    sreadhb(FILE *, int *, int *, int *, float **, int **, int **);

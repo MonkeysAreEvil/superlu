@@ -154,7 +154,7 @@ extern void    countnz (const int, int *, int *, int *, GlobalLU_t *);
 extern void    ilu_countnz (const int, int *, int *, GlobalLU_t *);
 extern void    fixupL (const int, const int *, GlobalLU_t *);
 
-extern void    zallocateA (int, int, doublecomplex **, int **, int **);
+extern void    zallocateA (int_t, int_t, doublecomplex **, int_t **, int_t **);
 extern void    zgstrf (superlu_options_t*, SuperMatrix*,
                        int, int, int*, void *, int, int *, int *, 
                        SuperMatrix *, SuperMatrix *, GlobalLU_t *,
@@ -237,20 +237,20 @@ extern int     sp_zgemm (char *, char *, int, int, int, doublecomplex,
 extern         double dmach(char *);   /* from C99 standard, in float.h */
 
 /*! \brief Memory-related */
-extern int     zLUMemInit (fact_t, void *, int, int, int, int, int,
+extern int_t     zLUMemInit (fact_t, void *, int_t, int_t, int_t, int_t, int_t,
                             double, SuperMatrix *, SuperMatrix *,
-                            GlobalLU_t *, int **, doublecomplex **);
-extern void    zSetRWork (int, int, doublecomplex *, doublecomplex **, doublecomplex **);
-extern void    zLUWorkFree (int *, doublecomplex *, GlobalLU_t *);
-extern int     zLUMemXpand (int, int, MemType, int *, GlobalLU_t *);
+                            GlobalLU_t *, int_t **, doublecomplex **);
+extern void    zSetRWork (int_t, int_t, doublecomplex *, doublecomplex **, doublecomplex **);
+extern void    zLUWorkFree (int_t *, doublecomplex *, GlobalLU_t *);
+extern int_t     zLUMemXpand (int_t, int_t, MemType, int_t *, GlobalLU_t *);
 
-extern doublecomplex  *doublecomplexMalloc(int);
-extern doublecomplex  *doublecomplexCalloc(int);
-extern double  *doubleMalloc(int);
-extern double  *doubleCalloc(int);
-extern int     zmemory_usage(const int, const int, const int, const int);
-extern int     zQuerySpace (SuperMatrix *, SuperMatrix *, mem_usage_t *);
-extern int     ilu_zQuerySpace (SuperMatrix *, SuperMatrix *, mem_usage_t *);
+extern doublecomplex  *doublecomplexMalloc(int_t);
+extern doublecomplex  *doublecomplexCalloc(int_t);
+extern double  *doubleMalloc(int_t);
+extern double  *doubleCalloc(int_t);
+extern int_t     zmemory_usage(const int_t, const int_t, const int_t, const int_t);
+extern int_t     zQuerySpace (SuperMatrix *, SuperMatrix *, mem_usage_t *);
+extern int_t     ilu_zQuerySpace (SuperMatrix *, SuperMatrix *, mem_usage_t *);
 
 /*! \brief Auxiliary routines */
 extern void    zreadhb(FILE *, int *, int *, int *, doublecomplex **, int **, int **);

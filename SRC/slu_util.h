@@ -378,11 +378,11 @@ extern void    sp_preorder (superlu_options_t *, SuperMatrix*, int*, int*,
 			    SuperMatrix*);
 extern void    superlu_abort_and_exit(char*);
 extern void    *superlu_malloc (size_t);
-extern int     *intMalloc (int);
-extern int     *intCalloc (int);
+extern int_t     *intMalloc (int_t);
+extern int_t     *intCalloc (int_t);
 extern void    superlu_free (void*);
-extern void    SetIWork (int, int, int, int *, int **, int **, int **,
-                         int **, int **, int **, int **);
+extern void    SetIWork (int_t, int_t, int_t, int_t *, int_t **, int_t **, int_t **,
+                         int_t **, int_t **, int_t **, int_t **);
 extern int     sp_coletree (int *, int *, int *, int, int, int *);
 extern void    relax_snode (const int, int *, const int, int *, int *);
 extern void    heap_relax_snode (const int, int *, const int, int *, int *);

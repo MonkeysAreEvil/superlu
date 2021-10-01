@@ -153,7 +153,7 @@ extern void    countnz (const int, int *, int *, int *, GlobalLU_t *);
 extern void    ilu_countnz (const int, int *, int *, GlobalLU_t *);
 extern void    fixupL (const int, const int *, GlobalLU_t *);
 
-extern void    dallocateA (int, int, double **, int **, int **);
+extern void    dallocateA (int_t, int_t, double **, int_t **, int_t **);
 extern void    dgstrf (superlu_options_t*, SuperMatrix*,
                        int, int, int*, void *, int, int *, int *, 
                        SuperMatrix *, SuperMatrix *, GlobalLU_t *,
@@ -236,18 +236,18 @@ extern int     sp_dgemm (char *, char *, int, int, int, double,
 extern         double dmach(char *);   /* from C99 standard, in float.h */
 
 /*! \brief Memory-related */
-extern int     dLUMemInit (fact_t, void *, int, int, int, int, int,
+extern int_t     dLUMemInit (fact_t, void *, int_t, int_t, int_t, int_t, int_t,
                             double, SuperMatrix *, SuperMatrix *,
-                            GlobalLU_t *, int **, double **);
-extern void    dSetRWork (int, int, double *, double **, double **);
-extern void    dLUWorkFree (int *, double *, GlobalLU_t *);
-extern int     dLUMemXpand (int, int, MemType, int *, GlobalLU_t *);
+                            GlobalLU_t *, int_t **, double **);
+extern void    dSetRWork (int_t, int_t, double *, double **, double **);
+extern void    dLUWorkFree (int_t *, double *, GlobalLU_t *);
+extern int_t     dLUMemXpand (int_t, int_t, MemType, int_t *, GlobalLU_t *);
 
-extern double  *doubleMalloc(int);
-extern double  *doubleCalloc(int);
-extern int     dmemory_usage(const int, const int, const int, const int);
-extern int     dQuerySpace (SuperMatrix *, SuperMatrix *, mem_usage_t *);
-extern int     ilu_dQuerySpace (SuperMatrix *, SuperMatrix *, mem_usage_t *);
+extern double  *doubleMalloc(int_t);
+extern double  *doubleCalloc(int_t);
+extern int_t     dmemory_usage(const int_t, const int_t, const int_t, const int_t);
+extern int_t     dQuerySpace (SuperMatrix *, SuperMatrix *, mem_usage_t *);
+extern int_t     ilu_dQuerySpace (SuperMatrix *, SuperMatrix *, mem_usage_t *);
 
 /*! \brief Auxiliary routines */
 extern void    dreadhb(FILE *, int *, int *, int *, double **, int **, int **);
