@@ -384,7 +384,7 @@ zFillRHS(trans_t trans, int nrhs, doublecomplex *x, int ldx,
     if ( trans == NOTRANS ) *(unsigned char *)transc = 'N';
     else *(unsigned char *)transc = 'T';
 
-    sp_zgemm(transc, "N", (int*)A->nrow, nrhs, (int*)A->ncol, one, A,
+    sp_zgemm(transc, "N", (int)A->nrow, nrhs, (int)A->ncol, one, A,
 	     x, ldx, zero, rhs, ldc);
 
 }
