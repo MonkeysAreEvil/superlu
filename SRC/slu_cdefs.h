@@ -176,10 +176,10 @@ extern int     ccolumn_bmod (const int, const int, complex *,
                            GlobalLU_t *, SuperLUStat_t*);
 extern int     ccopy_to_ucol (int, int, int *, int *, int *,
                               complex *, GlobalLU_t *);         
-extern int     cpivotL (const int, const double, int *, int *, 
-                         int *, int *, int *, GlobalLU_t *, SuperLUStat_t*);
-extern void    cpruneL (const int, const int *, const int, const int,
-			  const int *, const int *, int *, GlobalLU_t *);
+extern int_t     cpivotL (const int_t, const double, int_t *, int_t *, 
+                         int_t *, int_t *, int_t *, GlobalLU_t *, SuperLUStat_t*);
+extern void    cpruneL (const int_t, const int_t *, const int_t, const int_t,
+			  const int_t *, const int_t *, int_t *, GlobalLU_t *);
 extern void    creadmt (int *, int *, int *, complex **, int **, int **);
 extern void    cGenXtrue (int, int, complex *, int);
 extern void    cFillRHS (trans_t, int, complex *, int, SuperMatrix *,

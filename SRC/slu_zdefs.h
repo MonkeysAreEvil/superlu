@@ -176,10 +176,10 @@ extern int     zcolumn_bmod (const int, const int, doublecomplex *,
                            GlobalLU_t *, SuperLUStat_t*);
 extern int     zcopy_to_ucol (int, int, int *, int *, int *,
                               doublecomplex *, GlobalLU_t *);         
-extern int     zpivotL (const int, const double, int *, int *, 
-                         int *, int *, int *, GlobalLU_t *, SuperLUStat_t*);
-extern void    zpruneL (const int, const int *, const int, const int,
-			  const int *, const int *, int *, GlobalLU_t *);
+extern int_t     zpivotL (const int_t, const double, int_t *, int_t *, 
+                         int_t *, int_t *, int_t *, GlobalLU_t *, SuperLUStat_t*);
+extern void    zpruneL (const int_t, const int_t *, const int_t, const int_t,
+			  const int_t *, const int_t *, int_t *, GlobalLU_t *);
 extern void    zreadmt (int *, int *, int *, doublecomplex **, int **, int **);
 extern void    zGenXtrue (int, int, doublecomplex *, int);
 extern void    zFillRHS (trans_t, int, doublecomplex *, int, SuperMatrix *,
