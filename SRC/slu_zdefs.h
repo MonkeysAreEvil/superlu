@@ -253,10 +253,10 @@ extern int_t     zQuerySpace (SuperMatrix *, SuperMatrix *, mem_usage_t *);
 extern int_t     ilu_zQuerySpace (SuperMatrix *, SuperMatrix *, mem_usage_t *);
 
 /*! \brief Auxiliary routines */
-extern void    zreadhb(FILE *, int *, int *, int *, doublecomplex **, int **, int **);
-extern void    zreadrb(int *, int *, int *, doublecomplex **, int **, int **);
-extern void    zreadtriple(int *, int *, int *, doublecomplex **, int **, int **);
-extern void    zreadMM(FILE *, int *, int *, int *, doublecomplex **, int **, int **);
+extern void    zreadhb(FILE *, int_t *, int_t *, int_t *, doublecomplex **, int_t **, int_t **);
+extern void    zreadrb(int_t *, int_t *, int_t *, doublecomplex **, int_t **, int_t **);
+extern void    zreadtriple(int_t *, int_t *, int_t *, doublecomplex **, int_t **, int_t **);
+extern void    zreadMM(FILE *, int_t *, int_t *, int_t *, doublecomplex **, int_t **, int_t **);
 extern void    zCompRow_to_CompCol(int_t, int_t, int_t, doublecomplex*, int_t*, int_t*,
 		                   doublecomplex **, int_t **, int_t **);
 extern void    zfill (doublecomplex *, int, doublecomplex);

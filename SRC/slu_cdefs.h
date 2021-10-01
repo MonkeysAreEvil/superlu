@@ -253,10 +253,10 @@ extern int_t     cQuerySpace (SuperMatrix *, SuperMatrix *, mem_usage_t *);
 extern int_t     ilu_cQuerySpace (SuperMatrix *, SuperMatrix *, mem_usage_t *);
 
 /*! \brief Auxiliary routines */
-extern void    creadhb(FILE *, int *, int *, int *, complex **, int **, int **);
-extern void    creadrb(int *, int *, int *, complex **, int **, int **);
-extern void    creadtriple(int *, int *, int *, complex **, int **, int **);
-extern void    creadMM(FILE *, int *, int *, int *, complex **, int **, int **);
+extern void    creadhb(FILE *, int_t *, int_t *, int_t *, complex **, int_t **, int_t **);
+extern void    creadrb(int_t *, int_t *, int_t *, complex **, int_t **, int_t **);
+extern void    creadtriple(int_t *, int_t *, int_t *, complex **, int_t **, int_t **);
+extern void    creadMM(FILE *, int_t *, int_t *, int_t *, complex **, int_t **, int_t **);
 extern void    cCompRow_to_CompCol(int_t, int_t, int_t, complex*, int_t*, int_t*,
 		                   complex **, int_t **, int_t **);
 extern void    cfill (complex *, int, complex);

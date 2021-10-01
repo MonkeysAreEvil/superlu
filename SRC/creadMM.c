@@ -32,8 +32,8 @@ at the top-level directory.
  */
 
 void
-creadMM(FILE *fp, int *m, int *n, int *nonz,
-	    complex **nzval, int **rowind, int **colptr)
+creadMM(FILE *fp, int_t *m, int_t *n, int_t *nonz,
+	    complex **nzval, int_t **rowind, int_t **colptr)
 {
     int_t    j, k, jsize, nnz, nz, new_nonz;
     complex *a, *val;

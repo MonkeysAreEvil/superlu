@@ -92,16 +92,16 @@ static int cDumpLine(FILE *fp)
     return 0;
 }
 
-static int cParseIntFormat(char *buf, int *num, int *size)
+static int_t cParseIntFormat(char *buf, int_t *num, int_t *size)
 {
     char *tmp;
 
     tmp = buf;
     while (*tmp++ != '(') ;
-    sscanf(tmp, "%d", num);
+    sscanf(tmp, "%lld", num);
     while (*tmp != 'I' && *tmp != 'i') ++tmp;
     ++tmp;
-    sscanf(tmp, "%d", size);
+    sscanf(tmp, "%lld", size);
     return 0;
 }
 
@@ -194,22 +194,22 @@ static int cReadValues(FILE *fp, int n, complex *destination, int perline, int p
  * </pre>
  */
 static void
-FormFullA(int n, int *nonz, complex **nzval, int **rowind, int **colptr)
+FormFullA(int_t n, int_t *nonz, complex **nzval, int_t **rowind, int_t **colptr)
 {
-    register int i, j, k, col, new_nnz;
-    int *t_rowind, *t_colptr, *al_rowind, *al_colptr, *a_rowind, *a_colptr;
-    int *marker;
+    register int_t i, j, k, col, new_nnz;
+    int_t *t_rowind, *t_colptr, *al_rowind, *al_colptr, *a_rowind, *a_colptr;
+    int_t *marker;
     complex *t_val, *al_val, *a_val;
 
     al_rowind = *rowind;
     al_colptr = *colptr;
     al_val = *nzval;
 
-    if ( !(marker =(int *) SUPERLU_MALLOC( (n+1) * sizeof(int)) ) )
+    if ( !(marker =(int_t *) SUPERLU_MALLOC( (n+1) * sizeof(int_t)) ) )
 	ABORT("SUPERLU_MALLOC fails for marker[]");
-    if ( !(t_colptr = (int *) SUPERLU_MALLOC( (n+1) * sizeof(int)) ) )
+    if ( !(t_colptr = (int_t *) SUPERLU_MALLOC( (n+1) * sizeof(int_t)) ) )
 	ABORT("SUPERLU_MALLOC t_colptr[]");
-    if ( !(t_rowind = (int *) SUPERLU_MALLOC( *nonz * sizeof(int)) ) )
+    if ( !(t_rowind = (int_t *) SUPERLU_MALLOC( *nonz * sizeof(int_t)) ) )
 	ABORT("SUPERLU_MALLOC fails for t_rowind[]");
     if ( !(t_val = (complex*) SUPERLU_MALLOC( *nonz * sizeof(complex)) ) )
 	ABORT("SUPERLU_MALLOC fails for t_val[]");
@@ -236,9 +236,9 @@ FormFullA(int n, int *nonz, complex **nzval, int **rowind, int **colptr)
 	}
 
     new_nnz = *nonz * 2 - n;
-    if ( !(a_colptr = (int *) SUPERLU_MALLOC( (n+1) * sizeof(int)) ) )
+    if ( !(a_colptr = (int_t *) SUPERLU_MALLOC( (n+1) * sizeof(int_t)) ) )
 	ABORT("SUPERLU_MALLOC a_colptr[]");
-    if ( !(a_rowind = (int *) SUPERLU_MALLOC( new_nnz * sizeof(int)) ) )
+    if ( !(a_rowind = (int_t *) SUPERLU_MALLOC( new_nnz * sizeof(int_t)) ) )
 	ABORT("SUPERLU_MALLOC fails for a_rowind[]");
     if ( !(a_val = (complex*) SUPERLU_MALLOC( new_nnz * sizeof(complex)) ) )
 	ABORT("SUPERLU_MALLOC fails for a_val[]");
@@ -288,14 +288,14 @@ FormFullA(int n, int *nonz, complex **nzval, int **rowind, int **colptr)
 }
 
 void
-creadrb(int *nrow, int *ncol, int *nonz,
-        complex **nzval, int **rowind, int **colptr)
+creadrb(int_t *nrow, int_t *ncol, int_t *nonz,
+        complex **nzval, int_t **rowind, int_t **colptr)
 {
 
-    register int i, numer_lines = 0;
-    int tmp, colnum, colsize, rownum, rowsize, valnum, valsize;
+    register int_t i, numer_lines = 0;
+    int_t tmp, colnum, colsize, rownum, rowsize, valnum, valsize;
     char buf[100], type[4];
-    int sym;
+    int_t sym;
     FILE *fp;
 
     fp = stdin;
@@ -340,7 +340,7 @@ creadrb(int *nrow, int *ncol, int *nonz,
     fscanf(fp, "%16c", buf);
     cParseIntFormat(buf, &rownum, &rowsize);
     fscanf(fp, "%20c", buf);
-    cParseFloatFormat(buf, &valnum, &valsize);
+    cParseFloatFormat(buf, (int*)&valnum, (int*)&valsize);
     cDumpLine(fp);
 
 #ifdef DEBUG
@@ -350,8 +350,8 @@ creadrb(int *nrow, int *ncol, int *nonz,
     printf("valnum %d, valsize %d\n", valnum, valsize);
 #endif
 
-    ReadVector(fp, *ncol+1, *colptr, colnum, colsize);
-    ReadVector(fp, *nonz, *rowind, rownum, rowsize);
+    ReadVector(fp, *ncol+1, (int*)*colptr, colnum, colsize);
+    ReadVector(fp, *nonz, (int*)*rowind, rownum, rowsize);
     if ( numer_lines ) {
         cReadValues(fp, *nonz, *nzval, valnum, valsize);
     }
