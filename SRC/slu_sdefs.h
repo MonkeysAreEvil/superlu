@@ -114,11 +114,11 @@ extern void
 sgssv(superlu_options_t *, SuperMatrix *, int_t *, int_t *, SuperMatrix *,
       SuperMatrix *, SuperMatrix *, SuperLUStat_t *, int_t *);
 extern void
-sgssvx(superlu_options_t *, SuperMatrix *, int *, int *, int *,
+sgssvx(superlu_options_t *, SuperMatrix *, int_t *, int_t *, int_t *,
        char *, float *, float *, SuperMatrix *, SuperMatrix *,
-       void *, int, SuperMatrix *, SuperMatrix *,
+       void *, int_t, SuperMatrix *, SuperMatrix *,
        float *, float *, float *, float *,
-       GlobalLU_t *, mem_usage_t *, SuperLUStat_t *, int *);
+       GlobalLU_t *, mem_usage_t *, SuperLUStat_t *, int_t *);
     /* ILU */
 extern void
 sgsisv(superlu_options_t *, SuperMatrix *, int *, int *, SuperMatrix *,
