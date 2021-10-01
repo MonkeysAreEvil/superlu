@@ -213,7 +213,7 @@ extern int     ilu_sdrop_row (superlu_options_t *, int, int, double,
 /*! \brief Driver related */
 
 extern void    sgsequ (SuperMatrix *, float *, float *, float *,
-			float *, float *, int *);
+			float *, float *, int_t *);
 extern void    slaqgs (SuperMatrix *, float *, float *, float,
                         float, float, char *);
 extern void    sgscon (char *, SuperMatrix *, SuperMatrix *, 

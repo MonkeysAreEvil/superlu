@@ -92,14 +92,14 @@ at the top-level directory.
  */
 void
 sgsequ(SuperMatrix *A, float *r, float *c, float *rowcnd,
-	float *colcnd, float *amax, int *info)
+	float *colcnd, float *amax, int_t *info)
 {
 
 
     /* Local variables */
     NCformat *Astore;
     float   *Aval;
-    int i, j, irow;
+    int_t i, j, irow;
     float rcmin, rcmax;
     float bignum, smlnum;
     extern float smach(char *);
