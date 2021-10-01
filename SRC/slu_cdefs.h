@@ -219,7 +219,7 @@ extern void    claqgs (SuperMatrix *, float *, float *, float,
                         float, float, char *);
 extern void    cgscon (char *, SuperMatrix *, SuperMatrix *, 
 		         float, float *, SuperLUStat_t*, int *);
-extern float   cPivotGrowth(int, SuperMatrix *, int *, 
+extern float   cPivotGrowth(int_t, SuperMatrix *, int_t *, 
                             SuperMatrix *, SuperMatrix *);
 extern void    cgsrfs (trans_t, SuperMatrix *, SuperMatrix *,
                        SuperMatrix *, int_t *, int_t *, char *, float *, 

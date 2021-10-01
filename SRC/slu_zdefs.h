@@ -219,7 +219,7 @@ extern void    zlaqgs (SuperMatrix *, double *, double *, double,
                         double, double, char *);
 extern void    zgscon (char *, SuperMatrix *, SuperMatrix *, 
 		         double, double *, SuperLUStat_t*, int *);
-extern double   zPivotGrowth(int, SuperMatrix *, int *, 
+extern double   zPivotGrowth(int_t, SuperMatrix *, int_t *, 
                             SuperMatrix *, SuperMatrix *);
 extern void    zgsrfs (trans_t, SuperMatrix *, SuperMatrix *,
                        SuperMatrix *, int *, int *, char *, double *, 
