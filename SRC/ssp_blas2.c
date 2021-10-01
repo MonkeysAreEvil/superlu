@@ -158,8 +158,8 @@ sp_strsv(char *uplo, char *trans, char *diag, SuperMatrix *L,
 		    SGEMV(ftcs2, &nrow, &nsupc, &alpha, &Lval[luptr+nsupc], 
 		       	&nsupr, &x[fsupc], &incx, &beta, &work[0], &incy);
 #else
-		    strsv_("L", "N", "U", &nsupc, &Lval[luptr], &nsupr,
-		       	&x[fsupc], &incx);
+		    strsv_("L", "N", "U", (int*)&nsupc, &Lval[luptr], (int*)&nsupr,
+		       	&x[fsupc], (int*)&incx);
 		
 		    sgemv_("N", &nrow, &nsupc, &alpha, &Lval[luptr+nsupc], 
 		       	&nsupr, &x[fsupc], &incx, &beta, &work[0], &incy);
@@ -206,8 +206,8 @@ sp_strsv(char *uplo, char *trans, char *diag, SuperMatrix *L,
 		    STRSV(ftcs3, ftcs2, ftcs2, &nsupc, &Lval[luptr], &nsupr,
 		       &x[fsupc], &incx);
 #else
-		    strsv_("U", "N", "N", &nsupc, &Lval[luptr], &nsupr,
-                           &x[fsupc], &incx);
+		    strsv_("U", "N", "N", (int*)&nsupc, &Lval[luptr], (int*)&nsupr,
+                           &x[fsupc], (int*)&incx);
 #endif
 #else		
 		    susolve ( nsupr, nsupc, &Lval[luptr], &x[fsupc] );
@@ -259,8 +259,8 @@ sp_strsv(char *uplo, char *trans, char *diag, SuperMatrix *L,
 		    STRSV(ftcs1, ftcs2, ftcs3, &nsupc, &Lval[luptr], &nsupr,
 			&x[fsupc], &incx);
 #else
-		    strsv_("L", "T", "U", &nsupc, &Lval[luptr], &nsupr,
-			&x[fsupc], &incx);
+		    strsv_("L", "T", "U", (int*)&nsupc, &Lval[luptr], (int*)&nsupr,
+			&x[fsupc], (int*)&incx);
 #endif
 		}
 	    }
@@ -294,8 +294,8 @@ sp_strsv(char *uplo, char *trans, char *diag, SuperMatrix *L,
 		    STRSV( ftcs1, ftcs2, ftcs3, &nsupc, &Lval[luptr], &nsupr,
 			    &x[fsupc], &incx);
 #else
-		    strsv_("U", "T", "N", &nsupc, &Lval[luptr], &nsupr,
-			    &x[fsupc], &incx);
+		    strsv_("U", "T", "N", (int*)&nsupc, &Lval[luptr], (int*)&nsupr,
+			    &x[fsupc], (int*)&incx);
 #endif
 		}
 	    } /* for k ... */
