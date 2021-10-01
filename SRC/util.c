@@ -386,9 +386,9 @@ LUSolveFlops(SuperLUStat_t *stat)
 
 /*! \brief Fills an integer array with a given value.
  */
-void ifill(int *a, int alen, int ival)
+void ifill(int_t *a, int_t alen, int_t ival)
 {
-    register int i;
+    register int_t i;
     for (i = 0; i < alen; i++) a[i] = ival;
 }
 

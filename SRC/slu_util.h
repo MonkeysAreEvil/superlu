@@ -397,7 +397,7 @@ extern int     *TreePostorder (int, int *);
 extern double  SuperLU_timer_ ();
 extern int     sp_ienv (int);
 extern int     xerbla_ (char *, int *);
-extern void    ifill (int *, int, int);
+extern void    ifill (int_t *, int_t, int_t);
 extern void    snode_profile (int, int *);
 extern void    super_stats (int, int *);
 extern void    check_repfnz(int, int, int, int *);
