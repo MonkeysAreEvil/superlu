@@ -576,7 +576,7 @@ printf("dgssvx: Fact=%4d, Trans=%4d, equed=%c\n",
 	    *(unsigned char *)norm = 'I';
         }
         anorm = clangs(norm, AA);
-        cgscon(norm, L, U, anorm, rcond, stat, &info1);
+        cgscon(norm, L, U, anorm, rcond, stat, (int*)&info1);
         utime[RCOND] = SuperLU_timer_() - t0;
     }
     
