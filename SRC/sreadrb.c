@@ -341,8 +341,8 @@ sreadrb(int_t *nrow, int_t *ncol, int_t *nonz,
     printf("valnum %d, valsize %d\n", valnum, valsize);
 #endif
 
-    ReadVector(fp, *ncol+1, *colptr, colnum, colsize);
-    ReadVector(fp, *nonz, *rowind, rownum, rowsize);
+    ReadVector(fp, *ncol+1, (int*)*colptr, colnum, colsize);
+    ReadVector(fp, *nonz, (int*)*rowind, rownum, rowsize);
     if ( numer_lines ) {
         sReadValues(fp, *nonz, *nzval, valnum, valsize);
     }
