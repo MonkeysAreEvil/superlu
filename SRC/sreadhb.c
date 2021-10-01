@@ -188,22 +188,22 @@ int sReadValues(FILE *fp, int n, float *destination, int perline, int persize)
  * </pre>
  */
 static void
-FormFullA(int n, int *nonz, float **nzval, int **rowind, int **colptr)
+FormFullA(int_t n, int_t *nonz, float **nzval, int_t **rowind, int_t **colptr)
 {
-    register int i, j, k, col, new_nnz;
-    int *t_rowind, *t_colptr, *al_rowind, *al_colptr, *a_rowind, *a_colptr;
-    int *marker;
+    register int_t i, j, k, col, new_nnz;
+    int_t *t_rowind, *t_colptr, *al_rowind, *al_colptr, *a_rowind, *a_colptr;
+    int_t *marker;
     float *t_val, *al_val, *a_val;
 
     al_rowind = *rowind;
     al_colptr = *colptr;
     al_val = *nzval;
 
-    if ( !(marker =(int *) SUPERLU_MALLOC( (n+1) * sizeof(int)) ) )
+    if ( !(marker =(int_t *) SUPERLU_MALLOC( (n+1) * sizeof(int_t)) ) )
 	ABORT("SUPERLU_MALLOC fails for marker[]");
-    if ( !(t_colptr = (int *) SUPERLU_MALLOC( (n+1) * sizeof(int)) ) )
+    if ( !(t_colptr = (int_t *) SUPERLU_MALLOC( (n+1) * sizeof(int_t)) ) )
 	ABORT("SUPERLU_MALLOC t_colptr[]");
-    if ( !(t_rowind = (int *) SUPERLU_MALLOC( *nonz * sizeof(int)) ) )
+    if ( !(t_rowind = (int_t *) SUPERLU_MALLOC( *nonz * sizeof(int_t)) ) )
 	ABORT("SUPERLU_MALLOC fails for t_rowind[]");
     if ( !(t_val = (float*) SUPERLU_MALLOC( *nonz * sizeof(float)) ) )
 	ABORT("SUPERLU_MALLOC fails for t_val[]");
@@ -230,9 +230,9 @@ FormFullA(int n, int *nonz, float **nzval, int **rowind, int **colptr)
 	}
 
     new_nnz = *nonz * 2 - n;
-    if ( !(a_colptr = (int *) SUPERLU_MALLOC( (n+1) * sizeof(int)) ) )
+    if ( !(a_colptr = (int_t *) SUPERLU_MALLOC( (n+1) * sizeof(int_t)) ) )
 	ABORT("SUPERLU_MALLOC a_colptr[]");
-    if ( !(a_rowind = (int *) SUPERLU_MALLOC( new_nnz * sizeof(int)) ) )
+    if ( !(a_rowind = (int_t *) SUPERLU_MALLOC( new_nnz * sizeof(int_t)) ) )
 	ABORT("SUPERLU_MALLOC fails for a_rowind[]");
     if ( !(a_val = (float*) SUPERLU_MALLOC( new_nnz * sizeof(float)) ) )
 	ABORT("SUPERLU_MALLOC fails for a_val[]");
