@@ -194,9 +194,9 @@ sgstrs (trans_t trans, SuperMatrix *L, SuperMatrix *U,
 		strsm_("L", "L", "N", "U", (int*)&nsupc, (int*)&nrhs, &alpha,
 		       &Lval[luptr], (int*)&nsupr, &Bmat[fsupc], (int*)&ldb);
 		
-		sgemm_( "N", "N", &nrow, &nrhs, &nsupc, &alpha, 
-			&Lval[luptr+nsupc], &nsupr, &Bmat[fsupc], &ldb, 
-			&beta, &work[0], &n );
+		sgemm_( "N", "N", (int*)&nrow, (int*)&nrhs, (int*)&nsupc, &alpha, 
+			&Lval[luptr+nsupc], (int*)&nsupr, &Bmat[fsupc], (int*)&ldb, 
+			&beta, &work[0], (int*)&n );
 #endif
 		for (j = 0; j < nrhs; j++) {
 		    rhs_work = &Bmat[j*ldb];
