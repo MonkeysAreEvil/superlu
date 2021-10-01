@@ -470,7 +470,7 @@ printf("dgssvx: Fact=%4d, Trans=%4d, equed=%c\n",
     }
     if (*info != 0) {
 	i = -(*info);
-	input_error("dgssvx", &i);
+	input_error("dgssvx", (int*)&i);
 	return;
     }
     

@@ -509,7 +509,7 @@ cgsisx(superlu_options_t *options, SuperMatrix *A, int *perm_c, int *perm_r,
     }
     if (*info != 0) {
 	i = -(*info);
-	input_error("cgsisx", &i);
+	input_error("cgsisx", (int*)&i);
 	return;
     }
 

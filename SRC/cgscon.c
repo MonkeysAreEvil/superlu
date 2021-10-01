@@ -108,7 +108,7 @@ cgscon(char *norm, SuperMatrix *L, SuperMatrix *U,
 	*info = -3;
     if (*info != 0) {
 	i = -(*info);
-	input_error("cgscon", &i);
+	input_error("cgscon", (int*)&i);
 	return;
     }
 

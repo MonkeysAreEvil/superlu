@@ -132,7 +132,7 @@ cgstrs (trans_t trans, SuperMatrix *L, SuperMatrix *U,
 	*info = -6;
     if ( *info ) {
 	i = -(*info);
-	input_error("cgstrs", &i);
+	input_error("cgstrs", (int*)&i);
 	return;
     }
 

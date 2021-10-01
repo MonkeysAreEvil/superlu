@@ -109,7 +109,7 @@ dgscon(char *norm, SuperMatrix *L, SuperMatrix *U,
 	*info = -3;
     if (*info != 0) {
 	i = -(*info);
-	input_error("dgscon", &i);
+	input_error("dgscon", (int*)&i);
 	return;
     }
 

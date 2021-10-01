@@ -131,7 +131,7 @@ sgstrs (trans_t trans, SuperMatrix *L, SuperMatrix *U,
 	*info = -6;
     if ( *info ) {
 	i = -(*info);
-	input_error("sgstrs", &i);
+	input_error("sgstrs", (int*)&i);
 	return;
     }
 

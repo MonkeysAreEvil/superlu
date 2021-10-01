@@ -210,7 +210,7 @@ zgsrfs(trans_t trans, SuperMatrix *A, SuperMatrix *L, SuperMatrix *U,
 	*info = -11;
     if (*info != 0) {
 	i = -(*info);
-	input_error("zgsrfs", &i);
+	input_error("zgsrfs", (int*)&i);
 	return;
     }
 

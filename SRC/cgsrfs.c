@@ -210,7 +210,7 @@ cgsrfs(trans_t trans, SuperMatrix *A, SuperMatrix *L, SuperMatrix *U,
 	*info = -11;
     if (*info != 0) {
 	i = -(*info);
-	input_error("cgsrfs", &i);
+	input_error("cgsrfs", (int*)&i);
 	return;
     }
 

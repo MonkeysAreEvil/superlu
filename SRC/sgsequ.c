@@ -111,7 +111,7 @@ sgsequ(SuperMatrix *A, float *r, float *c, float *rowcnd,
 	*info = -1;
     if (*info != 0) {
 	i = -(*info);
-	input_error("sgsequ", &i);
+	input_error("sgsequ", (int*)&i);
 	return;
     }
 

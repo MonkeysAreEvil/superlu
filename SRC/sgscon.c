@@ -109,7 +109,7 @@ sgscon(char *norm, SuperMatrix *L, SuperMatrix *U,
 	*info = -3;
     if (*info != 0) {
 	i = -(*info);
-	input_error("sgscon", &i);
+	input_error("sgscon", (int*)&i);
 	return;
     }
 

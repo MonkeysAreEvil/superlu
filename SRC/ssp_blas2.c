@@ -395,7 +395,7 @@ sp_sgemv(char *trans, float alpha, SuperMatrix *A, float *x,
     else if (incx == 0) info = 5;
     else if (incy == 0)	info = 8;
     if (info != 0) {
-	input_error("sp_sgemv ", &info);
+	input_error("sp_sgemv ", (int*)&info);
 	return 0;
     }
 

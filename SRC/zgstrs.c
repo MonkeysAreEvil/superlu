@@ -132,7 +132,7 @@ zgstrs (trans_t trans, SuperMatrix *L, SuperMatrix *U,
 	*info = -6;
     if ( *info ) {
 	i = -(*info);
-	input_error("zgstrs", &i);
+	input_error("zgstrs", (int*)&i);
 	return;
     }
 

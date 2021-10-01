@@ -115,7 +115,7 @@ sp_ztrsv(char *uplo, char *trans, char *diag, SuperMatrix *L,
     else if ( U->nrow != U->ncol || U->nrow < 0 ) *info = -5;
     if ( *info ) {
 	i = -(*info);
-	input_error("sp_ztrsv", &i);
+	input_error("sp_ztrsv", (int*)&i);
 	return 0;
     }
 
@@ -486,7 +486,7 @@ sp_zgemv(char *trans, doublecomplex alpha, SuperMatrix *A, doublecomplex *x,
     else if (incx == 0) info = 5;
     else if (incy == 0)	info = 8;
     if (info != 0) {
-	input_error("sp_zgemv ", &info);
+	input_error("sp_zgemv ", (int*)&info);
 	return 0;
     }
 

@@ -111,7 +111,7 @@ zgsequ(SuperMatrix *A, double *r, double *c, double *rowcnd,
 	*info = -1;
     if (*info != 0) {
 	i = -(*info);
-	input_error("zgsequ", &i);
+	input_error("zgsequ", (int*)&i);
 	return;
     }
 
