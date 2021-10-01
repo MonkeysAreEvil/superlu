@@ -53,6 +53,7 @@ function(add_superlu_test output input target)
 	    -DTEST=${TEST_LOC} -t "SP" -s ${s} -l ${l} -f ${TEST_INPUT}
 	    -DOUTPUT=${SINGLE_OUTPUT}
 	    -DALL_OUTPUT=${TEST_OUTPUT}
+		-Denable_longint=ON
 	    -DHEADING=Sparse\ matrix\ ${TEST_INPUT}\ --\ s=${s},\ lwork=${l}
 	    -P "${SuperLU_SOURCE_DIR}/TESTING/runtest.cmake")
       endforeach()
