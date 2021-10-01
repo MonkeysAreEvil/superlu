@@ -155,9 +155,9 @@ extern void    fixupL (const int_t, const int_t *, GlobalLU_t *);
 
 extern void    dallocateA (int_t, int_t, double **, int_t **, int_t **);
 extern void    dgstrf (superlu_options_t*, SuperMatrix*,
-                       int, int, int*, void *, int, int *, int *, 
+                       int_t, int_t, int_t*, void *, int_t, int_t *, int_t *, 
                        SuperMatrix *, SuperMatrix *, GlobalLU_t *,
-		       SuperLUStat_t*, int *);
+		       SuperLUStat_t*, int_t *);
 extern int     dsnode_dfs (const int, const int, const int *, const int *,
 			     const int *, int *, int *, GlobalLU_t *);
 extern int     dsnode_bmod (const int, const int, const int, double *,
