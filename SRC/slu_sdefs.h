@@ -221,9 +221,9 @@ extern void    sgscon (char *, SuperMatrix *, SuperMatrix *,
 extern float   sPivotGrowth(int_t, SuperMatrix *, int_t *, 
                             SuperMatrix *, SuperMatrix *);
 extern void    sgsrfs (trans_t, SuperMatrix *, SuperMatrix *,
-                       SuperMatrix *, int *, int *, char *, float *, 
+                       SuperMatrix *, int_t *, int_t *, char *, float *, 
                        float *, SuperMatrix *, SuperMatrix *,
-                       float *, float *, SuperLUStat_t*, int *);
+                       float *, float *, SuperLUStat_t*, int_t *);
 
 extern int     sp_strsv (char *, char *, char *, SuperMatrix *,
 			SuperMatrix *, float *, SuperLUStat_t*, int *);
