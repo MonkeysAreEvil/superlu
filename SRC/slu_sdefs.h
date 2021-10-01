@@ -193,9 +193,9 @@ extern int     sldperm(int_t, int_t, int_t, int_t [], int_t [], float [],
                         int_t [],	float [], float []);
 extern int_t     ilu_ssnode_dfs (const int_t, const int_t, const int_t *, const int_t *,
 			       const int_t *, int_t *, GlobalLU_t *);
-extern void    ilu_spanel_dfs (const int, const int, const int, SuperMatrix *,
-			       int *, int *, float *, float *, int *, int *,
-			       int *, int *, int *, int *, GlobalLU_t *);
+extern void    ilu_spanel_dfs (const int_t, const int_t, const int_t, SuperMatrix *,
+			       int_t *, int_t *, float *, float *, int_t *, int_t *,
+			       int_t *, int_t *, int_t *, int_t *, GlobalLU_t *);
 extern int     ilu_scolumn_dfs (const int, const int, int *, int *, int *,
 				int *, int *, int *, int *, int *,
 				GlobalLU_t *);
