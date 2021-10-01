@@ -268,7 +268,7 @@ dpanel_bmod (
 		    SGEMV(ftcs2, &block_nrow, &segsze, &alpha, &lusup[luptr1], 
 			   &nsupr, TriTmp, &incx, &beta, MatvecTmp, &incy);
 #else
-		    dgemv_("N", &block_nrow, (int*)&segsze, &alpha, &lusup[luptr1], 
+		    dgemv_("N", (int*)&block_nrow, (int*)&segsze, &alpha, &lusup[luptr1], 
 			   (int*)&nsupr, TriTmp, (int*)&incx, &beta, MatvecTmp, (int*)&incy);
 #endif
 #else
