@@ -85,8 +85,8 @@ at the top-level directory.
  * </pre>
  */
 
-int
-dlacon2_(int *n, double *v, double *x, int *isgn, double *est, int *kase, int isave[3])
+int_t
+dlacon2_(int_t *n, double *v, double *x, int_t *isgn, double *est, int_t *kase, int_t isave[3])
 {
     /* Table of constant values */
     int c__1 = 1;
@@ -94,9 +94,9 @@ dlacon2_(int *n, double *v, double *x, int *isgn, double *est, int *kase, int is
     double      one = 1.0;
     
     /* Local variables */
-    int jlast;
+    int_t jlast;
     double altsgn, estold;
-    int i;
+    int_t i;
     double temp;
 #ifdef _CRAY
     extern int ISAMAX(int *, double *, int *);

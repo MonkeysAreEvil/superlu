@@ -94,7 +94,7 @@ dgscon(char *norm, SuperMatrix *L, SuperMatrix *U,
     int_t    isave[3];
     extern int drscl_(int *, double *, double *, int *);
 
-    extern int dlacon2_(int *, double *, double *, int *, double *, int *, int []);
+    extern int_t dlacon2_(int_t *, double *, double *, int_t *, double *, int_t *, int_t []);
 
     
     /* Test the input parameters. */

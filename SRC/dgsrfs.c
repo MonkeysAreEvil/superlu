@@ -170,7 +170,7 @@ dgsrfs(trans_t trans, SuperMatrix *A, SuperMatrix *L, SuperMatrix *U,
     int_t      *iwork;
     int_t      isave[3];
 
-    extern int dlacon2_(int *, double *, double *, int *, double *, int *, int []);
+    extern int_t dlacon2_(int_t *, double *, double *, int_t *, double *, int_t *, int_t []);
 #ifdef _CRAY
     extern int SCOPY(int *, double *, int *, double *, int *);
     extern int SSAXPY(int *, double *, double *, int *, double *, int *);
