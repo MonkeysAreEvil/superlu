@@ -168,8 +168,8 @@ extern void    dpanel_dfs (const int, const int, const int, SuperMatrix *,
 extern void    dpanel_bmod (const int, const int, const int, const int,
                            double *, double *, int *, int *,
 			   GlobalLU_t *, SuperLUStat_t*);
-extern int     dcolumn_dfs (const int, const int, int *, int *, int *, int *,
-			   int *, int *, int *, int *, int *, GlobalLU_t *);
+extern int_t     dcolumn_dfs (const int_t, const int_t, int_t *, int_t *, int_t *, int_t *,
+			   int_t *, int_t *, int_t *, int_t *, int_t *, GlobalLU_t *);
 extern int     dcolumn_bmod (const int, const int, double *,
 			   double *, int *, int *, int,
                            GlobalLU_t *, SuperLUStat_t*);
