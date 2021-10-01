@@ -371,7 +371,7 @@ extern void    Destroy_CompRow_Matrix(SuperMatrix *);
 extern void    Destroy_SuperNode_Matrix(SuperMatrix *);
 extern void    Destroy_CompCol_Permuted(SuperMatrix *);
 extern void    Destroy_Dense_Matrix(SuperMatrix *);
-extern void    get_perm_c(int, SuperMatrix *, int *);
+extern void    get_perm_c(int_t, SuperMatrix *, int_t *);
 extern void    set_default_options(superlu_options_t *options);
 extern void    ilu_set_default_options(superlu_options_t *options);
 extern void    sp_preorder (superlu_options_t *, SuperMatrix*, int*, int*,
