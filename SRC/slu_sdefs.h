@@ -160,7 +160,7 @@ extern void    sgstrf (superlu_options_t*, SuperMatrix*,
 		       SuperLUStat_t*, int_t *);
 extern int_t     ssnode_dfs (const int_t, const int_t, const int_t *, const int_t *,
 			     const int_t *, int_t *, int_t *, GlobalLU_t *);
-extern int     ssnode_bmod (const int, const int, const int, float *,
+extern int_t     ssnode_bmod (const int_t, const int_t, const int_t, float *,
                               float *, GlobalLU_t *, SuperLUStat_t*);
 extern void    spanel_dfs (const int_t, const int_t, const int_t, SuperMatrix *,
 			   int_t *, int_t *, float *, int_t *, int_t *, int_t *,
