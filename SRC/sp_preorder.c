@@ -87,32 +87,27 @@ sp_preorder(superlu_options_t *options,  SuperMatrix *A, int_t *perm_c,
     AC->nrow        = A->nrow;
     AC->ncol        = A->ncol;
     Astore          = A->Store;
-    ACstore = AC->Store = (void *) SUPERLU_MALLOC( sizeof(NCPformat) );
+    /* ACstore = AC->Store = (void *) SUPERLU_MALLOC( sizeof(NCPformat) ); */
+	ACstore = AC->Store = malloc(sizeof(NCPformat));
     if ( !ACstore ) ABORT("SUPERLU_MALLOC fails for ACstore");
     ACstore->nnz    = Astore->nnz;
     ACstore->nzval  = Astore->nzval;
     ACstore->rowind = Astore->rowind;
-	printf("!! %d\n", __LINE__);
-    /* ACstore->colbeg = (int_t*) SUPERLU_MALLOC(n*sizeof(int_t)); */
-	ACstore->colbeg = (int_t*)calloc(n*sizeof(int_t), n);
-	printf("!! %d\n", __LINE__);
+    /* ACstore->colbeg = (int_t*) SUPERLU_MALLOC(n*sizeof(int_t*)); */
+	ACstore->colbeg = (int_t*)calloc(n, sizeof(int_t*));
     if ( !(ACstore->colbeg) ) ABORT("SUPERLU_MALLOC fails for ACstore->colbeg");
-	printf("!! %d\n", __LINE__);
-    ACstore->colend = (int_t*) SUPERLU_MALLOC(n*sizeof(int_t));
+    ACstore->colend = (int_t*) SUPERLU_MALLOC(n*sizeof(int_t*));
     if ( !(ACstore->colend) ) ABORT("SUPERLU_MALLOC fails for ACstore->colend");
-	printf("!! %d\n", __LINE__);
 
 #ifdef DEBUG
     print_int_vec("pre_order:", n, perm_c);
     check_perm("Initial perm_c", n, perm_c);
 #endif      
 
-	printf("!! %d\n", __LINE__);
     for (i = 0; i < n; i++) {
 	ACstore->colbeg[perm_c[i]] = Astore->colptr[i]; 
 	ACstore->colend[perm_c[i]] = Astore->colptr[i+1];
     }
-	printf("!! %d\n", __LINE__);
 	
     if ( options->Fact == DOFACT ) {
 #undef ETREE_ATplusA
@@ -143,11 +138,9 @@ sp_preorder(superlu_options_t *options,  SuperMatrix *A, int_t *perm_c,
 	    }
 	}
 
-	printf("!! %d\n", __LINE__);
 	/* Compute etree of C. */
 	sp_symetree(c_colbeg, c_colend, b_rowind, n, etree);
 
-	printf("!! %d\n", __LINE__);
 	SUPERLU_FREE(b_colptr);
 	if ( bnz ) SUPERLU_FREE(b_rowind);
 	SUPERLU_FREE(c_colbeg);
@@ -156,16 +149,13 @@ sp_preorder(superlu_options_t *options,  SuperMatrix *A, int_t *perm_c,
         /*--------------------------------------------
 	  COMPUTE THE COLUMN ELIMINATION TREE.
 	  --------------------------------------------*/
-	printf("!! %d\n", __LINE__);
 	sp_coletree(ACstore->colbeg, ACstore->colend, ACstore->rowind,
 		    A->nrow, A->ncol, etree);
-	printf("!! %d\n", __LINE__);
 #endif
 #ifdef DEBUG	
 	print_int_vec("etree:", n, etree);
 #endif	
 	
-	printf("!! %d\n", __LINE__);
 	/* In symmetric mode, do not do postorder here. */
 	if ( options->SymmetricMode == NO ) {
 	    /* Post order etree */

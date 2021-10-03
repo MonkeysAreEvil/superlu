@@ -84,7 +84,7 @@ void superlu_free(void *addr)
 
 #else   /* production mode */
 
-void *superlu_malloc(size_t size)
+void *superlu_malloc(int_t size)
 {
     void *buf;
     buf = (void *) malloc(size);

@@ -82,7 +82,7 @@ at the top-level directory.
 
 void
 cgscon(char *norm, SuperMatrix *L, SuperMatrix *U,
-       float anorm, float *rcond, SuperLUStat_t *stat, int *info)
+       float anorm, float *rcond, SuperLUStat_t *stat, int_t *info)
 {
 
 
@@ -138,18 +138,18 @@ cgscon(char *norm, SuperMatrix *L, SuperMatrix *U,
 
 	if (kase == kase1) {
 	    /* Multiply by inv(L). */
-	    sp_ctrsv("L", "No trans", "Unit", L, U, &work[0], stat, info);
+	    sp_ctrsv("L", "No trans", "Unit", L, U, &work[0], stat, (int*)info);
 
 	    /* Multiply by inv(U). */
-	    sp_ctrsv("U", "No trans", "Non-unit", L, U, &work[0], stat, info);
+	    sp_ctrsv("U", "No trans", "Non-unit", L, U, &work[0], stat, (int*)info);
 	    
 	} else {
 
 	    /* Multiply by inv(U'). */
-	    sp_ctrsv("U", "Transpose", "Non-unit", L, U, &work[0], stat, info);
+	    sp_ctrsv("U", "Transpose", "Non-unit", L, U, &work[0], stat, (int*)info);
 
 	    /* Multiply by inv(L'). */
-	    sp_ctrsv("L", "Transpose", "Unit", L, U, &work[0], stat, info);
+	    sp_ctrsv("L", "Transpose", "Unit", L, U, &work[0], stat, (int*)info);
 	    
 	}
 

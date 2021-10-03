@@ -42,10 +42,11 @@ get_colamd(
 
     colamd_set_defaults(knobs);
 
-    if (!(A = (int *) SUPERLU_MALLOC(Alen * sizeof(int))) )
+	if (!(A = (int *) SUPERLU_MALLOC(Alen * sizeof(int))) )
         ABORT("Malloc fails for A[]");
     if (!(p = (int *) SUPERLU_MALLOC((n+1) * sizeof(int))) )
         ABORT("Malloc fails for p[]");
+
     for (i = 0; i <= n; ++i) p[i] = colptr[i];
     for (i = 0; i < nnz; ++i) A[i] = rowind[i];
     info = colamd((int)m, (int)n, Alen, A, p, knobs, stats);

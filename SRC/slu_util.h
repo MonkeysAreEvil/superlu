@@ -377,7 +377,7 @@ extern void    ilu_set_default_options(superlu_options_t *options);
 extern void    sp_preorder (superlu_options_t *, SuperMatrix*, int_t*, int_t*,
 			    SuperMatrix*);
 extern void    superlu_abort_and_exit(char*);
-extern void    *superlu_malloc (size_t);
+extern void    *superlu_malloc (int_T);
 extern int_t     *intMalloc (int_t);
 extern int_t     *intCalloc (int_t);
 extern void    superlu_free (void*);
