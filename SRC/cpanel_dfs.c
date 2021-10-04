@@ -121,7 +121,7 @@ cpanel_dfs (
 	nextl_col = (jj - jcol) * m;
 
 #ifdef CHK_DFS
-	printf("\npanel col %d: ", jj);
+	printf("\npanel col %lld: ", jj);
 #endif
 
 	/* For each nonz in A[*,jj] do dfs */
@@ -151,7 +151,7 @@ cpanel_dfs (
 		myfnz = repfnz_col[krep];
 		
 #ifdef CHK_DFS
-		printf("krep %d, myfnz %d, perm_r[%d] %d\n", krep, myfnz, krow, kperm);
+		printf("krep %lld, myfnz %lld, perm_r[%lld] %lld\n", krep, myfnz, krow, kperm);
 #endif
 		if ( myfnz != EMPTY ) {	/* Representative visited before */
 		    if ( myfnz > kperm ) repfnz_col[krep] = kperm;
@@ -166,8 +166,8 @@ cpanel_dfs (
 		    maxdfs = xprune[krep];
 		    
 #ifdef CHK_DFS 
-		    printf("  xdfs %d, maxdfs %d: ", xdfs, maxdfs);
-		    for (i = xdfs; i < maxdfs; i++) printf(" %d", lsub[i]);
+		    printf("  xdfs %lld, maxdfs %lld: ", xdfs, maxdfs);
+		    for (i = xdfs; i < maxdfs; i++) printf(" %lld", lsub[i]);
 		    printf("\n");
 #endif
 		    do {
@@ -197,7 +197,7 @@ cpanel_dfs (
 				    chrep = xsup[supno[chperm]+1] - 1;
 				    myfnz = repfnz_col[chrep];
 #ifdef CHK_DFS
-				    printf("chrep %d,myfnz %d,perm_r[%d] %d\n",chrep,myfnz,kchild,chperm);
+				    printf("chrep %lld,myfnz %lld,perm_r[%lld] %lld\n",chrep,myfnz,kchild,chperm);
 #endif
 				    if ( myfnz != EMPTY ) { /* Visited before */
 					if ( myfnz > chperm )
@@ -213,8 +213,8 @@ cpanel_dfs (
 					xdfs = xlsub[krep];     
 					maxdfs = xprune[krep];
 #ifdef CHK_DFS 
-					printf("  xdfs %d, maxdfs %d: ", xdfs, maxdfs);
-					for (i = xdfs; i < maxdfs; i++) printf(" %d", lsub[i]);	
+					printf("  xdfs %lld, maxdfs %lld: ", xdfs, maxdfs);
+					for (i = xdfs; i < maxdfs; i++) printf(" %lld", lsub[i]);	
 					printf("\n");
 #endif
 				    } /* else */
@@ -244,8 +244,8 @@ cpanel_dfs (
 			maxdfs = xprune[krep];
 			
 #ifdef CHK_DFS 
-			printf("  pop stack: krep %d,xdfs %d,maxdfs %d: ", krep,xdfs,maxdfs);
-			for (i = xdfs; i < maxdfs; i++) printf(" %d", lsub[i]);
+			printf("  pop stack: krep %lld,xdfs %lld,maxdfs %lld: ", krep,xdfs,maxdfs);
+			for (i = xdfs; i < maxdfs; i++) printf(" %lld", lsub[i]);
 			printf("\n");
 #endif
 		    } while ( kpar != EMPTY ); /* do-while - until empty stack */

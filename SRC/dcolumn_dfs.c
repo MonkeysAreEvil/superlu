@@ -254,7 +254,7 @@ dcolumn_dfs(
 	if ( jsuper == EMPTY ) {	/* starts a new supernode */
 	    if ( (fsupc < jcolm1-1) ) {	/* >= 3 columns in nsuper */
 #ifdef CHK_COMPRESS
-		printf("  Compress lsub[] at super %d-%d\n", fsupc, jcolm1);
+		printf("  Compress lsub[] at super %lld-%lld\n", fsupc, jcolm1);
 #endif
 	        ito = xlsub[fsupc+1];
 		xlsub[jcolm1] = ito;

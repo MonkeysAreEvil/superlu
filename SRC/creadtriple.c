@@ -45,9 +45,9 @@ creadtriple(int_t *m, int_t *n, int_t *nonz,
      *                 row, col, value
      */
 
-    scanf("%d%d", n, nonz);
+    scanf("%lld%lld", n, nonz);
     *m = *n;
-    printf("m %d, n %d, nonz %d\n", *m, *n, *nonz);
+    printf("m %lld, n %lld, nonz %lld\n", *m, *n, *nonz);
     callocateA(*n, *nonz, nzval, rowind, colptr); /* Allocate storage */
     a    = *nzval;
     asub = *rowind;
@@ -61,7 +61,7 @@ creadtriple(int_t *m, int_t *n, int_t *nonz,
 
     /* Read into the triplet array from a file */
     for (nnz = 0, nz = 0; nnz < *nonz; ++nnz) {
-	scanf("%d%d%f%f\n", &row[nz], &col[nz], &val[nz].r, &val[nz].i);
+	scanf("%lld%lld%f%f\n", &row[nz], &col[nz], &val[nz].r, &val[nz].i);
 
         if ( nnz == 0 ) { /* first nonzero */
 	    if ( row[0] == 0 || col[0] == 0 ) {
@@ -79,7 +79,7 @@ creadtriple(int_t *m, int_t *n, int_t *nonz,
 
 	if (row[nz] < 0 || row[nz] >= *m || col[nz] < 0 || col[nz] >= *n
 	    /*|| val[nz] == 0.*/) {
-	    fprintf(stderr, "nz %d, (%d, %d) = (%e,%e) out of bound, removed\n",
+	    fprintf(stderr, "nz %lld, (%lld, %lld) = (%e,%e) out of bound, removed\n",
 		    nz, row[nz], col[nz], val[nz].r, val[nz].i);
 	    exit(-1);
 	} else {
@@ -122,9 +122,9 @@ creadtriple(int_t *m, int_t *n, int_t *nonz,
     {
 	int_t i;
 	for (i = 0; i < *n; i++) {
-	    printf("Col %d, xa %d\n", i, xa[i]);
+	    printf("Col %lld, xa %lld\n", i, xa[i]);
 	    for (k = xa[i]; k < xa[i+1]; k++)
-		printf("%d\t%16.10f\n", asub[k], a[k]);
+		printf("%lld\t%16.10f\n", asub[k], a[k]);
 	}
     }
 #endif

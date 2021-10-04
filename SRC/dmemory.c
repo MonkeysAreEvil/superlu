@@ -224,7 +224,7 @@ dLUMemInit(fact_t fact, void *work, int_t lwork, int_t m, int_t n, int_t annz,
 	}
 	
 #if ( PRNTlevel >= 1 )
-	printf("dLUMemInit() called: fill_ratio %.0f, nzlmax %ld, nzumax %ld\n", 
+	printf("dLUMemInit() called: fill_ratio %.0f, nzlmax %lld, nzumax %lld\n", 
 	       fill_ratio, nzlmax, nzumax);
 	fflush(stdout);
 #endif	
@@ -267,7 +267,7 @@ dLUMemInit(fact_t fact, void *work, int_t lwork, int_t m, int_t n, int_t annz,
 		return (dmemory_usage(nzlmax, nzumax, nzlumax, n) + n);
 	    }
 #if ( PRNTlevel >= 1)
-	    printf("dLUMemInit() reduce size: nzlmax %ld, nzumax %ld\n", 
+	    printf("dLUMemInit() reduce size: nzlmax %lld, nzumax %lld\n", 
 		   nzlmax, nzumax);
 	    fflush(stdout);
 #endif

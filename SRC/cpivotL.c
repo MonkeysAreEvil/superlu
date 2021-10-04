@@ -108,9 +108,9 @@ cpivotL(
 
 #ifdef DEBUG
 if ( jcol == MIN_COL ) {
-    printf("Before cdiv: col %d\n", jcol);
+    printf("Before cdiv: col %lld\n", jcol);
     for (k = nsupc; k < nsupr; k++) 
-	printf("  lu[%d] %f\n", lsub_ptr[k], lu_col_ptr[k]);
+	printf("  lu[%lld] %f\n", lsub_ptr[k], lu_col_ptr[k]);
 }
 #endif
     

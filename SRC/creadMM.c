@@ -105,7 +105,7 @@ creadMM(FILE *fp, int_t *m, int_t *n, int_t *nonz,
 #ifdef _LONGINT
     sscanf(line, "%ld%ld%ld",m, n, nonz);
 #else
-    sscanf(line, "%d%d%d",m, n, nonz);
+    sscanf(line, "%lld%lld%lld",m, n, nonz);
 #endif
 
     if(*m!=*n) {
@@ -172,7 +172,7 @@ creadMM(FILE *fp, int_t *m, int_t *n, int_t *nonz,
 
     *nonz = nz;
     if(expand) {
-      printf("new_nonz after symmetric expansion:\t%d\n", *nonz);
+      printf("new_nonz after symmetric expansion:\t%lld\n", *nonz);
     }
     
 
@@ -207,9 +207,9 @@ creadMM(FILE *fp, int_t *m, int_t *n, int_t *nonz,
 #ifdef CHK_INPUT
     int i;
     for (i = 0; i < *n; i++) {
-	printf("Col %d, xa %d\n", i, xa[i]);
+	printf("Col %lld, xa %lld\n", i, xa[i]);
 	for (k = xa[i]; k < xa[i+1]; k++)
-	    printf("%d\t%16.10f\n", asub[k], a[k]);
+	    printf("%lld\t%16.10f\n", asub[k], a[k]);
     }
 #endif
 

@@ -153,7 +153,7 @@ cpruneL(
 	        xprune[irep] = kmin;	/* Pruning */
 
 #ifdef CHK_PRUNE
-	printf("    After cpruneL(),using col %d:  xprune[%d] = %d\n", 
+	printf("    After cpruneL(),using col %lld:  xprune[%lld] = %lld\n", 
 			jcol, irep, kmin);
 #endif
 	    } /* if do_prune */

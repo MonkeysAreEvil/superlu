@@ -224,7 +224,7 @@ cLUMemInit(fact_t fact, void *work, int_t lwork, int_t m, int_t n, int_t annz,
 	}
 	
 #if ( PRNTlevel >= 1 )
-	printf("cLUMemInit() called: fill_ratio %.0f, nzlmax %ld, nzumax %ld\n", 
+	printf("cLUMemInit() called: fill_ratio %.0f, nzlmax %lld, nzumax %lld\n", 
 	       fill_ratio, nzlmax, nzumax);
 	fflush(stdout);
 #endif	
@@ -267,7 +267,7 @@ cLUMemInit(fact_t fact, void *work, int_t lwork, int_t m, int_t n, int_t annz,
 		return (cmemory_usage(nzlmax, nzumax, nzlumax, n) + n);
 	    }
 #if ( PRNTlevel >= 1)
-	    printf("cLUMemInit() reduce size: nzlmax %ld, nzumax %ld\n", 
+	    printf("cLUMemInit() reduce size: nzlmax %lld, nzumax %lld\n", 
 		   nzlmax, nzumax);
 	    fflush(stdout);
 #endif
@@ -367,7 +367,7 @@ cLUWorkInit(int_t m, int_t n, int_t panel_size, int_t **iworkptr,
 	    *dworkptr = (complex*) ((double*)*dworkptr - 1);
 	    extra = (char*)old_ptr - (char*)*dworkptr;
 #ifdef DEBUG	    
-	    printf("cLUWorkInit: not aligned, extra %d\n", extra);
+	    printf("cLUWorkInit: not aligned, extra %lld\n", extra);
 #endif	    
 	    Glu->stack.top2 -= extra;
 	    Glu->stack.used += extra;
@@ -433,7 +433,7 @@ cLUMemXpand(int_t jcol,
     void   *new_mem;
     
 #ifdef DEBUG    
-    printf("cLUMemXpand(): jcol %d, next %d, maxlen %d, MemType %d\n",
+    printf("cLUMemXpand(): jcol %lld, next %lld, maxlen %lld, MemType %lld\n",
 	   jcol, next, *maxlen, mem_type);
 #endif    
 
@@ -446,7 +446,7 @@ cLUMemXpand(int_t jcol,
 	int_t    nzlmax  = Glu->nzlmax;
 	int_t    nzumax  = Glu->nzumax;
 	int_t    nzlumax = Glu->nzlumax;
-    	fprintf(stderr, "Can't expand MemType %d: jcol %d\n", mem_type, jcol);
+    	fprintf(stderr, "Can't expand MemType %lld: jcol %lld\n", mem_type, jcol);
     	return (cmemory_usage(nzlmax, nzumax, nzlumax, Glu->n) + Glu->n);
     }
 
@@ -547,7 +547,7 @@ void
 		new_mem = (void *)DoubleAlign(new_mem);
 		extra = (char*)new_mem - (char*)old_mem;
 #ifdef DEBUG		
-		printf("expand(): not aligned, extra %d\n", extra);
+		printf("expand(): not aligned, extra %lld\n", extra);
 #endif		
 		Glu->stack.top1 += extra;
 		Glu->stack.used += extra;
@@ -655,7 +655,7 @@ cStackCompress(GlobalLU_t *Glu)
     Glu->usub = usub;
     
 #ifdef DEBUG
-    printf("cStackCompress: fragment %d\n", fragment);
+    printf("cStackCompress: fragment %lld\n", fragment);
     /* for (last = 0; last < ndim; ++last)
 	print_lu_col("After compress:", last, 0);*/
 #endif    

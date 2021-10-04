@@ -321,7 +321,7 @@ cgsitrf(superlu_options_t *options, SuperMatrix *A, int_t relax, int_t panel_siz
     i = mark_relax(m, relax_end, relax_fsupc, xa_begin, xa_end,
 	         asub, marker_relax);
 #if ( PRNTlevel >= 1)
-    printf("%d relaxed supernodes.\n", i);
+    printf("%lld relaxed supernodes.\n", i);
 #endif
 
     /*
@@ -409,7 +409,7 @@ cgsitrf(superlu_options_t *options, SuperMatrix *A, int_t relax, int_t panel_siz
 		if (amax[0] == 0.0) {
 		    amax[0] = fill_ini;
 #if ( PRNTlevel >= 1)
-		    printf("Column %d is entirely zero!\n", icol);
+		    printf("Column %lld is entirely zero!\n", icol);
 		    fflush(stdout);
 #endif
 		}
@@ -501,7 +501,7 @@ cgsitrf(superlu_options_t *options, SuperMatrix *A, int_t relax, int_t panel_siz
 		    marker2[row] = jj;
 		    lsub[xlsub[jj]] = row;
 #ifdef DEBUG
-		    printf("Fill col %d.\n", jj);
+		    printf("Fill col %lld.\n", jj);
 		    fflush(stdout);
 #endif
 		}

@@ -116,14 +116,14 @@ int cParseFloatFormat(char *buf, int *num, int *size)
     
     tmp = buf;
     while (*tmp++ != '(') ;
-    *num = atoi(tmp); /*sscanf(tmp, "%d", num);*/
+    *num = atoi(tmp); /*sscanf(tmp, "%lld", num);*/
     while (*tmp != 'E' && *tmp != 'e' && *tmp != 'D' && *tmp != 'd'
 	   && *tmp != 'F' && *tmp != 'f') {
         /* May find kP before nE/nD/nF, like (1P6F13.6). In this case the
            num picked up refers to P, which should be skipped. */
         if (*tmp=='p' || *tmp=='P') {
            ++tmp;
-           *num = atoi(tmp); /*sscanf(tmp, "%d", num);*/
+           *num = atoi(tmp); /*sscanf(tmp, "%lld", num);*/
         } else {
            ++tmp;
         }
@@ -275,7 +275,7 @@ FormFullA(int_t n, int_t *nonz, complex **nzval, int_t **rowind, int_t **colptr)
       a_colptr[j+1] = k;
     }
 
-    printf("FormFullA: new_nnz = %d, k = %d\n", new_nnz, k);
+    printf("FormFullA: new_nnz = %lld, k = %lld\n", new_nnz, k);
 
     SUPERLU_FREE(al_val);
     SUPERLU_FREE(al_rowind);
@@ -315,7 +315,7 @@ creadhb(FILE *fp, int_t *nrow, int_t *ncol, int_t *nonz,
     /* Line 2 */
     for (i=0; i<5; i++) {
 	fscanf(fp, "%14c", buf); buf[14] = 0;
-	sscanf(buf, "%d", &tmp);
+	sscanf(buf, "%lld", &tmp);
 	if (i == 3) numer_lines = tmp;
 	if (i == 4 && tmp) rhscrd = tmp;
     }
@@ -329,10 +329,10 @@ creadhb(FILE *fp, int_t *nrow, int_t *ncol, int_t *nonz,
     printf("Matrix type %s\n", type);
 #endif
     
-    fscanf(fp, "%14c", buf); sscanf(buf, "%d", nrow);
-    fscanf(fp, "%14c", buf); sscanf(buf, "%d", ncol);
-    fscanf(fp, "%14c", buf); sscanf(buf, "%d", nonz);
-    fscanf(fp, "%14c", buf); sscanf(buf, "%d", &tmp);
+    fscanf(fp, "%14c", buf); sscanf(buf, "%lld", nrow);
+    fscanf(fp, "%14c", buf); sscanf(buf, "%lld", ncol);
+    fscanf(fp, "%14c", buf); sscanf(buf, "%lld", nonz);
+    fscanf(fp, "%14c", buf); sscanf(buf, "%lld", &tmp);
     
     if (tmp != 0)
 	  printf("This is not an assembled matrix!\n");
@@ -357,10 +357,10 @@ creadhb(FILE *fp, int_t *nrow, int_t *ncol, int_t *nonz,
     if ( rhscrd ) cDumpLine(fp); /* skip RHSFMT */
     
 #ifdef DEBUG
-    printf("%d rows, %d nonzeros\n", *nrow, *nonz);
-    printf("colnum %d, colsize %d\n", colnum, colsize);
-    printf("rownum %d, rowsize %d\n", rownum, rowsize);
-    printf("valnum %d, valsize %d\n", valnum, valsize);
+    printf("%lld rows, %lld nonzeros\n", *nrow, *nonz);
+    printf("colnum %lld, colsize %lld\n", colnum, colsize);
+    printf("rownum %lld, rowsize %lld\n", rownum, rowsize);
+    printf("valnum %lld, valsize %lld\n", valnum, valsize);
 #endif
     
     ReadVector(fp, *ncol+1, (int*)*colptr, colnum, colsize);

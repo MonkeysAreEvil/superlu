@@ -113,7 +113,7 @@ dldperm(int_t job, int_t n, int_t nnz, int_t colptr[], int_t adjncy[],
     for (i = 0; i <= n; ++i) ++colptr[i];
     for (i = 0; i < nnz; ++i) ++adjncy[i];
 #if ( DEBUGlevel>=2 )
-    printf("LDPERM(): n %d, nnz %d\n", n, nnz);
+    printf("LDPERM(): n %lld, nnz %lld\n", n, nnz);
     slu_PrintInt10("colptr", n+1, (int*)colptr);
     slu_PrintInt10("adjncy", nnz, (int*)adjncy);
 #endif
